@@ -382,8 +382,8 @@ button,input,select,textarea{font:inherit}
         </div>
         <div class="hero-stats">
           <div class="hstat"><strong id="s1v">65+</strong><span id="s1l">Tipologie</span></div>
-          <div class="hstat"><strong id="s2v">Autenticità</strong><span id="s2l">Sottoposta a rigorosi controlli</span></div>
-          <div class="hstat"><strong id="s3v">I–V sec.</strong><span id="s3l">Copertura</span></div>
+          <div class="hstat"><strong id="s2v">Autenticità</strong><span id="s2l">Verificata</span></div>
+          <div class="hstat"><strong id="s3v">Età Romana</strong><span id="s3l">Copertura</span></div>
           <div class="hstat"><strong id="s4v">EU</strong><span id="s4l">Spedizioni</span></div>
         </div>
       </div>
@@ -943,7 +943,6 @@ function buildOrders(orders,cfg){
     <tr>
       <td><span class="oid">${o.order_ref}</span></td>
       <td class="ocoin">${o.coin_name}</td>
-      <td>${o.client_anon}</td>
       <td>${o.order_date_fmt||o.order_date}</td>
       <td><span class="sbg ${STC[o.status]||'sa'}">${SLB[o.status]||o.status}</span></td>
       <td class="otot">${o.total_fmt||fmt(o.total_eur||0)}</td>
@@ -1111,12 +1110,12 @@ const FB_TYPES=[
   {name:'Tipologie Speciali',items:['Contorniato','Multiplo','Medaglione']},
 ];
 const FB_ORDERS=[
-  {order_ref:'#NR-2025-0041',coin_name:'Denario di Marco Aurelio',client_anon:'M. Ferr***',order_date_fmt:'20 Apr 2025',status:'spedito',total_fmt:'€95'},
-  {order_ref:'#NR-2025-0040',coin_name:'Tetradracma ateniese',client_anon:'G. Ros***',order_date_fmt:'19 Apr 2025',status:'completato',total_fmt:'€340'},
-  {order_ref:'#NR-2025-0039',coin_name:'Sesterzio Antonino Pio',client_anon:'L. Bian***',order_date_fmt:'18 Apr 2025',status:'incorso',total_fmt:'€145'},
-  {order_ref:'#NR-2025-0038',coin_name:'Prutah Erode il Grande',client_anon:'A. Mor***',order_date_fmt:'17 Apr 2025',status:'completato',total_fmt:'€72'},
-  {order_ref:'#NR-2025-0037',coin_name:'Siliqua Costanzo II',client_anon:'F. Gren***',order_date_fmt:'16 Apr 2025',status:'attesa',total_fmt:'€135'},
-  {order_ref:'#NR-2025-0036',coin_name:'Antoniniano Gallieno',client_anon:'P. Maz***',order_date_fmt:'15 Apr 2025',status:'spedito',total_fmt:'€42'},
+  {order_ref:'#NR-2025-0041',coin_name:'Denario di Marco Aurelio',order_date_fmt:'20 Apr 2025',status:'spedito',total_fmt:'€95'},
+  {order_ref:'#NR-2025-0040',coin_name:'Tetradracma ateniese',order_date_fmt:'19 Apr 2025',status:'completato',total_fmt:'€340'},
+  {order_ref:'#NR-2025-0039',coin_name:'Sesterzio Antonino Pio',order_date_fmt:'18 Apr 2025',status:'incorso',total_fmt:'€145'},
+  {order_ref:'#NR-2025-0038',coin_name:'Prutah Erode il Grande',order_date_fmt:'17 Apr 2025',status:'completato',total_fmt:'€72'},
+  {order_ref:'#NR-2025-0037',coin_name:'Siliqua Costanzo II',order_date_fmt:'16 Apr 2025',status:'attesa',total_fmt:'€135'},
+  {order_ref:'#NR-2025-0036',coin_name:'Antoniniano Gallieno',order_date_fmt:'15 Apr 2025',status:'spedito',total_fmt:'€42'},
 ];
 const FB_GAR=[
   {icon:'🏛️',title:'Autenticità certificata',body:'Ogni esemplare è autentico e documentato con attribuzione, epoca e note numismatiche. Certificato disponibile su richiesta.'},
@@ -1124,12 +1123,10 @@ const FB_GAR=[
   {icon:'📦',title:'Spedizione sicura',body:'Imballo protettivo professionale, spedizione tracciata, opzione assicurata per pezzi di valore. Italia 2–4 gg, Europa 5–10 gg.'},
 ];
 const FB_FAQ=[
-  {question:'Le monete sono autentiche?',answer:'Sì. Ogni esemplare è autentico con attributi tecnici precisi. Certificato su richiesta per i pezzi di maggior valore.'},
+  {question:'Le monete sono autentiche?',answer:'Sì. Ogni esemplare è ritenuto autentico sulla base di verifiche tecniche accurate; resta un minimo margine di incertezza intrinseco al settore. Certificazione disponibile su richiesta.'},
   {question:'Come viene indicata la conservazione?',answer:'Utilizziamo la scala internazionale: B, MB, BB, SPL, FDC. Ogni scheda include patina, usura, centratura e leggibilità.'},
   {question:'Posso restituire una moneta?',answer:'Sì. Reso entro 14 giorni dalla ricezione nelle stesse condizioni. Rimborso entro 5 giorni lavorativi.'},
-  {question:'Come avviene la spedizione?',answer:'Spedizione tracciata con imballo protettivo. Assicurata oltre €500. Italia 2–4 gg, Europa 5–10 gg.'},
-  {question:'Come aggiungo una nuova moneta?',answer:'Inserisci una riga nella tabella `coins` su MySQL Workbench, carica le immagini in /img/ su GitHub. Il sito si aggiorna automaticamente.'},
-  {question:'Come modifico prezzi e descrizioni?',answer:'Modifica i campi nella tabella `coins` da MySQL Workbench. Ogni modifica è visibile sul sito al prossimo caricamento della pagina.'},
+  {question:'Come avviene la spedizione?',answer:'Spedizione tracciata con imballo protettivo, firma alla consegna. Per l’Italia, la spedizione ha un costo di 10,30 € e la consegna avviene in circa 4 giorni lavorativi (sabato e festivi esclusi). Per l’Unione Europea, il costo è di 25,80 € e la consegna avviene in un tempo indicativo di 10–15 giorni lavorativi.'},
 ];
 
 init();
