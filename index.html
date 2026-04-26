@@ -958,8 +958,8 @@ function renderCoins(coins){
     const{g,t,b}=mc(c.metal);
      const avail=c.stock_qty===undefined||parseInt(c.stock_qty)>0;
     const obS=c.img_obverse||'',rvS=c.img_reverse||'';
-    const obI=obS?`<img src="${obS}" alt="${c.name}" onerror="this.style.display='none':`<span>${c.name}</span>`;
-    const rvI=rvS?`<img src="${rvS}" alt="${c.name} rev" onerror="this.style.display='none':`<span>${c.name} ↺</span>`;
+    const obI=obS?`<img src="${obS}" alt="${c.name}" onerror="this.style.display='none'"/>`:`<span>${c.name}</span>`;
+    const rvI=rvS?`<img src="${rvS}" alt="${c.name} rev" onerror="this.style.display='none'"/>`:`<span>${c.name} ↺</span>`;
     const uid='cc'+Math.random().toString(36).slice(2,8);
     return`<article class="cc" data-slug="${c.slug}" ondblclick="openModal('${c.slug}')">
       <div class="cc-med">
