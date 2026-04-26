@@ -1117,8 +1117,8 @@ function openModal(slug){
   const uiOb='Dritto',uiRv='Rovescio';
   if(ob||rv){
     $('mImgs').innerHTML=[
-      ob?`<div style="text-align:center"><img class="mcimg" src="${ob}" alt="Dritto" onerror="this.parentElement.innerHTML='<div class=\\"mcdisc ${g}\\"><span>${c.name}</span></div>'"/><div class="milbl">${uiOb}</div></div>`:'',
-      rv?`<div style="text-align:center"><img class="mcimg" src="${rv}" alt="Rovescio" onerror="this.parentElement.innerHTML='<div class=\\"mcdisc ${g}\\"><span>${c.name}</span></div>'"/><div class="milbl">${uiRv}</div></div>`:''
+      ob?`<div style="text-align:center"><img class="mcimg" src="${ob}" alt="Dritto" onerror="this.parentElement.innerHTML='<div class=\\"mcdisc ${g}\\"><span>${c.name}</span></div><div class="milbl">${uiOb}</div></div>`:'',
+      rv?`<div style="text-align:center"><img class="mcimg" src="${rv}" alt="Rovescio" onerror="this.parentElement.innerHTML='<div class=\\"mcdisc ${g}\\"><span>${c.name}</span></div><div class="milbl">${uiRv}</div></div>`:''
     ].join('');
   } else {
     $('mImgs').innerHTML=`<div style="text-align:center"><div class="mcdisc ${g}"><span>${c.name}</span></div><div class="milbl">${uiOb}</div></div>`;
