@@ -160,6 +160,59 @@ button,input,select,textarea{font:inherit}
 .sprog{height:2px;background:rgba(255,255,255,.06);overflow:hidden}
 .spfill{height:100%;background:linear-gradient(90deg,var(--g3),var(--g));width:0%;transition:width linear}
 
+/* ── COIN FLIP ── */
+.coin-flipper{
+  perspective:700px;
+  width:clamp(200px,24vw,280px);height:clamp(200px,24vw,280px);
+  cursor:pointer;flex-shrink:0;
+}
+.coin-flipper-inner{
+  width:100%;height:100%;position:relative;
+  transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.4,0,.2,1);
+}
+.coin-flipper.flipped .coin-flipper-inner{transform:rotateY(180deg)}
+.coin-face,.coin-back{
+  position:absolute;inset:0;border-radius:50%;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:grid;place-items:center;overflow:hidden;
+  border:6px solid rgba(255,255,255,.16);
+  box-shadow:inset -14px -14px 32px rgba(0,0,0,.32),0 24px 70px rgba(0,0,0,.6),0 0 40px rgba(200,169,81,.16);
+}
+.coin-back{transform:rotateY(180deg)}
+.coin-face img,.coin-back img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.coin-face::before,.coin-back::before{
+  content:'';position:absolute;inset:-100%;
+  background:conic-gradient(transparent 0%,rgba(255,255,255,.09) 14%,transparent 28%);
+  animation:shim 8s linear infinite;pointer-events:none;z-index:2;
+}
+.coin-face span,.coin-back span{
+  font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;
+  text-align:center;line-height:1.2;letter-spacing:.06em;text-transform:uppercase;
+  padding:1.2rem;position:relative;z-index:1;color:rgba(0,0,0,.65);
+}
+/* Catalog card flip */
+.cc-flipper{perspective:600px;width:72%;aspect-ratio:1;}
+.cc-flipper-inner{
+  width:100%;height:100%;position:relative;
+  transform-style:preserve-3d;
+  transition:transform .65s cubic-bezier(.4,0,.2,1);
+}
+.cc-flipper.flipped .cc-flipper-inner{transform:rotateY(180deg)}
+.cc-face,.cc-bk{
+  position:absolute;inset:0;border-radius:50%;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:grid;place-items:center;text-align:center;
+  padding:.9rem;font-family:'Cinzel',serif;font-size:.82rem;
+  font-weight:700;text-transform:uppercase;line-height:1.2;
+  border:4px solid rgba(255,255,255,.14);
+  box-shadow:inset 0 0 24px rgba(0,0,0,.32),0 12px 32px rgba(0,0,0,.45);
+  overflow:hidden;cursor:pointer;
+}
+.cc-bk{transform:rotateY(180deg)}
+.cc-face img,.cc-bk img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.cc-face span,.cc-bk span{color:rgba(0,0,0,.64);position:relative;z-index:1}  
+
 /* ── CATALOG ── */
 #catalogo{background:var(--ink3)}
 .fbar{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:.9rem;align-items:end;margin-bottom:1.8rem;padding:1.4rem 1.8rem;background:rgba(14,13,18,.9);border:1px solid var(--b);border-radius:var(--rl);backdrop-filter:blur(12px)}
@@ -642,7 +695,7 @@ const API = '';   // ← incolla qui l'URL quando hai il server
 /* ── STATO ── */
 let COINS=[], FEAT=[], CART=[], CUR=null;
 let SL=0, SLtimer=null, pauseUntil=0;
-const INTERVAL=5500, PAUSE=30000;
+const INTERVAL=10000, PAUSE=30000, FLIP_AT=5000;
 
 /* ── FETCH ALL ── */
 async function loadAll() {
@@ -780,18 +833,24 @@ function buildSlides(){
   FEAT.forEach((c,i)=>{
     const {g}=mc(c.metal);
     const bg=BG[i%BG.length];
-    const imgSrc=c.img_obverse?`img/${c.img_obverse.replace(/^img\//,'')}`:'';
-    const coinInner=imgSrc
-      ? `<img src="${imgSrc}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><span style="display:none">${c.name}</span>`
-      : `<span>${c.name}</span>`;
+    const obSrc=c.img_obverse?`img/${c.img_obverse.replace(/^img\//,'')}`:'';
+    const rvSrc=c.img_reverse?`img/${c.img_reverse.replace(/^img\//,'')}`:'';
+    const obInner=obSrc?`<img src="${obSrc}" alt="${c.name}" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display='block')"/><span style="display:none">${c.name}</span>`:`<span>${c.name}</span>`;
+    const rvInner=rvSrc?`<img src="${rvSrc}" alt="${c.name} rovescio" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display='block')"/><span style="display:none">${c.name}</span>`:`<span>${c.name} ↺</span>`;
     const el=document.createElement('div');
     el.className='slide'+(i===0?' on':'');
+    el.dataset.slug=c.slug;
     el.innerHTML=`
       <div class="slide-bg" style="background-image:url('${bg}')"></div>
       <div class="slide-ov"></div>
       <div class="slide-in">
         <div class="s-coin-w">
-          <div class="s-coin ${g}" onclick="openModal('${c.slug}')">${coinInner}</div>
+          <div class="coin-flipper" id="sf${i}" onclick="openModal('${c.slug}')">
+            <div class="coin-flipper-inner">
+              <div class="coin-face ${g}">${obInner}</div>
+              <div class="coin-back ${g}">${rvInner}</div>
+            </div>
+          </div>
           <span class="sbadge">${c.metal}</span>
         </div>
         <div class="s-txt">
