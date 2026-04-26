@@ -531,6 +531,12 @@ button,input,select,textarea{font:inherit}
     </div>
     <div class="cbar"><div class="ccnt" id="resCnt">Risultati: <strong>0</strong></div></div>
     <div class="cgrid" id="coinsGrid"></div>
+    <div id="expandWrap" style="text-align:center;margin-top:2rem;display:none">
+      <button class="btn btn-o" id="expandBtn" onclick="toggleExpand()">
+        <span id="expandTxt">Mostra tutte le monete</span>
+        <span id="expandIco">↓</span>
+      </button>
+    </div>
   </div>
 </section>
 <div class="div"></div>
@@ -880,13 +886,20 @@ function buildSlides(){
   goSlide(0);
 }
 
+let flipTimer=null;
 function goSlide(n){
   if(!FEAT.length)return;
+  clearTimeout(flipTimer);
+  document.querySelectorAll('.coin-flipper').forEach(f=>f.classList.remove('flipped'));
   SL=(n+FEAT.length)%FEAT.length;
   $('strack').style.transform=`translateX(-${SL*100}%)`;
   document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===SL));
   document.querySelectorAll('.slide').forEach((s,i)=>s.classList.toggle('on',i===SL));
   startProg();
+  flipTimer=setTimeout(()=>{
+    const f=$(`sf${SL}`);
+    if(f)f.classList.add('flipped');
+  },FLIP_AT);
 }
 function startProg(){
   const f=$('spfill');
@@ -895,6 +908,8 @@ function startProg(){
 }
 function userAct(){
   pauseUntil=Date.now()+PAUSE;
+  clearTimeout(flipTimer);
+  document.querySelectorAll('.coin-flipper').forEach(f=>f.classList.remove('flipped'));
   const f=$('spfill'); f.style.transition='none'; f.style.width='0%';
 }
 function tick(){ if(Date.now()<pauseUntil)return; goSlide(SL+1); }
@@ -941,13 +956,21 @@ function renderCoins(coins){
   if(!coins.length){$('coinsGrid').innerHTML=`<div class="empty-c">${_noRes}</div>`;return;}
   $('coinsGrid').innerHTML=coins.map(c=>{
     const{g,t,b}=mc(c.metal);
-    const avail=c.stock_qty===undefined||parseInt(c.stock_qty)>0;
-    const imgSrc=c.img_obverse?c.img_obverse:'';
-    const dInner=imgSrc
-      ?`<img src="${imgSrc}" alt="${c.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/><span style="display:none">${c.name}</span>`
-      :`<span>${c.name}</span>`;
+     const avail=c.stock_qty===undefined||parseInt(c.stock_qty)>0;
+    const obS=c.img_obverse||'',rvS=c.img_reverse||'';
+    const obI=obS?`<img src="${obS}" alt="${c.name}" onerror="this.style.display='none'"/>`:`<span>${c.name}</span>`;
+    const rvI=rvS?`<img src="${rvS}" alt="${c.name} rev" onerror="this.style.display='none'"/>`:`<span>${c.name} ↺</span>`;
+    const uid='cc'+Math.random().toString(36).slice(2,8);
     return`<article class="cc" data-slug="${c.slug}" ondblclick="openModal('${c.slug}')">
-      <div class="cc-med"><div class="cdisc ${g}">${dInner}</div><span class="ctag ${t}">${b}</span></div>
+      <div class="cc-med">
+        <div class="cc-flipper" id="${uid}" onclick="event.stopPropagation();document.getElementById('${uid}').classList.toggle('flipped')">
+          <div class="cc-flipper-inner">
+            <div class="cc-face ${g}">${obI}</div>
+            <div class="cc-bk ${g}">${rvI}</div>
+          </div>
+        </div>
+        <span class="ctag ${t}">${b}</span>
+      </div>
       <div class="cc-bod">
         <div class="cc-cat">${c.cat}</div><div class="cc-nm">${c.name}</div>
         <div class="cc-chips"><span class="chip">${c.area}</span><span class="chip">${c.period}</span><span class="chip">${c.conservation}</span></div>
@@ -964,6 +987,16 @@ function renderCoins(coins){
     </article>`;
   }).join('');
 }
+const CATALOG_LIMIT=12;
+let catalogExpanded=false;
+
+function toggleExpand(){
+  catalogExpanded=!catalogExpanded;
+  $('expandTxt').textContent=catalogExpanded?'Mostra meno':'Mostra tutte le monete';
+  $('expandIco').textContent=catalogExpanded?'↑':'↓';
+  applyFilters();
+  if(!catalogExpanded) $('catalogo').scrollIntoView({behavior:'smooth',block:'start'});
+}  
 function applyFilters(){
   let list=[...COINS];
   const q=$('searchInput').value.toLowerCase().trim();
@@ -974,7 +1007,11 @@ function applyFilters(){
   if(s==='pa')list.sort((a,b)=>a.price-b.price);
   if(s==='pd')list.sort((a,b)=>b.price-a.price);
   if(s==='na')list.sort((a,b)=>(a.name||'').localeCompare(b.name||''));
-  renderCoins(list);
+  const hasFilters=q||m||a;
+  const shown=(hasFilters||catalogExpanded)?list:list.slice(0,CATALOG_LIMIT);
+  renderCoins(shown);
+  const ew=$('expandWrap');
+  if(ew) ew.style.display=(list.length>CATALOG_LIMIT&&!hasFilters)?'block':'none';
 }
 ['searchInput','metalF','areaF','sortF'].forEach(id=>$(id)&&$(id).addEventListener('input',applyFilters));
 $('resetF').onclick=()=>{
