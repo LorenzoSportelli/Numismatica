@@ -1114,6 +1114,7 @@ function openModal(slug){
 
   // immagini: se ci sono file reali, mostra quelli; altrimenti disco colorato
   const ob=c.img_obverse,rv=c.img_reverse;
+  const uiOb='Dritto',uiRv='Rovescio';
   if(ob||rv){
     $('mImgs').innerHTML=[
       ob?`<div style="text-align:center"><img class="mcimg" src="${ob}" alt="Dritto" onerror="this.parentElement.innerHTML='<div class=\\"mcdisc ${g}\\"><span>${c.name}</span></div><div class="milbl">${uiOb}</div></div>`:'',
