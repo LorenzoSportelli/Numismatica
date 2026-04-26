@@ -522,7 +522,7 @@ button,input,select,textarea{font:inherit}
       <div>
         <div class="hero-lbl" id="hLabel">Collezione numismatica professionale</div>
         <h1 class="hero-h1" id="hH1"><strong id="hEm">PECUNIA SOLIS</strong></h1>
-        <p class="hero-desc" id="hDesc">Numismatica antica</p>
+        <p class="hero-desc" id="hDesc">Numismatica Romana antica</p>
         <div class="hero-acts">
           <a href="#vetrina" class="btn btn-g" id="hCta1">Esplora la vetrina</a>
           <a href="#catalogo" class="btn btn-o" id="hCta2">Catalogo completo</a>
@@ -733,7 +733,7 @@ button,input,select,textarea{font:inherit}
     <div class="ftgr">
       <div class="ftbrand">
         <div class="logo">
-          <div class="logo-seal"><span id="fMark">SPQR</span></div>
+          <div class="logo-seal"><span id="fMark">PSN</span></div>
           <div class="logo-text"><b id="fName">…</b><small id="fTag">…</small></div>
         </div>
         <p id="fAbout">…</p>
@@ -1080,6 +1080,11 @@ function renderCoins(coins){
       </div>
     </article>`;
   }).join('');
+  grid.querySelectorAll('.cc').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 8) * 0.06 + 's';
+    revealObs.observe(el);
+  });
 }
 const CATALOG_LIMIT=12;
 let catalogExpanded=false;
@@ -1245,21 +1250,23 @@ const revealObs = new IntersectionObserver((entries)=>{
 },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
 
 function observeReveal(){
-  // section headers
-  document.querySelectorAll('.sh-tag,.sh-title,.sh-sub').forEach(el=>revealObs.observe(el));
-  // card grids
-  document.querySelectorAll('.cc,.tgc,.garc,.fi,.cirow,.ftcol').forEach((el,i)=>{
-    el.classList.add('reveal');
-    el.style.transitionDelay=(i%6)*0.07+'s';
+  // section headers (hanno regole CSS proprie, basta osservarle)
+  document.querySelectorAll('.sh-tag, .sh-title, .sh-sub').forEach(el => {
     revealObs.observe(el);
   });
-  // table
-  document.querySelectorAll('.otbl-w,.onote').forEach(el=>{
+  // card statiche (garanzie, tipologie, faq, contatti)
+  document.querySelectorAll('.tgc, .garc, .fi, .cirow').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 6) * 0.07 + 's';
+    revealObs.observe(el);
+  });
+  // footer columns
+  document.querySelectorAll('.ftcol, .ftbrand').forEach(el => {
     el.classList.add('reveal');
     revealObs.observe(el);
   });
-  // brand e misc
-  document.querySelectorAll('.ftbrand,.expandWrap').forEach(el=>{
+  // tabella ordini
+  document.querySelectorAll('.otbl-w, .onote').forEach(el => {
     el.classList.add('reveal');
     revealObs.observe(el);
   });
@@ -1347,8 +1354,12 @@ async function init(){
   renderCart();
 
   $('loader').classList.add('gone');
-  setTimeout(()=>{ observeReveal(); animateCounters(); }, 80);
-}
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      observeReveal();
+      animateCounters();
+    });
+});
 
 /* ══════════════════════════════════════════════════════
    DATI LOCALI — usati quando API è vuoto o non risponde
