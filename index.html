@@ -1086,7 +1086,7 @@ function renderCart(){
   $('cFoot').style.display='grid';
   $('cItems').innerHTML=CART.map(i=>{
     const{g}=mc(i.metal);
-    const th=i.img?`<img src="${i.img}" alt="${i.name}" onerror="this.style.display='none'">`:`<span>${i.name.slice(0,6)}</span>`;
+    const th=i.img?`<img src="${i.img}" alt="${i.name}" onerror="this.style.display='none`:`<span>${i.name.slice(0,6)}</span>`;
     return`<div class="ci-it"><div class="ci-th ${g}">${th}</div>
       <div class="ci-inf"><h4>${i.name}</h4><p>Qtà: ${i.qty}</p></div>
       <div><div class="ci-pr">${fmt(i.price*i.qty)}</div><button class="ci-rm" onclick="removeFromCart('${i.slug}')">✕</button></div>
