@@ -477,12 +477,12 @@ button,input,select,textarea{font:inherit}
       <div>
         <div class="sc-frame">
           <div class="sc-coin" id="heroCoin">
-            <!-- onclick="openModal('aureo')"> -->
-            <div class="sc-shimmer"></div>
-            <img id="heroCoinImg" src="" alt="Aureo Imperiale" onerror="this.style.display='none';document.getElementById('heroCoinTxt').style.display='block'">
+            <div class="sc-shimmer" id="heroCoinShimmer"></div>
+            <img id="heroCoinImg" src="" alt="Aureo Imperiale" 
+               onload="document.getElementById('heroCoinShimmer').style.display='none'"
+               onerror="this.style.display='none';document.getElementById('heroCoinTxt').style.display='flex';document.getElementById('heroCoinShimmer').style.display='none'">
             <div class="sc-coin-txt" id="heroCoinTxt">Aureo Imperiale</div>
           </div>
-          <div class="sc-meta">
             <div class="smrow"><span class="sl" id="cr1l">Specializzazione</span><span class="sv" id="cr1v">Monete romane e affini</span></div>
             <div class="smrow"><span class="sl" id="cr2l">Metalli</span><span class="sv" id="cr2v">Oro · Argento · Bronzo</span></div>
             <div class="smrow"><span class="sl" id="cr3l">Copertura</span><span class="sv" id="cr3v">Repubblica — Tardo Impero</span></div>
