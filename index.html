@@ -130,6 +130,9 @@ button,input,select,textarea{font:inherit}
 .sh-title{font-family:'Cinzel',serif;font-weight:900;font-size:clamp(1.75rem,3.5vw,3rem);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.9rem}
 .sh-sub{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--td);max-width:680px;margin-inline:auto;line-height:1.82;font-style:italic}
 .div{height:1px;background:linear-gradient(90deg,transparent,var(--b),transparent)}
+/* ── SECTION BACKGROUND IMAGES ── */
+.sec-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;background-size:cover;background-position:center;opacity:.08}
+.sec-bg-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,6,10,.7) 0%,rgba(6,6,10,.5) 50%,rgba(6,6,10,.8) 100%)}
 /* ── HERO ── */
 #home{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:var(--hdr);overflow:hidden}
 .hbg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;transform:scale(1.05);animation:hbgD 25s ease-in-out infinite alternate}
@@ -152,7 +155,7 @@ button,input,select,textarea{font:inherit}
 .sc-frame{position:relative;background:linear-gradient(145deg,rgba(22,20,32,.9),rgba(14,13,18,.95));border:1px solid var(--b);border-radius:var(--rx);padding:2.5rem;box-shadow:var(--sh),0 0 60px rgba(200,169,81,.12);backdrop-filter:blur(20px);overflow:hidden}
 .sc-frame::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,169,81,.08),transparent 60%)}
 .sc-frame::after{content:'SPQR';position:absolute;bottom:-20px;right:-10px;font-family:'Cinzel',serif;font-weight:900;font-size:8rem;color:rgba(200,169,81,.04);letter-spacing:.1em;pointer-events:none;line-height:1}
-.sc-coin{aspect-ratio:1/1;border-radius:50%;cursor:pointer;max-width:240px;width:240px;height:240px;margin:0 auto 2rem;position:relative;z-index:1;border:6px solid rgba(255,255,255,.16);box-shadow:inset 0 0 50px rgba(0,0,0,.4),0 24px 70px rgba(0,0,0,.6),0 0 40px rgba(200,169,81,.18);display:grid;place-items:center;transition:transform .55s cubic-bezier(.34,1.56,.64,1),box-shadow .55s;overflow:hidden;flex-shrink:0;}
+.sc-coin{aspect-ratio:1/1;border-radius:50%;cursor:pointer;max-width:240px;width:240px;height:240px;margin:0 auto 2rem;position:relative;z-index:1;border:6px solid rgba(255,255,255,.16);box-shadow:inset 0 0 50px rgba(0,0,0,.4),0 24px 70px rgba(0,0,0,.6),0 0 40px rgba(200,169,81,.18);display:grid;place-items:center;transition:transform .55s cubic-bezier(.34,1.56,.64,1),box-shadow .55s;overflow:hidden;flex-shrink:0;background:radial-gradient(circle at 34% 28%,#fff9d0,#e2be4f 26%,#b8880e 56%,#6b4a05 82%,#281800 100%)}
 .sc-coin:hover{transform:scale(1.06) rotate(5deg);box-shadow:0 36px 90px rgba(0,0,0,.7),0 0 60px rgba(200,169,81,.28)}
 .sc-coin img{width:100%;height:100%;object-fit:cover;border-radius:50%;position:relative;z-index:1}
 .sc-shimmer{position:absolute;inset:-100%;background:conic-gradient(transparent 0%,rgba(255,255,255,.1) 12%,transparent 24%);animation:shim 9s linear infinite;pointer-events:none;z-index:2}
@@ -298,7 +301,6 @@ button,input,select,textarea{font:inherit}
 .onote{margin-top:1.4rem;padding:.9rem 1.3rem;border-left:2px solid var(--g);background:var(--gf);border-radius:0 var(--r) var(--r) 0;font-size:.88rem;color:var(--td);font-style:italic}
 /* ── GUARANTEES ── */
 #garanzie{background:var(--ink2);position:relative;overflow:hidden}
-#garanzie::before{content:'';position:absolute;inset:0;background-size:cover;background-position:center;opacity:.05}
 .gargrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;position:relative;z-index:1}
 .garc{padding:2rem 1.8rem;border-radius:var(--rx);background:rgba(14,13,20,.88);border:1px solid var(--b);text-align:center;backdrop-filter:blur(12px);transition:transform .25s,box-shadow .25s}
 .garc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 20px rgba(200,169,81,.08)}
@@ -479,13 +481,12 @@ button,input,select,textarea{font:inherit}
       <!-- Colonna destra: showcase coin + meta -->
       <div>
         <div class="sc-frame">
-          <div class="sc-coin" id="heroCoin" onclick="openModal('aureo')">
+          <div class="sc-coin" id="heroCoin">
             <div class="sc-shimmer"></div>
             <img
               id="heroCoinImg"
               src=""
               alt="Aureo Imperiale"
-              onerror="this.style.display='none'; document.getElementById('heroCoinTxt').style.display='block'"
             >
             <div class="sc-coin-txt" id="heroCoinTxt">Aureo Imperiale</div>
           </div>
@@ -513,6 +514,7 @@ button,input,select,textarea{font:inherit}
 <div class="div"></div>
 <!-- VETRINA -->
 <section class="sec b2" id="vetrina">
+  <div class="sec-bg" id="vetrinaBg"><div class="sec-bg-overlay"></div></div>
   <div class="wrap">
     <div class="sh">
       <div class="sh-tag" id="sldTag">Le protagoniste</div>
@@ -533,6 +535,7 @@ button,input,select,textarea{font:inherit}
 <div class="div"></div>
 <!-- CATALOGO -->
 <section class="sec b3" id="catalogo">
+  <div class="sec-bg" id="catalogoBg"><div class="sec-bg-overlay"></div></div>
   <div class="wrap">
     <div class="sh">
       <div class="sh-tag" id="catTag">Disponibili ora</div>
@@ -583,6 +586,7 @@ button,input,select,textarea{font:inherit}
 <div class="div"></div>
 <!-- TIPOLOGIE -->
 <section class="sec b2" id="tipologie">
+  <div class="sec-bg" id="tipologieBg"><div class="sec-bg-overlay"></div></div>
   <div class="wrap">
     <div class="sh">
       <div class="sh-tag" id="typTag">Repertorio completo</div>
@@ -595,6 +599,7 @@ button,input,select,textarea{font:inherit}
 <div class="div"></div>
 <!-- ORDINI -->
 <section class="sec b3" id="ordini">
+  <div class="sec-bg" id="ordiniBg"><div class="sec-bg-overlay"></div></div>
   <div class="wrap">
     <div class="sh">
       <div class="sh-tag" id="ordTag">Attività recente</div>
@@ -617,6 +622,7 @@ button,input,select,textarea{font:inherit}
 <div class="div"></div>
 <!-- GARANZIE -->
 <section class="sec b2" id="garanzie">
+  <div class="sec-bg" id="garanzieBg"><div class="sec-bg-overlay"></div></div>
   <div class="wrap">
     <div class="sh">
       <div class="sh-tag" id="garTag">La nostra promessa</div>
@@ -629,6 +635,7 @@ button,input,select,textarea{font:inherit}
 <div class="div"></div>
 <!-- FAQ -->
 <section class="sec b3" id="faq">
+  <div class="sec-bg" id="faqBg"><div class="sec-bg-overlay"></div></div>
   <div class="wrap">
     <div class="sh">
       <div class="sh-tag" id="faqTag">Domande frequenti</div>
@@ -640,6 +647,7 @@ button,input,select,textarea{font:inherit}
 <div class="div"></div>
 <!-- CONTATTI -->
 <section class="sec b2" id="contatti">
+  <div class="sec-bg" id="contattiBg"><div class="sec-bg-overlay"></div></div>
   <div class="wrap">
     <div class="sh">
       <div class="sh-tag" id="conTag">Parliamo</div>
@@ -725,6 +733,13 @@ button,input,select,textarea{font:inherit}
    ============================================================ */
 const IMAGE_FILES = {
   img1:  './img1.jpg',
+  img1a: './img1a.jpg',
+  img1b: './img1b.jpg',
+  img1c: './img1c.jpg',
+  img1d: './img1d.jpg',
+  img1e: './img1e.jpg',
+  img1f: './img1f.jpg',
+  img1g: './img1g.jpg',
   img2:  './img2.png',
   img3:  './img3.jpg',
   img4:  './img4.png',
@@ -1188,15 +1203,35 @@ function applyStaticImages() {
   }
   
   const heroCoinImg = $('heroCoinImg');
+  const heroCoinTxt = $('heroCoinTxt');
   if (heroCoinImg && IMAGE_FILES.img3) {
     heroCoinImg.src = IMAGE_FILES.img3;
+    heroCoinImg.onload = function() {
+      this.style.display = 'block';
+      if (heroCoinTxt) heroCoinTxt.style.display = 'none';
+    };
+    heroCoinImg.onerror = function() {
+      this.style.display = 'none';
+      if (heroCoinTxt) heroCoinTxt.style.display = 'block';
+    };
   }
   
-  const garSection = $('garanzie');
-  if (garSection && IMAGE_FILES.img9) {
-    const style = document.createElement('style');
-    style.textContent = `#garanzie::before { background-image: url('${IMAGE_FILES.img9}') !important; }`;
-    document.head.appendChild(style);
+  // Sfondi sezioni
+  const sectionBgMap = {
+    'vetrinaBg':   IMAGE_FILES.img1a,
+    'catalogoBg':  IMAGE_FILES.img1b,
+    'tipologieBg': IMAGE_FILES.img1c,
+    'ordiniBg':    IMAGE_FILES.img1d,
+    'garanzieBg':  IMAGE_FILES.img1e,
+    'faqBg':       IMAGE_FILES.img1f,
+    'contattiBg':  IMAGE_FILES.img1g,
+  };
+  
+  for (const [id, src] of Object.entries(sectionBgMap)) {
+    const el = $(id);
+    if (el && src) {
+      el.style.backgroundImage = `url('${src}')`;
+    }
   }
 }
 
@@ -1605,7 +1640,7 @@ $('closeModal').onclick  = closeModalFn;
 $('closeModal2').onclick = closeModalFn;
 $('mov').onclick = e => { if (e.target === $('mov')) closeModalFn(); };
 $('mAdd').onclick = () => { if (CUR) { addToCart(CUR.slug); closeModalFn(); } };
-$('heroCoin').onclick = () => openModal('aureo');
+/* $('heroCoin').onclick = () => openModal('aureo'); */
 
 /* ============================================================
    SEZIONE 18 — EFFETTI UI
