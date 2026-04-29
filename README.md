@@ -1,2 +1,2 @@
-# Pecunia Solis Numismatica
+# Pecunia Solis
 Manutenzione
