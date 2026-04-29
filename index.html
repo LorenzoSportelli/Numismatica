@@ -133,9 +133,13 @@ button,input,select,textarea{font:inherit}
 
 /* ── SMOOTH APPEAR SECTION HEADERS ── */
 .sh-tag,.sh-title,.sh-sub{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
-.sh-tag.visible,.sh-title.visible,.sh-sub.visible{opacity:1;transform:none}
+.sh-tag.visible,.sh-title.visible,.sh-sub.visible{opacity:1;transform:translateY(0)}
 .sh-title{transition-delay:.1s}
 .sh-sub{transition-delay:.2s}
+  
+/* ── REVEAL BASE ── */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
 /* ── TABLE ROW SLIDE IN ── */
 @keyframes rowIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
@@ -1209,6 +1213,13 @@ function renderCoins(coins){
       </div>
     </article>`;
   }).join('');
+  setTimeout(()=>{
+    document.querySelectorAll('.cc:not(.visible)').forEach((el,i)=>{
+      el.classList.add('reveal');
+      el.style.transitionDelay=(i%8)*0.06+'s';
+      revealObs.observe(el);
+    });
+  },50);
 }
 const CATALOG_LIMIT=12;
 let catalogExpanded=false;
@@ -1380,23 +1391,43 @@ window.addEventListener('scroll',()=>{$('sHdr').classList.toggle('scrolled',scro
 ══════════════════════════════════════════════════════ */
 const revealObs = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
   });
-},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+},{threshold:0.08,rootMargin:'0px 0px -60px 0px'});
 
 function observeReveal(){
-  document.querySelectorAll('.sh-tag,.sh-title,.sh-sub').forEach(el=>revealObs.observe(el));
-  document.querySelectorAll('.cc,.tgc,.garc,.fi,.cirow,.ftcol').forEach((el,i)=>{
-    el.classList.add('reveal');
-    el.style.transitionDelay=(i%6)*0.07+'s';
+  // Section headers
+  document.querySelectorAll('.sh-tag,.sh-title,.sh-sub').forEach(el=>{
     revealObs.observe(el);
   });
-  document.querySelectorAll('.otbl-w,.onote').forEach(el=>{
+  
+  // Cards e elementi con stagger
+  document.querySelectorAll('.cc,.tgc,.garc,.fi').forEach((el,i)=>{
+    el.classList.add('reveal');
+    el.style.transitionDelay=(i%8)*0.06+'s';
+    revealObs.observe(el);
+  });
+  
+  // Righe contatto
+  document.querySelectorAll('.cirow').forEach((el,i)=>{
+    el.classList.add('reveal');
+    el.style.transitionDelay=i*0.08+'s';
+    revealObs.observe(el);
+  });
+  
+  // Elementi singoli
+  document.querySelectorAll('.otbl-w,.onote,.ftbrand,.cgr,.cform').forEach(el=>{
     el.classList.add('reveal');
     revealObs.observe(el);
   });
-  document.querySelectorAll('.ftbrand,.expandWrap').forEach(el=>{
+  
+  // Footer columns
+  document.querySelectorAll('.ftcol').forEach((el,i)=>{
     el.classList.add('reveal');
+    el.style.transitionDelay=i*0.1+'s';
     revealObs.observe(el);
   });
 }
