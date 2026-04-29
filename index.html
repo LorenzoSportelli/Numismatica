@@ -3506,8 +3506,13 @@ table {
   height: 2px;
   background: rgba(255, 255, 255, .04);
   z-index: calc(var(--z-header) - 1);
+  transition: transform .3s var(--ease);
 }
 
+.reading-progress.hidden {
+  transform: translateY(calc(-1 * var(--hdr) - 2px));
+}
+   
 .reading-progress-bar {
   height: 100%;
   background: linear-gradient(90deg, var(--g3), var(--g), var(--g2));
@@ -6006,16 +6011,20 @@ const setupScrollEffects = () => {
     if (header) {
       header.classList.toggle('scrolled', currentScrollY > 60);
       
+      const progressBarContainer = document.querySelector('.reading-progress');
       if (currentScrollY > CONSTANTS.HEADER_HIDE_THRESHOLD) {
         if (currentScrollY > lastScrollY && !state.headerHidden) {
           header.classList.add('hidden');
+          if (progressBarContainer) progressBarContainer.classList.add('hidden');
           state.headerHidden = true;
         } else if (currentScrollY < lastScrollY && state.headerHidden) {
           header.classList.remove('hidden');
+          if (progressBarContainer) progressBarContainer.classList.remove('hidden');
           state.headerHidden = false;
         }
       } else {
         header.classList.remove('hidden');
+        if (progressBarContainer) progressBarContainer.classList.remove('hidden');
         state.headerHidden = false;
       }
     }
@@ -6174,7 +6183,7 @@ const setupEventListeners = () => {
     goToSlide(state.currentSlide + 1);
   });
   
-  $('backToTop')?.addEventListener('click', scrollToTop);
+  $('backToTop')?.addEventListener('click', () => smoothScrollTo('catalogo'));
   
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
