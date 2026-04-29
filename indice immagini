@@ -1,0 +1,48 @@
+/* ============================================================
+   INDICE DI RIFERIMENTO IMMAGINI (IMAGE_FILES)
+   ============================================================
+   img1   = sfondo hero homepage (.jpg)
+   img2   = logo / sigillo brand (header + footer)
+   img3   = hero coin image principale (aureo nella showcase)
+   img4   = sfondo vetrina slideshow — slide 1 (Asse)
+   img5   = sfondo vetrina slideshow — slide 2 (Dupondio)
+   img6   = sfondo vetrina slideshow — slide 3 (Sesterzio)
+   img7   = sfondo vetrina slideshow — slide 4 (Denario)
+   img8   = sfondo vetrina slideshow — slide 5 (Aureo)
+   img9   = sfondo sezione garanzie
+   ——
+   img41  = Asse — dritto
+   img42  = Asse — rovescio
+   img43  = Dupondio — dritto
+   img44  = Dupondio — rovescio
+   img45  = Sesterzio — dritto
+   img46  = Sesterzio — rovescio
+   img47  = Denario — dritto
+   img48  = Denario — rovescio
+   img49  = Aureo — dritto
+   img50  = Aureo — rovescio
+   img51  = Quinario — dritto
+   img52  = Quinario — rovescio
+   img53  = Antoniniano — dritto
+   img54  = Antoniniano — rovescio
+   img55  = Miliarense leggero — dritto
+   img56  = Miliarense leggero — rovescio
+   img57  = Miliarense pesante — dritto
+   img58  = Miliarense pesante — rovescio
+   img59  = Siliqua — dritto
+   img60  = Siliqua — rovescio
+   img61  = Solido — dritto
+   img62  = Solido — rovescio
+   img63  = Tetradracma — dritto
+   img64  = Tetradracma — rovescio
+   img65  = Dracma — dritto
+   img66  = Dracma — rovescio
+   img67  = Assario — dritto
+   img68  = Assario — rovescio
+   img69  = Lepton — dritto
+   img70  = Lepton — rovescio
+   img71  = Siclo — dritto
+   img72  = Siclo — rovescio
+   ——
+   img73+ = slot liberi per nuove monete
+   ============================================================ */
