@@ -1,0 +1,6587 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Pecunia Solis Numismatica — Monete Antiche Autentiche</title>
+<meta name="description" content="Vendita monete antiche romane, greche, giudaiche: denari, sesterzi, aurei e oltre 65 tipologie. Autenticità garantita, spedizione assicurata."/>
+<meta name="keywords" content="numismatica, monete romane, monete antiche, denario, sesterzio, aureo, collezione numismatica, monete greche, monete giudaiche"/>
+<meta name="author" content="Pecunia Solis Numismatica"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:title" content="Pecunia Solis Numismatica"/>
+<meta property="og:description" content="Collezione professionale di monete antiche romane, greche e giudaiche."/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="itIT"/>
+<link rel="canonical" href="https://pecuniasolis.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"/>
+<style>
+/ ============================================================
+   SEZIONE CSS 1 — VARIABILI E RESET
+   ============================================================ /
+:root {
+  --g: #C8A951;
+  --g2: #E8CC78;
+  --g3: #8C6A10;
+  --g4: #F5E6B8;
+  --g5: #6B4E0A;
+  --gf: rgba(200, 169, 81, .09);
+  --ggl: rgba(200, 169, 81, .26);
+  --gh: rgba(200, 169, 81, .04);
+  --ink: #06060A;
+  --ink2: #0E0D12;
+  --ink3: #161420;
+  --ink4: #1C1A24;
+  --ink5: #242230;
+  --t: rgba(255, 255, 255, .94);
+  --t2: rgba(255, 255, 255, .88);
+  --td: rgba(255, 255, 255, .65);
+  --tm: rgba(255, 255, 255, .38);
+  --tl: rgba(255, 255, 255, .22);
+  --b: rgba(200, 169, 81, .18);
+  --b2: rgba(200, 169, 81, .28);
+  --bs: rgba(255, 255, 255, .07);
+  --bs2: rgba(255, 255, 255, .12);
+  --r: 5px;
+  --r2: 8px;
+  --rl: 12px;
+  --rx: 20px;
+  --rxx: 28px;
+  --sh: 0 28px 72px rgba(0, 0, 0, .65);
+  --sh2: 0 16px 48px rgba(0, 0, 0, .5);
+  --sh3: 0 8px 24px rgba(0, 0, 0, .35);
+  --shg: 0 0 40px rgba(200, 169, 81, .16);
+  --hdr: 68px;
+  --maxw: 1400px;
+  --maxw2: 1200px;
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --ease2: cubic-bezier(.34, 1.4, .64, 1);
+  --ease3: cubic-bezier(.22, 1, .36, 1);
+  --z-bg: 0;
+  --z-content: 1;
+  --z-header: 500;
+  --z-overlay: 800;
+  --z-cart: 900;
+  --z-modal: 1000;
+  --z-auth: 1050;
+  --z-toast: 1100;
+  --z-loader: 10000;
+}
+
+, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--hdr);
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--ink);
+  color: var(--t);
+  font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  line-height: 1.65;
+  overflow-x: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: var(--z-toast);
+  opacity: .7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s var(--ease);
+}
+
+a:hover {
+  color: var(--g);
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+::selection {
+  background: var(--g);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--g);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--g3), var(--g5));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--g), var(--g3));
+}
+
+ {
+  scrollbar-width: thin;
+  scrollbar-color: var(--g3) var(--ink2);
+}
+
+/ ============================================================
+   SEZIONE CSS 2 — UTILITY CLASSES
+   ============================================================ /
+.wrap {
+  width: min(100% - 2.4rem, var(--maxw));
+  margin-inline: auto;
+}
+
+.wrap-sm {
+  width: min(100% - 2.4rem, var(--maxw2));
+  margin-inline: auto;
+}
+
+.wrap-xs {
+  width: min(100% - 2.4rem, 960px);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-center { text-align: center; }
+.gold { color: var(--g); }
+.muted { color: var(--tm); }
+.dimmed { color: var(--td); }
+.font-display { font-family: 'Cinzel', serif; }
+.font-body { font-family: 'EB Garamond', serif; }
+.font-accent { font-family: 'Cormorant Garamond', serif; }
+
+/ ============================================================
+   SEZIONE CSS 3 — ANIMAZIONI KEYFRAMES
+   ============================================================ /
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0; 
+    transform: scale(.9); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(200, 169, 81, .2);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(200, 169, 81, .4), 0 0 60px rgba(200, 169, 81, .2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes coinShimmer {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes borderPulse {
+  0%, 100% { 
+    border-color: rgba(200, 169, 81, .3);
+    box-shadow: 0 0 20px rgba(200, 169, 81, .1);
+  }
+  50% { 
+    border-color: rgba(200, 169, 81, .6);
+    box-shadow: 0 0 40px rgba(200, 169, 81, .3);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(200, 169, 81, .3);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(200, 169, 81, .6), 0 0 40px rgba(200, 169, 81, .3);
+  }
+}
+
+@keyframes countUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(15px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: none; 
+  }
+}
+
+@keyframes heroIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(40px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: none; 
+  }
+}
+
+@keyframes lineExpand {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes rowIn {
+  from { 
+    opacity: 0; 
+    transform: translateX(-20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: none; 
+  }
+}
+
+@keyframes itemIn {
+  from { 
+    opacity: 0; 
+    transform: translateX(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: none; 
+  }
+}
+
+@keyframes popIn {
+  from { 
+    transform: scale(.92) translateY(30px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: none; 
+    opacity: 1; 
+  }
+}
+
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes heroBgDrift {
+  to { 
+    transform: scale(1.15) translate(-2%, -1%); 
+  }
+}
+
+@keyframes toastIn {
+  from {
+    transform: translateX(100%) scale(.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toastOut {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%) scale(.9);
+    opacity: 0;
+  }
+}
+
+@keyframes orbFloat {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1);
+  }
+  25% { 
+    transform: translate(-50px, 30px) scale(1.05);
+  }
+  50% { 
+    transform: translate(-80px, 80px) scale(1.1);
+  }
+  75% { 
+    transform: translate(-30px, 120px) scale(1.05);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes avatarGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(200, 169, 81, .4);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(200, 169, 81, .2);
+  }
+}
+
+/ ============================================================
+   SEZIONE CSS 4 — LOADER
+   ============================================================ /
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity .6s var(--ease), visibility .6s;
+}
+
+#loader.gone {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.ld-coin {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 25%, #fff9d0, #e8c840 25%, #b8880e 55%, #6b4a05 80%, #281800 100%);
+  animation: loaderSpin 1.3s linear infinite;
+  box-shadow: 
+    0 0 40px rgba(200, 169, 81, .35),
+    inset -8px -8px 20px rgba(0, 0, 0, .3),
+    inset 4px 4px 10px rgba(255, 255, 255, .2);
+  position: relative;
+}
+
+.ld-coin::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .15);
+}
+
+.ld-coin::after {
+  content: 'PSN';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, .5);
+  letter-spacing: .1em;
+}
+
+.ld-txt {
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  letter-spacing: .24em;
+  color: var(--g);
+  text-transform: uppercase;
+}
+
+/ ============================================================
+   SEZIONE CSS 5 — BACKGROUND ELEMENTS
+   ============================================================ /
+.page-bg {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse 100% 60% at 70% 15%, rgba(200, 169, 81, .05) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at 5% 80%, rgba(120, 80, 200, .025) 0%, transparent 45%),
+    radial-gradient(ellipse 50% 40% at 90% 90%, rgba(200, 169, 81, .03) 0%, transparent 40%),
+    linear-gradient(160deg, #06060A 0%, #0A0912 30%, #0E0D15 60%, #08080E 100%);
+}
+
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-bg);
+  filter: blur(80px);
+}
+
+.orb-1 {
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(200, 169, 81, .08) 0%, transparent 65%);
+  top: -250px;
+  right: -200px;
+  animation: orbFloat 20s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(140, 100, 200, .04) 0%, transparent 60%);
+  bottom: -150px;
+  left: -100px;
+  animation: orbFloat 25s ease-in-out infinite reverse;
+  animation-delay: -5s;
+}
+
+/ ============================================================
+   SEZIONE CSS 6 — HEADER
+   ============================================================ /
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  height: var(--hdr);
+  background: rgba(6, 6, 10, .85);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border-bottom: 1px solid var(--b);
+  transition: 
+    background .4s var(--ease),
+    box-shadow .4s var(--ease),
+    transform .3s var(--ease);
+}
+
+.header.scrolled {
+  background: rgba(6, 6, 10, .97);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, .4);
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.header-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: inherit;
+}
+
+.logo-seal {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  box-shadow: 
+    0 0 18px rgba(200, 169, 81, .35),
+    inset 0 1px 2px rgba(255, 255, 255, .25);
+  overflow: hidden;
+  background: radial-gradient(circle at 35% 28%, #f8e89a, #d4a835 38%, #8a5c0e 75%, #3a2402 100%);
+  transition: transform .3s var(--ease2), box-shadow .3s var(--ease);
+}
+
+.logo:hover .logo-seal {
+  transform: rotate(8deg) scale(1.05);
+  box-shadow: 
+    0 0 28px rgba(200, 169, 81, .5),
+    inset 0 1px 2px rgba(255, 255, 255, .25);
+}
+
+.logo-seal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-seal span {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: .55rem;
+  letter-spacing: .06em;
+  color: rgba(0, 0, 0, .72);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+
+.logo-text b {
+  font-family: 'Cinzel', serif;
+  font-size: .92rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.logo-text small {
+  font-family: 'EB Garamond', serif;
+  font-size: .78rem;
+  color: var(--g);
+  letter-spacing: .06em;
+  font-style: italic;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-link {
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--td);
+  position: relative;
+  padding: .2rem 0;
+  transition: color .25s var(--ease);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--g), var(--g2));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .3s var(--ease2);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--g);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.search-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+  color: var(--td);
+}
+
+.search-toggle:hover {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+}
+
+.search-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+/ Profile Button Styles /
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .9rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  color: var(--td);
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  transition: all .25s var(--ease);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.profile-btn:hover {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+  transform: translateY(-2px);
+}
+
+.profile-btn.logged-in {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+}
+
+.profile-btn-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--g3), var(--g));
+  display: grid;
+  place-items: center;
+  font-size: .55rem;
+  font-weight: 900;
+  color: #080500;
+  flex-shrink: 0;
+  transition: all .25s var(--ease);
+  overflow: hidden;
+}
+
+.profile-btn:hover .profile-btn-avatar {
+  animation: avatarGlow 1.5s ease-in-out infinite;
+}
+
+.profile-btn-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-btn-avatar svg {
+  width: 14px;
+  height: 14px;
+}
+
+.profile-btn-text {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem 1.1rem;
+  border-radius: 99px;
+  background: var(--gf);
+  border: 1px solid var(--b);
+  color: var(--g);
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  transition: all .25s var(--ease);
+  white-space: nowrap;
+}
+
+.cart-btn:hover {
+  background: rgba(200, 169, 81, .16);
+  border-color: var(--g);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 169, 81, .2);
+}
+
+.cart-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.cart-count {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 99px;
+  background: linear-gradient(135deg, var(--g), var(--g3));
+  color: #0a0800;
+  font-size: .6rem;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  transition: transform .2s var(--ease2);
+}
+
+.cart-btn:hover .cart-count {
+  transform: scale(1.1);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all .25s var(--ease);
+}
+
+.mobile-menu-toggle:hover {
+  background: var(--gf);
+  border-color: var(--b);
+}
+
+.mobile-menu-toggle span {
+  width: 18px;
+  height: 2px;
+  background: var(--td);
+  border-radius: 2px;
+  transition: all .3s var(--ease);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: var(--hdr);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(6, 6, 10, .98);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  z-index: calc(var(--z-header) - 1);
+  padding: 2rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s var(--ease), visibility .3s;
+}
+
+.mobile-nav.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav a {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--td);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--bs);
+  display: block;
+  transition: color .2s var(--ease), padding-left .2s var(--ease);
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  color: var(--g);
+  padding-left: 1rem;
+}
+
+/ ============================================================
+   SEZIONE CSS 7 — BUTTONS
+   ============================================================ /
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  padding: .88rem 1.65rem;
+  border-radius: var(--r);
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 
+    all .25s var(--ease),
+    transform .2s var(--ease2);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--g2) 0%, var(--g) 50%, var(--g3) 100%);
+  color: #080500;
+  box-shadow: 
+    0 4px 20px rgba(200, 169, 81, .3),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.btn-primary:hover {
+  box-shadow: 
+    0 8px 32px rgba(200, 169, 81, .42),
+    inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .18), transparent);
+  transform: skewX(-20deg);
+  transition: left .55s var(--ease);
+}
+
+.btn-primary:hover::after {
+  left: 150%;
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--b);
+  color: var(--g);
+}
+
+.btn-outline:hover {
+  background: var(--gf);
+  border-color: var(--g);
+  box-shadow: 0 4px 20px rgba(200, 169, 81, .15);
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, .04);
+  border-color: var(--bs);
+  color: var(--td);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, .08);
+  border-color: var(--bs2);
+  color: var(--t);
+}
+
+.btn-sm {
+  padding: .58rem .9rem;
+  font-size: .6rem;
+}
+
+.btn-lg {
+  padding: 1.1rem 2rem;
+  font-size: .75rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef5350, #c62828);
+  color: white;
+  border-color: transparent;
+}
+
+.btn-danger:hover {
+  box-shadow: 0 4px 20px rgba(239, 83, 80, .3);
+}
+
+/ ============================================================
+   SEZIONE CSS 8 — FORM ELEMENTS
+   ============================================================ /
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.form-label {
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: .72rem .95rem;
+  border-radius: var(--r);
+  background: rgba(6, 6, 10, .8);
+  border: 1px solid var(--bs);
+  color: var(--t);
+  font-family: 'EB Garamond', serif;
+  font-size: .92rem;
+  transition: 
+    border-color .25s var(--ease),
+    box-shadow .25s var(--ease),
+    background .25s var(--ease);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--tm);
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: rgba(200, 169, 81, .25);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--g);
+  box-shadow: 0 0 0 3px rgba(200, 169, 81, .1);
+  background: rgba(6, 6, 10, .95);
+}
+
+.form-input.error {
+  border-color: #ef5350;
+  box-shadow: 0 0 0 3px rgba(239, 83, 80, .1);
+}
+
+.form-input.success {
+  border-color: #5dba6d;
+  box-shadow: 0 0 0 3px rgba(93, 186, 109, .1);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C8A951' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-select option {
+  background: var(--ink2);
+  color: var(--t);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.form-error {
+  font-size: .75rem;
+  color: #ef5350;
+  margin-top: .2rem;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.form-hint {
+  font-size: .72rem;
+  color: var(--tm);
+  margin-top: .2rem;
+  font-style: italic;
+}
+
+/ Password Input with Toggle /
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: .8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .05);
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--tm);
+  transition: all .2s var(--ease);
+}
+
+.password-toggle:hover {
+  background: var(--gf);
+  color: var(--g);
+}
+
+/ Checkbox Styles /
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  cursor: pointer;
+}
+
+.form-checkbox input {
+  display: none;
+}
+
+.form-checkbox-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--bs);
+  background: rgba(6, 6, 10, .8);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all .2s var(--ease);
+}
+
+.form-checkbox:hover .form-checkbox-box {
+  border-color: var(--b);
+}
+
+.form-checkbox input:checked + .form-checkbox-box {
+  background: linear-gradient(135deg, var(--g), var(--g3));
+  border-color: var(--g);
+}
+
+.form-checkbox input:checked + .form-checkbox-box::after {
+  content: '✓';
+  color: #080500;
+  font-size: .7rem;
+  font-weight: 900;
+}
+
+.form-checkbox-label {
+  font-size: .85rem;
+  color: var(--td);
+  line-height: 1.4;
+}
+
+.form-checkbox-label a {
+  color: var(--g);
+  text-decoration: underline;
+}
+
+/ ============================================================
+   SEZIONE CSS 9 — CARDS
+   ============================================================ /
+.card {
+  background: linear-gradient(145deg, rgba(22, 20, 32, .9), rgba(14, 13, 18, .95));
+  border: 1px solid var(--b);
+  border-radius: var(--rl);
+  overflow: hidden;
+  transition: 
+    transform .3s var(--ease),
+    box-shadow .3s var(--ease),
+    border-color .3s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh), 0 0 28px rgba(200, 169, 81, .1);
+  border-color: rgba(200, 169, 81, .32);
+}
+
+/ ============================================================
+   SEZIONE CSS 10 — BADGES & TAGS
+   ============================================================ /
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .22rem .65rem;
+  border-radius: 99px;
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.badge-gold {
+  background: rgba(200, 169, 81, .15);
+  color: var(--g);
+  border: 1px solid var(--b);
+}
+
+.badge-silver {
+  background: rgba(200, 200, 200, .1);
+  color: #d4d4d4;
+  border: 1px solid rgba(200, 200, 200, .15);
+}
+
+.badge-bronze {
+  background: rgba(160, 96, 40, .15);
+  color: #e0a870;
+  border: 1px solid rgba(160, 96, 40, .2);
+}
+
+.badge-success {
+  background: rgba(40, 120, 50, .15);
+  color: #5dba6d;
+  border: 1px solid rgba(40, 120, 50, .22);
+}
+
+.badge-warning {
+  background: rgba(200, 140, 30, .1);
+  color: #e8a820;
+  border: 1px solid rgba(200, 140, 30, .18);
+}
+
+.badge-info {
+  background: rgba(30, 100, 200, .1);
+  color: #5fa8e8;
+  border: 1px solid rgba(30, 100, 200, .18);
+}
+
+.badge-neutral {
+  background: rgba(255, 255, 255, .05);
+  color: var(--td);
+  border: 1px solid var(--bs);
+}
+
+.badge-premium {
+  background: linear-gradient(135deg, rgba(200, 169, 81, .2), rgba(200, 169, 81, .1));
+  color: var(--g);
+  border: 1px solid var(--g);
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .2rem;
+  padding: .18rem .55rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  font-family: 'Cinzel', serif;
+  font-size: .54rem;
+  letter-spacing: .07em;
+  color: var(--tm);
+  transition: all .2s var(--ease);
+}
+
+.chip:hover {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+}
+
+/ ============================================================
+   SEZIONE CSS 11 — SECTION STYLES
+   ============================================================ /
+.section {
+  padding: 6rem 0;
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.section-alt {
+  background: rgba(14, 13, 18, .95);
+}
+
+.section-dark {
+  background: rgba(8, 8, 14, .98);
+}
+
+.section-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  opacity: .08;
+}
+
+.section-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 6, 10, .7) 0%,
+    rgba(6, 6, 10, .5) 30%,
+    rgba(6, 6, 10, .5) 70%,
+    rgba(6, 6, 10, .8) 100%
+  );
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  letter-spacing: .22em;
+  color: var(--g);
+  text-transform: uppercase;
+  margin-bottom: 1.1rem;
+  padding: .35rem .95rem;
+  border: 1px solid var(--b);
+  border-radius: 99px;
+  background: var(--gf);
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .9rem;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--td);
+  max-width: 680px;
+  margin-inline: auto;
+  line-height: 1.82;
+  font-style: italic;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--b), transparent);
+  transform-origin: center;
+  animation: lineExpand .8s var(--ease) both;
+}
+
+.divider-gold {
+  background: linear-gradient(90deg, transparent, var(--g), transparent);
+}
+
+/ ============================================================
+   SEZIONE CSS 12 — HERO
+   ============================================================ /
+#home {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--hdr);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transform: scale(1.05);
+  animation: heroBgDrift 25s ease-in-out infinite alternate;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: 
+    radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(6, 6, 10, .6) 100%),
+    linear-gradient(to bottom, rgba(6, 6, 10, .5) 0%, transparent 25%, transparent 75%, rgba(6, 6, 10, .9) 100%);
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .15;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(200, 169, 81, .12) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(200, 169, 81, .12) 80px);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 5rem;
+  align-items: center;
+  padding: 5rem 0 4rem;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  letter-spacing: .26em;
+  color: var(--g);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  padding: .38rem 1rem;
+  border: 1px solid var(--b);
+  border-radius: 99px;
+  background: rgba(200, 169, 81, .08);
+  animation: heroIn .7s var(--ease) .1s both;
+}
+
+.hero-badge::before,
+.hero-badge::after {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: var(--g);
+  opacity: .6;
+}
+
+.hero-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 6vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  animation: heroIn .7s var(--ease) .2s both;
+}
+
+.hero-title em {
+  display: block;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 1.15em;
+  letter-spacing: .02em;
+  background: linear-gradient(135deg, #f5e6b8, var(--g), var(--g3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.1;
+  animation: textGlow 4s ease-in-out infinite;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--td);
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+  line-height: 1.82;
+  animation: heroIn .7s var(--ease) .3s both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+  animation: heroIn .7s var(--ease) .4s both;
+}
+
+.hero-stats {
+  display: flex;
+  border: 1px solid var(--b);
+  border-radius: var(--rl);
+  overflow: hidden;
+  background: rgba(6, 6, 10, .55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: heroIn .7s var(--ease) .5s both;
+}
+
+.hero-stat {
+  flex: 1;
+  padding: 1.1rem 1.2rem;
+  border-right: 1px solid var(--b);
+  text-align: center;
+  transition: background .3s var(--ease);
+}
+
+.hero-stat:last-child {
+  border-right: none;
+}
+
+.hero-stat:hover {
+  background: rgba(200, 169, 81, .05);
+}
+
+.hero-stat-value {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--g);
+  line-height: 1;
+  margin-bottom: .25rem;
+  animation: countUp .6s var(--ease) both;
+}
+
+.hero-stat:nth-child(1) .hero-stat-value { animation-delay: .55s; }
+.hero-stat:nth-child(2) .hero-stat-value { animation-delay: .65s; }
+.hero-stat:nth-child(3) .hero-stat-value { animation-delay: .75s; }
+.hero-stat:nth-child(4) .hero-stat-value { animation-delay: .85s; }
+
+.hero-stat-label {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  color: var(--tm);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.hero-showcase {
+  animation: heroIn .8s var(--ease) .35s both;
+}
+
+.showcase-frame {
+  position: relative;
+  background: linear-gradient(145deg, rgba(22, 20, 32, .9), rgba(14, 13, 18, .95));
+  border: 1px solid var(--b);
+  border-radius: var(--rx);
+  padding: 2.5rem;
+  box-shadow: 
+    var(--sh),
+    0 0 60px rgba(200, 169, 81, .12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
+}
+
+.showcase-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200, 169, 81, .08), transparent 60%);
+  pointer-events: none;
+}
+
+.showcase-frame::after {
+  content: 'SPQR';
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 8rem;
+  color: rgba(200, 169, 81, .04);
+  letter-spacing: .1em;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.showcase-coin {
+  aspect-ratio: 1 / 1;
+  width: 220px;
+  height: 220px;
+  max-width: 220px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 auto 2rem;
+  position: relative;
+  z-index: 1;
+  border: 6px solid rgba(255, 255, 255, .16);
+  overflow: hidden;
+  transition: 
+    transform .55s var(--ease2),
+    box-shadow .55s var(--ease);
+  background: radial-gradient(circle at 34% 28%, #fff9d0, #e2be4f 26%, #b8880e 56%, #6b4a05 82%, #281800 100%);
+  box-shadow: 
+    inset -12px -12px 28px rgba(0, 0, 0, .35),
+    0 28px 70px rgba(0, 0, 0, .55),
+    0 0 40px rgba(200, 169, 81, .18);
+}
+
+.showcase-coin:hover {
+  transform: scale(1.06) rotate(5deg);
+  box-shadow: 
+    inset -12px -12px 28px rgba(0, 0, 0, .35),
+    0 36px 90px rgba(0, 0, 0, .6),
+    0 0 55px rgba(200, 169, 81, .28);
+}
+
+.showcase-coin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.showcase-coin-shimmer {
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(transparent 0%, rgba(255, 255, 255, .1) 12%, transparent 24%);
+  animation: coinShimmer 9s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.showcase-coin-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, .65);
+  text-align: center;
+  line-height: 1.25;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  display: none;
+}
+
+.showcase-meta {
+  display: grid;
+  gap: .55rem;
+  position: relative;
+  z-index: 1;
+}
+
+.showcase-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .8rem;
+  padding: .6rem .85rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .028);
+  border: 1px solid var(--bs);
+  transition: background .2s var(--ease);
+}
+
+.showcase-meta-row:hover {
+  background: rgba(255, 255, 255, .04);
+}
+
+.showcase-meta-label {
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.showcase-meta-value {
+  font-size: .88rem;
+  color: var(--td);
+  font-style: italic;
+}
+
+.showcase-meta-value.highlight {
+  color: var(--g);
+  font-style: normal;
+  font-weight: 600;
+  font-family: 'Cinzel', serif;
+  font-size: .78rem;
+}
+
+.quick-nav {
+  position: relative;
+  z-index: 3;
+  padding: 0 0 5rem;
+}
+
+.quick-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.quick-tile {
+  padding: 1.2rem 1rem;
+  border-radius: var(--rl);
+  background: rgba(14, 13, 18, .8);
+  border: 1px solid var(--b);
+  text-align: center;
+  cursor: pointer;
+  transition: all .28s var(--ease2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.quick-tile:hover {
+  background: rgba(200, 169, 81, .1);
+  border-color: rgba(200, 169, 81, .4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, .35);
+}
+
+.quick-tile-icon {
+  font-size: 1.6rem;
+  margin-bottom: .6rem;
+  transition: transform .3s var(--ease2);
+}
+
+.quick-tile:hover .quick-tile-icon {
+  transform: scale(1.12);
+}
+
+.quick-tile-label {
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--td);
+  transition: color .2s var(--ease);
+}
+
+.quick-tile:hover .quick-tile-label {
+  color: var(--g);
+}
+
+.quick-tile:nth-child(1) { animation: heroIn .5s var(--ease) .6s both; }
+.quick-tile:nth-child(2) { animation: heroIn .5s var(--ease) .68s both; }
+.quick-tile:nth-child(3) { animation: heroIn .5s var(--ease) .76s both; }
+.quick-tile:nth-child(4) { animation: heroIn .5s var(--ease) .84s both; }
+.quick-tile:nth-child(5) { animation: heroIn .5s var(--ease) .92s both; }
+.quick-tile:nth-child(6) { animation: heroIn .5s var(--ease) 1s both; }
+
+/ ============================================================
+   SEZIONE CSS 13 — SLIDESHOW / VETRINA
+   ============================================================ /
+#vetrina {
+  background: var(--ink2);
+  overflow: hidden;
+}
+
+.slideshow-container {
+  position: relative;
+  border-radius: var(--rx);
+  overflow: hidden;
+  border: 1px solid var(--b);
+  box-shadow: var(--sh);
+  touch-action: pan-y;
+}
+
+.slideshow-progress {
+  height: 2px;
+  background: rgba(255, 255, 255, .06);
+  overflow: hidden;
+}
+
+.slideshow-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--g3), var(--g), var(--g2));
+  width: 0%;
+  transition: width linear;
+}
+
+.slideshow-track {
+  display: flex;
+  transition: transform .6s var(--ease3);
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(.22) saturate(.8);
+  transition: filter 1.5s var(--ease);
+}
+
+.slide.active .slide-bg {
+  filter: brightness(.28) saturate(.9);
+}
+
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(6, 6, 10, .94) 38%, rgba(6, 6, 10, .55) 68%, rgba(6, 6, 10, .25) 100%);
+}
+
+.slide-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 4rem;
+}
+
+.slide-inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(ellipse 80% 70% at 80% 40%, rgba(200, 169, 81, .06), transparent);
+}
+
+.slide-coin-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.coin-flipper {
+  perspective: 700px;
+  width: clamp(180px, 24vw, 260px);
+  height: clamp(180px, 24vw, 260px);
+  min-width: clamp(180px, 24vw, 260px);
+  min-height: clamp(180px, 24vw, 260px);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.coin-flipper-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .7s var(--ease3);
+}
+
+.coin-flipper.flipped .coin-flipper-inner {
+  transform: rotateY(180deg);
+}
+
+.coin-face,
+.coin-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 6px solid rgba(255, 255, 255, .16);
+  box-shadow: 
+    inset -14px -14px 32px rgba(0, 0, 0, .35),
+    0 24px 70px rgba(0, 0, 0, .55),
+    0 0 40px rgba(200, 169, 81, .16);
+  transition: box-shadow .3s var(--ease);
+}
+
+.coin-flipper:hover .coin-face,
+.coin-flipper:hover .coin-back {
+  animation: borderPulse 1.8s ease-in-out infinite;
+}
+
+.coin-back {
+  transform: rotateY(180deg);
+}
+
+.coin-face img,
+.coin-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.coin-face::before,
+.coin-back::before {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(transparent 0%, rgba(255, 255, 255, .09) 14%, transparent 28%);
+  animation: coinShimmer 8s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.coin-face span,
+.coin-back span {
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 1.2rem;
+  position: relative;
+  z-index: 1;
+  color: rgba(0, 0, 0, .65);
+}
+
+.coin-gold {
+  background: radial-gradient(circle at 34% 28%, #fff9d0, #e2be4f 26%, #b8880e 56%, #6b4a05 82%, #281800 100%);
+}
+
+.coin-silver {
+  background: radial-gradient(circle at 34% 28%, #ffffff, #e8e8e8 26%, #bfbfbf 54%, #8c8c8c 80%, #4a4a4a 100%);
+}
+
+.coin-bronze {
+  background: radial-gradient(circle at 34% 28%, #fce5b8, #d89840 28%, #a86020 56%, #6c4015 80%, #2e1a08 100%);
+}
+
+.slide-badge {
+  padding: .4rem 1.1rem;
+  border-radius: 99px;
+  font-family: 'Cinzel', serif;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border: 1px solid var(--b);
+  background: var(--gf);
+  color: var(--g);
+}
+
+.slide-content {
+  z-index: 1;
+}
+
+.slide-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  letter-spacing: .18em;
+  color: var(--g);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.slide-eyebrow-line {
+  width: 28px;
+  height: 1px;
+  background: var(--g);
+  opacity: .7;
+}
+
+.slide-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3.2vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  line-height: 1.06;
+  margin-bottom: .5rem;
+}
+
+.slide-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--g);
+  font-style: italic;
+  margin-bottom: 1.1rem;
+}
+
+.slide-description {
+  font-size: 1rem;
+  color: var(--td);
+  line-height: 1.82;
+  margin-bottom: 1.5rem;
+}
+
+.slide-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+  margin-bottom: 1.8rem;
+}
+
+.slide-spec {
+  padding: .75rem 1rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid var(--bs);
+}
+
+.slide-spec-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tm);
+  margin-bottom: .18rem;
+}
+
+.slide-spec-value {
+  font-size: .9rem;
+  color: var(--t);
+}
+
+.slide-price {
+  margin-bottom: 1.5rem;
+}
+
+.slide-price-label {
+  font-family: 'Cinzel', serif;
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.slide-price-value {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--g);
+  line-height: 1;
+}
+
+.slide-actions {
+  display: flex;
+  gap: .8rem;
+  flex-wrap: wrap;
+}
+
+.slideshow-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem 0 .5rem;
+}
+
+.slideshow-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--b);
+  color: var(--g);
+  cursor: pointer;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  transition: all .25s var(--ease);
+  flex-shrink: 0;
+}
+
+.slideshow-arrow:hover {
+  background: var(--gf);
+  border-color: var(--g);
+  transform: scale(1.06);
+}
+
+.slideshow-dots {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
+.slideshow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tm);
+  cursor: pointer;
+  transition: all .3s var(--ease2);
+}
+
+.slideshow-dot.active {
+  width: 24px;
+  border-radius: 3px;
+  background: var(--g);
+}
+
+/ ============================================================
+   SEZIONE CSS 14 — CATALOGO
+   ============================================================ /
+#catalogo {
+  background: var(--ink3);
+}
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: .9rem;
+  align-items: end;
+  margin-bottom: 1.8rem;
+  padding: 1.4rem 1.8rem;
+  background: rgba(14, 13, 18, .9);
+  border: 1px solid var(--b);
+  border-radius: var(--rl);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.filter-group label {
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.results-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+  flex-wrap: wrap;
+}
+
+.results-count {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  color: var(--tm);
+}
+
+.results-count strong {
+  color: var(--g);
+}
+
+.view-toggle {
+  display: flex;
+  gap: .4rem;
+}
+
+.view-toggle-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  color: var(--tm);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all .2s var(--ease);
+}
+
+.view-toggle-btn.active,
+.view-toggle-btn:hover {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+}
+
+.coins-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.coins-grid.list-view {
+  grid-template-columns: 1fr;
+}
+
+.coin-card {
+  background: linear-gradient(145deg, #100F18, #181620);
+  border: 1px solid var(--b);
+  border-radius: var(--rl);
+  overflow: hidden;
+  cursor: pointer;
+  transition: 
+    transform .28s var(--ease),
+    box-shadow .28s var(--ease),
+    border-color .28s var(--ease),
+    background .28s var(--ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.coin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sh), 0 0 30px rgba(200, 169, 81, .12);
+  border-color: rgba(200, 169, 81, .38);
+  background: linear-gradient(145deg, #161220, #1e1b2c);
+}
+
+.coin-card-media {
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #1c1928, #0e0d16);
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid var(--b);
+}
+
+.card-coin-flipper {
+  perspective: 600px;
+  width: 72%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-coin-flipper-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .65s var(--ease3);
+}
+
+.card-coin-flipper.flipped .card-coin-flipper-inner {
+  transform: rotateY(180deg);
+}
+
+.card-coin-face,
+.card-coin-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: .9rem;
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+  border: 4px solid rgba(255, 255, 255, .14);
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, .32), 0 12px 32px rgba(0, 0, 0, .45);
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  transition: transform .32s var(--ease), box-shadow .32s var(--ease);
+}
+
+.card-coin-back {
+  transform: rotateY(180deg);
+}
+
+.card-coin-face img,
+.card-coin-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.card-coin-face span,
+.card-coin-back span {
+  color: rgba(0, 0, 0, .64);
+  position: relative;
+  z-index: 1;
+}
+
+.coin-card:hover .card-coin-face,
+.coin-card:hover .card-coin-back {
+  box-shadow: 
+    inset 0 0 28px rgba(0, 0, 0, .35),
+    0 18px 45px rgba(0, 0, 0, .5),
+    0 0 18px rgba(200, 169, 81, .1);
+}
+
+.coin-card:hover .card-coin-flipper .card-coin-face,
+.coin-card:hover .card-coin-flipper .card-coin-back {
+  transform: rotate(7deg);
+}
+
+.coin-card:hover .card-coin-flipper.flipped .card-coin-back {
+  transform: rotateY(180deg) rotate(7deg);
+}
+
+.coin-card-tag {
+  position: absolute;
+  top: .8rem;
+  right: .8rem;
+  padding: .22rem .62rem;
+  border-radius: 99px;
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.coin-card-body {
+  padding: 1.1rem 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  flex: 1;
+}
+
+.coin-card-category {
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--g);
+}
+
+.coin-card-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  line-height: 1.2;
+}
+
+.coin-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+}
+
+.coin-card-description {
+  font-size: .88rem;
+  color: var(--td);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.coin-card-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .35rem;
+}
+
+.coin-card-spec {
+  padding: .45rem .65rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .025);
+  border: 1px solid var(--bs);
+}
+
+.coin-card-spec-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: .52rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--tm);
+  margin-bottom: .12rem;
+}
+
+.coin-card-spec-value {
+  font-size: .8rem;
+  color: var(--t);
+}
+
+.coin-card-footer {
+  margin-top: auto;
+  padding-top: .5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .8rem;
+}
+
+.coin-card-price-label {
+  font-family: 'Cinzel', serif;
+  font-size: .54rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.coin-card-price-value {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--g);
+  line-height: 1.1;
+}
+
+.coin-card-out-of-stock {
+  font-family: 'Cinzel', serif;
+  font-size: .58rem;
+  color: var(--tm);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.empty-state-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem;
+  opacity: .3;
+}
+
+.empty-state-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  margin-bottom: .4rem;
+}
+
+.empty-state-text {
+  color: var(--tm);
+  font-style: italic;
+}
+
+.expand-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/ ============================================================
+   SEZIONE CSS 15 — TIPOLOGIE
+   ============================================================ /
+#tipologie {
+  background: var(--ink2);
+}
+
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+.type-card {
+  padding: 1.4rem;
+  border-radius: var(--rl);
+  background: linear-gradient(145deg, #120F1D, #1A1726);
+  border: 1px solid var(--b);
+  transition: 
+    transform .25s var(--ease),
+    box-shadow .25s var(--ease),
+    border-color .25s var(--ease);
+}
+
+.type-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .4), 0 0 18px rgba(200, 169, 81, .08);
+  border-color: rgba(200, 169, 81, .32);
+}
+
+.type-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--g);
+  margin-bottom: .9rem;
+  padding-bottom: .65rem;
+  border-bottom: 1px solid var(--b);
+}
+
+.type-card-list {
+  display: grid;
+  gap: .28rem;
+}
+
+.type-card-item {
+  font-size: .88rem;
+  color: var(--td);
+  padding: .28rem .5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 
+    background .15s var(--ease),
+    color .15s var(--ease),
+    padding-left .15s var(--ease);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+.type-card-item::before {
+  content: '·';
+  color: var(--g);
+  font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.type-card-item:hover {
+  background: var(--gf);
+  color: var(--t);
+  padding-left: .9rem;
+}
+
+/ ============================================================
+   SEZIONE CSS 16 — ORDINI
+   ============================================================ /
+#ordini {
+  background: var(--ink3);
+}
+
+.orders-table-wrapper {
+  border: 1px solid var(--b);
+  border-radius: var(--rl);
+  overflow: hidden;
+  box-shadow: var(--sh);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table thead {
+  background: rgba(200, 169, 81, .07);
+  border-bottom: 1px solid var(--b);
+}
+
+.orders-table th {
+  padding: .9rem 1.2rem;
+  text-align: left;
+  font-family: 'Cinzel', serif;
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--g);
+}
+
+.orders-table tbody tr {
+  border-bottom: 1px solid var(--bs);
+  transition: background .2s var(--ease);
+  animation: rowIn .4s var(--ease) both;
+}
+
+.orders-table tbody tr:nth-child(1) { animation-delay: .05s; }
+.orders-table tbody tr:nth-child(2) { animation-delay: .1s; }
+.orders-table tbody tr:nth-child(3) { animation-delay: .15s; }
+.orders-table tbody tr:nth-child(4) { animation-delay: .2s; }
+.orders-table tbody tr:nth-child(5) { animation-delay: .25s; }
+.orders-table tbody tr:nth-child(6) { animation-delay: .3s; }
+
+.orders-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.orders-table tbody tr:hover {
+  background: rgba(255, 255, 255, .025);
+}
+
+.orders-table td {
+  padding: .85rem 1.2rem;
+  font-size: .9rem;
+  color: var(--td);
+  vertical-align: middle;
+}
+
+.order-id {
+  font-family: 'Cinzel', serif;
+  font-size: .68rem;
+  color: var(--g);
+  font-weight: 700;
+}
+
+.order-coin {
+  font-weight: 500;
+  color: var(--t);
+}
+
+.order-total {
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--g);
+}
+
+.orders-note {
+  margin-top: 1.4rem;
+  padding: .9rem 1.3rem;
+  border-left: 2px solid var(--g);
+  background: var(--gf);
+  border-radius: 0 var(--r) var(--r) 0;
+  font-size: .88rem;
+  color: var(--td);
+  font-style: italic;
+}
+
+/ ============================================================
+   SEZIONE CSS 17 — GARANZIE
+   ============================================================ /
+#garanzie {
+  background: var(--ink2);
+  position: relative;
+  overflow: hidden;
+}
+
+.guarantees-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.guarantee-card {
+  padding: 2rem 1.8rem;
+  border-radius: var(--rx);
+  background: rgba(14, 13, 20, .88);
+  border: 1px solid var(--b);
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: 
+    transform .28s var(--ease2),
+    box-shadow .28s var(--ease),
+    border-color .28s var(--ease);
+}
+
+.guarantee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .4), 0 0 22px rgba(200, 169, 81, .1);
+  border-color: rgba(200, 169, 81, .35);
+}
+
+.guarantee-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--gf);
+  border: 1px solid var(--b);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.1rem;
+  font-size: 1.35rem;
+  transition: 
+    transform .3s var(--ease2),
+    box-shadow .3s var(--ease);
+}
+
+.guarantee-card:hover .guarantee-icon {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(200, 169, 81, .2);
+}
+
+.guarantee-title {
+  font-family: 'Cinzel', serif;
+  font-size: .88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: .7rem;
+}
+
+.guarantee-text {
+  color: var(--td);
+  font-size: .9rem;
+  line-height: 1.78;
+}
+
+/ ============================================================
+   SEZIONE CSS 18 — FAQ
+   ============================================================ /
+#faq {
+  background: var(--ink3);
+}
+
+.faq-list {
+  display: grid;
+  gap: .85rem;
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.faq-item {
+  border-radius: var(--rl);
+  background: linear-gradient(145deg, #100f18, #161420);
+  border: 1px solid var(--b);
+  overflow: hidden;
+  transition: 
+    border-color .25s var(--ease),
+    box-shadow .25s var(--ease);
+}
+
+.faq-item:hover {
+  border-color: rgba(200, 169, 81, .28);
+}
+
+.faq-item.open {
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.1rem 1.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  color: var(--t);
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question-text {
+  font-family: 'Cinzel', serif;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.faq-chevron {
+  color: var(--g);
+  font-size: .9rem;
+  transition: transform .25s var(--ease2);
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .32s var(--ease);
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+
+.faq-answer-content {
+  padding: 0 1.35rem 1.35rem;
+  color: var(--td);
+  font-size: .92rem;
+  line-height: 1.8;
+}
+
+/ ============================================================
+   SEZIONE CSS 19 — CONTATTI
+   ============================================================ /
+#contatti {
+  background: var(--ink2);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 3.5rem;
+}
+
+.contact-info-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 1.4rem;
+}
+
+.contact-info-rows {
+  display: grid;
+  gap: .7rem;
+}
+
+.contact-info-row {
+  display: flex;
+  gap: .8rem;
+  align-items: flex-start;
+  padding: .8rem 1rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .025);
+  border: 1px solid var(--bs);
+  transition: 
+    background .2s var(--ease),
+    border-color .2s var(--ease),
+    transform .2s var(--ease);
+}
+
+.contact-info-row:hover {
+  background: rgba(200, 169, 81, .07);
+  border-color: rgba(200, 169, 81, .22);
+  transform: translateX(4px);
+}
+
+.contact-info-icon {
+  color: var(--g);
+  flex-shrink: 0;
+  margin-top: .1rem;
+  font-size: 1rem;
+}
+
+.contact-info-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.contact-info-value {
+  display: block;
+  font-size: .9rem;
+  color: var(--t);
+  margin-top: .1rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: .9rem;
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .9rem;
+}
+
+/ ============================================================
+   SEZIONE CSS 20 — FOOTER
+   ============================================================ /
+.footer {
+  border-top: 1px solid var(--b);
+  padding: 3.5rem 0 2rem;
+  background: rgba(4, 4, 8, .95);
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-brand p {
+  font-size: .86rem;
+  color: var(--tm);
+  line-height: 1.75;
+  max-width: 260px;
+  margin-top: .9rem;
+}
+
+.footer-column h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-bottom: .85rem;
+}
+
+.footer-column ul {
+  display: grid;
+  gap: .4rem;
+}
+
+.footer-column li a {
+  font-size: .84rem;
+  color: var(--tm);
+  transition: color .2s var(--ease);
+}
+
+.footer-column li a:hover {
+  color: var(--g);
+}
+
+.footer-bottom {
+  margin-top: 2.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--bs);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--tm);
+  font-size: .78rem;
+  font-style: italic;
+}
+
+.footer-social {
+  display: flex;
+  gap: .7rem;
+}
+
+.footer-social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  display: grid;
+  place-items: center;
+  color: var(--tm);
+  transition: all .25s var(--ease);
+}
+
+.footer-social-link:hover {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+  transform: translateY(-3px);
+}
+
+/ ============================================================
+   SEZIONE CSS 21 — CART PANEL
+   ============================================================ /
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: var(--z-cart);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .32s var(--ease), visibility .32s;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(450px, 100%);
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(180deg, #0c0b12 0%, #0a0912 100%);
+  border-left: 1px solid var(--b);
+  box-shadow: -28px 0 70px rgba(0, 0, 0, .6);
+  z-index: calc(var(--z-cart) + 1);
+  transform: translateX(100%);
+  transition: transform .38s var(--ease3);
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-panel.open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--b);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, .15);
+}
+
+.cart-header h3 {
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.cart-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: .9rem;
+  color: var(--td);
+  transition: all .25s var(--ease);
+}
+
+.cart-close-btn:hover {
+  background: rgba(255, 255, 255, .08);
+  color: var(--t);
+}
+
+.cart-items {
+  padding: 1rem 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  display: grid;
+  gap: .75rem;
+  align-content: start;
+}
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  color: var(--tm);
+  font-style: italic;
+}
+
+.cart-empty-icon {
+  font-size: 2.8rem;
+  opacity: .3;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: .75rem;
+  align-items: center;
+  padding: .8rem;
+  border-radius: var(--rl);
+  background: rgba(20, 18, 32, .9);
+  border: 1px solid var(--bs);
+  animation: itemIn .3s var(--ease) both;
+  transition: 
+    background .2s var(--ease),
+    border-color .2s var(--ease);
+}
+
+.cart-item:hover {
+  background: rgba(25, 22, 40, .95);
+  border-color: rgba(200, 169, 81, .15);
+}
+
+.cart-item-thumb {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, .65);
+  border: 3px solid rgba(255, 255, 255, .14);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cart-item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.cart-item-info h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .8rem;
+  margin-bottom: .12rem;
+  line-height: 1.2;
+}
+
+.cart-item-info p {
+  font-size: .75rem;
+  color: var(--tm);
+}
+
+.cart-item-price {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--g);
+}
+
+.cart-item-remove {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: none;
+  cursor: pointer;
+  color: var(--tm);
+  font-size: .65rem;
+  transition: all .2s var(--ease);
+  margin-top: .25rem;
+}
+
+.cart-item-remove:hover {
+  background: rgba(200, 60, 60, .2);
+  color: #ef5350;
+}
+
+.cart-footer {
+  padding: 1.2rem 1.5rem;
+  border-top: 1px solid var(--b);
+  display: grid;
+  gap: .65rem;
+  background: rgba(0, 0, 0, .12);
+}
+
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .88rem;
+  color: var(--td);
+}
+
+.cart-row.total {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  color: var(--t);
+}
+
+.cart-row.total strong {
+  color: var(--g);
+}
+
+/ ============================================================
+   SEZIONE CSS 22 — MODAL
+   ============================================================ /
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s var(--ease), visibility .3s;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: linear-gradient(145deg, #110F1C, #1C1A28);
+  border: 1px solid var(--b);
+  border-radius: var(--rx);
+  box-shadow: 
+    0 48px 120px rgba(0, 0, 0, .75),
+    0 0 80px rgba(200, 169, 81, .1);
+  max-width: 820px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  animation: popIn .32s var(--ease2);
+}
+
+.modal-header {
+  padding: 2rem 2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--b);
+}
+
+.modal-category {
+  font-family: 'Cinzel', serif;
+  font-size: .58rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-bottom: .3rem;
+}
+
+.modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.modal-body {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.modal-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-images-row {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.modal-coin-image {
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid rgba(255, 255, 255, .16);
+  box-shadow: 
+    inset 0 0 40px rgba(0, 0, 0, .32),
+    0 18px 55px rgba(0, 0, 0, .5);
+  display: block;
+  flex-shrink: 0;
+}
+
+.modal-coin-disc {
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 5px solid rgba(255, 255, 255, .16);
+  box-shadow: 
+    inset 0 0 40px rgba(0, 0, 0, .32),
+    0 18px 55px rgba(0, 0, 0, .5);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.modal-coin-disc span {
+  font-family: 'Cinzel', serif;
+  font-size: .88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+  padding: .8rem;
+  color: rgba(0, 0, 0, .65);
+}
+
+.modal-image-label {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tm);
+  margin-top: .3rem;
+}
+
+.modal-details {
+  display: grid;
+  gap: .9rem;
+}
+
+.modal-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .45rem;
+}
+
+.modal-spec-box {
+  padding: .65rem .9rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .025);
+  border: 1px solid var(--bs);
+}
+
+.modal-spec-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: .54rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tm);
+  margin-bottom: .18rem;
+}
+
+.modal-spec-value {
+  font-size: .88rem;
+  color: var(--t);
+}
+
+.modal-description {
+  font-size: .9rem;
+  color: var(--td);
+  line-height: 1.82;
+  font-style: italic;
+}
+
+.modal-history {
+  font-size: .84rem;
+  color: var(--tm);
+  line-height: 1.78;
+  margin-top: .6rem;
+  padding-top: .7rem;
+  border-top: 1px solid var(--bs);
+}
+
+.modal-price-label {
+  font-family: 'Cinzel', serif;
+  font-size: .56rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+
+.modal-price-value {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--g);
+  line-height: 1;
+}
+
+.modal-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--b);
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, .1);
+}
+
+/ ============================================================
+   SEZIONE CSS 23 — TOAST NOTIFICATIONS
+   ============================================================ /
+.toast-container {
+  position: fixed;
+  top: calc(var(--hdr) + 1rem);
+  right: 1.2rem;
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: .9rem 1.2rem;
+  border-radius: var(--rl);
+  background: rgba(14, 13, 20, .98);
+  border: 1px solid var(--b);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: auto;
+  animation: toastIn .32s var(--ease2) both;
+  max-width: 360px;
+}
+
+.toast.hiding {
+  animation: toastOut .28s var(--ease) forwards;
+}
+
+.toast-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-family: 'Cinzel', serif;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  margin-bottom: .12rem;
+}
+
+.toast-message {
+  font-size: .82rem;
+  color: var(--td);
+}
+
+.toast-close {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--tm);
+  font-size: .6rem;
+  transition: all .2s var(--ease);
+  flex-shrink: 0;
+}
+
+.toast-close:hover {
+  background: rgba(255, 255, 255, .1);
+  color: var(--t);
+}
+
+.toast-success {
+  border-color: rgba(40, 120, 50, .3);
+}
+
+.toast-success .toast-icon {
+  color: #5dba6d;
+}
+
+.toast-error {
+  border-color: rgba(200, 60, 60, .3);
+}
+
+.toast-error .toast-icon {
+  color: #ef5350;
+}
+
+.toast-info {
+  border-color: rgba(30, 100, 200, .3);
+}
+
+.toast-info .toast-icon {
+  color: #5fa8e8;
+}
+
+.toast-warning {
+  border-color: rgba(200, 140, 30, .3);
+}
+
+.toast-warning .toast-icon {
+  color: #e8a820;
+}
+
+/ ============================================================
+   SEZIONE CSS 24 — SEARCH MODAL
+   ============================================================ /
+.search-modal {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-modal) + 1);
+  background: rgba(0, 0, 0, .88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7rem 2rem 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s var(--ease), visibility .3s;
+}
+
+.search-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--bs);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--td);
+  font-size: 1.1rem;
+  transition: all .25s var(--ease);
+}
+
+.search-modal-close:hover {
+  background: rgba(255, 255, 255, .1);
+  color: var(--t);
+}
+
+.search-input-wrapper {
+  width: min(100%, 650px);
+  position: relative;
+}
+
+.search-input-large {
+  width: 100%;
+  padding: 1.3rem 3rem 1.3rem 1.3rem;
+  border-radius: var(--rl);
+  background: rgba(20, 18, 30, .95);
+  border: 1px solid var(--b);
+  color: var(--t);
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  letter-spacing: .05em;
+  transition: 
+    border-color .25s var(--ease),
+    box-shadow .25s var(--ease);
+}
+
+.search-input-large::placeholder {
+  color: var(--tm);
+}
+
+.search-input-large:focus {
+  border-color: var(--g);
+  box-shadow: 0 0 0 4px rgba(200, 169, 81, .1);
+}
+
+.search-input-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--g);
+  font-size: 1.2rem;
+}
+
+.search-results {
+  width: min(100%, 650px);
+  margin-top: 1.8rem;
+  max-height: 50vh;
+  overflow-y: auto;
+  display: grid;
+  gap: .55rem;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: .9rem 1.1rem;
+  border-radius: var(--rl);
+  background: rgba(20, 18, 30, .8);
+  border: 1px solid var(--bs);
+  cursor: pointer;
+  transition: 
+    background .2s var(--ease),
+    border-color .2s var(--ease),
+    transform .2s var(--ease);
+}
+
+.search-result-item:hover {
+  background: rgba(30, 26, 45, .9);
+  border-color: rgba(200, 169, 81, .25);
+  transform: translateX(4px);
+}
+
+.search-result-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, .12);
+}
+
+.search-result-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.search-result-info h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  margin-bottom: .12rem;
+}
+
+.search-result-info p {
+  font-size: .75rem;
+  color: var(--tm);
+}
+
+.search-result-price {
+  margin-left: auto;
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--g);
+}
+
+.search-no-results {
+  text-align: center;
+  padding: 2.5rem;
+  color: var(--tm);
+  font-style: italic;
+}
+
+/ ============================================================
+   SEZIONE CSS 25 — AUTH MODAL
+   ============================================================ /
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: var(--z-auth);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s var(--ease), visibility .35s;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.auth-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.auth-modal {
+  background: linear-gradient(145deg, #0f0e18, #1a182a);
+  border: 1px solid var(--b);
+  border-radius: var(--rx);
+  box-shadow: 
+    0 48px 120px rgba(0, 0, 0, .8),
+    0 0 100px rgba(200, 169, 81, .08);
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  animation: popIn .35s var(--ease2);
+  position: relative;
+}
+
+.auth-modal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--rx);
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(200, 169, 81, .06), transparent 60%);
+  pointer-events: none;
+}
+
+.auth-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--tm);
+  font-size: .9rem;
+  transition: all .25s var(--ease);
+  z-index: 10;
+}
+
+.auth-close:hover {
+  background: rgba(255, 255, 255, .08);
+  color: var(--t);
+}
+
+.auth-header {
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 1.2rem;
+  background: radial-gradient(circle at 35% 28%, #f8e89a, #d4a835 38%, #8a5c0e 75%, #3a2402 100%);
+  display: grid;
+  place-items: center;
+  box-shadow: 
+    0 0 30px rgba(200, 169, 81, .4),
+    inset -4px -4px 10px rgba(0, 0, 0, .3);
+  animation: avatarGlow 3s ease-in-out infinite;
+}
+
+.auth-logo span {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: .65rem;
+  color: rgba(0, 0, 0, .65);
+  letter-spacing: .1em;
+}
+
+.auth-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .4rem;
+}
+
+.auth-subtitle {
+  font-size: .9rem;
+  color: var(--td);
+  font-style: italic;
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--b);
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color .25s var(--ease);
+}
+
+.auth-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--g), var(--g2));
+  transform: scaleX(0);
+  transition: transform .3s var(--ease2);
+}
+
+.auth-tab.active {
+  color: var(--g);
+}
+
+.auth-tab.active::after {
+  transform: scaleX(1);
+}
+
+.auth-tab:hover:not(.active) {
+  color: var(--td);
+}
+
+.auth-body {
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-form {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn .3s var(--ease);
+}
+
+.auth-form.active {
+  display: flex;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: .5rem 0;
+}
+
+.auth-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--bs);
+}
+
+.auth-divider-text {
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  letter-spacing: .12em;
+  color: var(--tm);
+  text-transform: uppercase;
+}
+
+.auth-social-btns {
+  display: flex;
+  gap: .8rem;
+}
+
+.auth-social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  color: var(--td);
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+}
+
+.auth-social-btn:hover {
+  background: rgba(255, 255, 255, .08);
+  border-color: var(--bs2);
+  color: var(--t);
+}
+
+.auth-social-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.auth-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--b);
+  text-align: center;
+  background: rgba(0, 0, 0, .1);
+  position: relative;
+  z-index: 1;
+}
+
+.auth-footer-text {
+  font-size: .82rem;
+  color: var(--tm);
+}
+
+.auth-footer-link {
+  color: var(--g);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color .2s var(--ease);
+}
+
+.auth-footer-link:hover {
+  color: var(--g2);
+  text-decoration: underline;
+}
+
+/ Password Strength Indicator /
+.password-strength {
+  display: flex;
+  gap: .25rem;
+  margin-top: .3rem;
+}
+
+.password-strength-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--bs);
+  border-radius: 2px;
+  transition: background .3s var(--ease);
+}
+
+.password-strength-bar.weak { background: #ef5350; }
+.password-strength-bar.medium { background: #e8a820; }
+.password-strength-bar.strong { background: #5dba6d; }
+
+.password-strength-text {
+  font-size: .68rem;
+  margin-top: .25rem;
+  transition: color .3s var(--ease);
+}
+
+.password-strength-text.weak { color: #ef5350; }
+.password-strength-text.medium { color: #e8a820; }
+.password-strength-text.strong { color: #5dba6d; }
+
+/ Auth Success Animation /
+.auth-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeIn .3s var(--ease);
+}
+
+.auth-success.active {
+  display: flex;
+}
+
+.auth-success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(93, 186, 109, .2), rgba(93, 186, 109, .1));
+  border: 2px solid #5dba6d;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.5rem;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.auth-success-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #5dba6d;
+}
+
+.auth-success-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.auth-success-text {
+  color: var(--td);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+/ User Profile Dropdown /
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + .5rem);
+  right: 0;
+  width: 280px;
+  background: linear-gradient(145deg, #0f0e18, #1a182a);
+  border: 1px solid var(--b);
+  border-radius: var(--rl);
+  box-shadow: var(--sh);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all .25s var(--ease);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.profile-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-dropdown-header {
+  padding: 1.2rem;
+  background: var(--gf);
+  border-bottom: 1px solid var(--b);
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+
+.profile-dropdown-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--g3), var(--g));
+  display: grid;
+  place-items: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: .9rem;
+  color: #080500;
+  flex-shrink: 0;
+}
+
+.profile-dropdown-info h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .85rem;
+  font-weight: 700;
+  margin-bottom: .15rem;
+}
+
+.profile-dropdown-info p {
+  font-size: .72rem;
+  color: var(--tm);
+}
+
+.profile-dropdown-id {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .15rem .4rem;
+  background: rgba(255, 255, 255, .05);
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  color: var(--g);
+  margin-top: .3rem;
+}
+
+.profile-dropdown-menu {
+  padding: .5rem 0;
+}
+
+.profile-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .8rem 1.2rem;
+  font-size: .82rem;
+  color: var(--td);
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
+
+.profile-dropdown-item:hover {
+  background: rgba(255, 255, 255, .04);
+  color: var(--t);
+  padding-left: 1.4rem;
+}
+
+.profile-dropdown-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--g);
+  flex-shrink: 0;
+}
+
+.profile-dropdown-item.danger {
+  color: #ef5350;
+}
+
+.profile-dropdown-item.danger svg {
+  color: #ef5350;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  background: var(--bs);
+  margin: .5rem 1rem;
+}
+
+.profile-dropdown-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, .1);
+  border-top: 1px solid var(--bs);
+}
+
+.profile-dropdown-stat {
+  text-align: center;
+  padding: .5rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .02);
+}
+
+.profile-dropdown-stat-value {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--g);
+}
+
+.profile-dropdown-stat-label {
+  font-size: .6rem;
+  color: var(--tm);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/ ============================================================
+   SEZIONE CSS 26 — BACK TO TOP
+   ============================================================ /
+.back-to-top {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--g), var(--g3));
+  color: #080500;
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 28px rgba(200, 169, 81, .35);
+  z-index: calc(var(--z-overlay) - 1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: 
+    opacity .3s var(--ease),
+    visibility .3s,
+    transform .3s var(--ease2);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 38px rgba(200, 169, 81, .48);
+}
+
+/ ============================================================
+   SEZIONE CSS 27 — READING PROGRESS BAR
+   ============================================================ /
+.reading-progress {
+  position: fixed;
+  top: var(--hdr);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, .04);
+  z-index: calc(var(--z-header) - 1);
+  transition: transform .3s var(--ease);
+}
+
+.reading-progress.hidden {
+  transform: translateY(calc(-1  var(--hdr) - 2px));
+}
+   
+.reading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--g3), var(--g), var(--g2));
+  width: 0%;
+  transition: width .1s linear;
+}
+
+/ ============================================================
+   SEZIONE CSS 28 — RESPONSIVE
+   ============================================================ /
+@media (max-width: 1280px) {
+  .coins-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .types-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .showcase-frame {
+    display: none;
+  }
+  
+  .slide-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+  }
+  
+  .slide-coin-wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .modal-body {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .filter-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .quick-nav-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .guarantees-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .coin-flipper {
+    width: clamp(150px, 28vw, 220px);
+    height: clamp(150px, 28vw, 220px);
+    min-width: clamp(150px, 28vw, 220px);
+    min-height: clamp(150px, 28vw, 220px);
+  }
+  
+  .profile-btn-text {
+    display: none;
+  }
+  
+  .profile-btn {
+    padding: .4rem .6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --hdr: 60px;
+  }
+  
+  .main-nav {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .mobile-nav {
+    display: flex;
+  }
+  
+  .coins-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .types-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+  }
+  
+  .hero-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--b);
+  }
+  
+  .hero-stat:last-child {
+    border-bottom: none;
+  }
+  
+  .quick-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-bar {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.4rem, 9vw, 3.8rem);
+  }
+  
+  .coin-flipper {
+    width: clamp(130px, 38vw, 180px);
+    height: clamp(130px, 38vw, 180px);
+    min-width: clamp(130px, 38vw, 180px);
+    min-height: clamp(130px, 38vw, 180px);
+  }
+  
+  .modal-coin-image,
+  .modal-coin-disc {
+    width: 125px;
+    height: 125px;
+    min-width: 125px;
+    min-height: 125px;
+  }
+  
+  .section {
+    padding: 4.5rem 0;
+  }
+  
+  .orders-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .orders-table {
+    min-width: 580px;
+  }
+  
+  .auth-modal {
+    max-width: 100%;
+    margin: 1rem;
+    border-radius: var(--rl);
+  }
+  
+  .profile-dropdown {
+    position: fixed;
+    top: var(--hdr);
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 var(--rl) var(--rl);
+    max-height: calc(100vh - var(--hdr));
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .coins-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .types-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+  }
+  
+  .slide-actions {
+    flex-direction: column;
+  }
+  
+  .slide-actions .btn {
+    width: 100%;
+  }
+  
+  .modal-footer {
+    flex-direction: column;
+  }
+  
+  .modal-footer .btn {
+    width: 100%;
+  }
+  
+  .quick-nav-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: .65rem;
+  }
+  
+  .quick-tile {
+    padding: .9rem .7rem;
+  }
+  
+  .slide-specs {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-specs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cart-panel {
+    width: 100%;
+  }
+  
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    top: auto;
+    bottom: 1rem;
+  }
+  
+  .toast {
+    max-width: 100%;
+  }
+  
+  .header-actions {
+    gap: .5rem;
+  }
+  
+  .cart-btn span:not(.cart-count) {
+    display: none;
+  }
+  
+  .cart-btn {
+    padding: .5rem .7rem;
+  }
+  
+  .auth-social-btns {
+    flex-direction: column;
+  }
+}
+
+@media print {
+  .header,
+  .footer,
+  .cart-btn,
+  .back-to-top,
+  .toast-container,
+  .profile-btn {
+    display: none !important;
+  }
+  
+  .section {
+    padding: 2rem 0;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+</style>
+</head>
+<body>
+<!-- ============================================================
+     ELEMENTI DI SFONDO
+     ============================================================ -->
+<div class="page-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ============================================================
+     LOADER
+     ============================================================ -->
+<div id="loader">
+  <div class="ld-coin"></div>
+  <div class="ld-txt" id="ldTxt">Caricamento…</div>
+</div>
+
+<!-- ============================================================
+     READING PROGRESS BAR
+     ============================================================ -->
+<div class="reading-progress">
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
+</div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="mainHeader">
+  <div class="wrap header-inner">
+    <a href="#home" class="logo">
+      <div class="logo-seal" id="logoSeal">
+        <span id="logoMark">PSN</span>
+      </div>
+      <div class="logo-text">
+        <b id="brandName">Pecunia Solis</b>
+        <small id="brandTagline">Numismatica Professionale</small>
+      </div>
+    </a>
+    
+    <nav class="main-nav" id="mainNav">
+      <a href="#vetrina" class="nav-link" data-nav="vetrina">Vetrina</a>
+      <a href="#catalogo" class="nav-link" data-nav="catalogo">Catalogo</a>
+      <a href="#tipologie" class="nav-link" data-nav="tipologie">Tipologie</a>
+      <a href="#ordini" class="nav-link" data-nav="ordini">Ordini</a>
+      <a href="#garanzie" class="nav-link" data-nav="garanzie">Garanzie</a>
+      <a href="#faq" class="nav-link" data-nav="faq">FAQ</a>
+      <a href="#contatti" class="nav-link" data-nav="contatti">Contatti</a>
+    </nav>
+    
+    <div class="header-actions">
+      <button class="search-toggle" id="searchToggle" aria-label="Cerca">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </button>
+      
+      <!-- Profile Button -->
+      <div style="position: relative;">
+        <button class="profile-btn" id="profileBtn" aria-label="Profilo">
+          <div class="profile-btn-avatar" id="profileBtnAvatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <span class="profile-btn-text" id="profileBtnText">Accedi</span>
+        </button>
+        
+        <!-- Profile Dropdown (shown when logged in) -->
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="profile-dropdown-header">
+            <div class="profile-dropdown-avatar" id="dropdownAvatar">MC</div>
+            <div class="profile-dropdown-info">
+              <h4 id="dropdownName">Marco Collezione</h4>
+              <p id="dropdownEmail">marco@esempio.it</p>
+              <span class="profile-dropdown-id">
+                <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                ID: <span id="dropdownUserId">#0001</span>
+              </span>
+            </div>
+          </div>
+          
+          <div class="profile-dropdown-menu">
+            <div class="profile-dropdown-item" onclick="showToast({type:'info', title:'I miei ordini', message:'Funzionalità in sviluppo'})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span>I miei ordini</span>
+            </div>
+            <div class="profile-dropdown-item" onclick="showToast({type:'info', title:'Lista desideri', message:'Funzionalità in sviluppo'})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              <span>Lista desideri</span>
+            </div>
+            <div class="profile-dropdown-item" onclick="showToast({type:'info', title:'Impostazioni', message:'Funzionalità in sviluppo'})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              <span>Impostazioni</span>
+            </div>
+            
+            <div class="profile-dropdown-divider"></div>
+            
+            <div class="profile-dropdown-item danger" onclick="handleLogout()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+              <span>Esci</span>
+            </div>
+          </div>
+          
+          <div class="profile-dropdown-stats">
+            <div class="profile-dropdown-stat">
+              <div class="profile-dropdown-stat-value" id="dropdownOrderCount">0</div>
+              <div class="profile-dropdown-stat-label">Ordini</div>
+            </div>
+            <div class="profile-dropdown-stat">
+              <div class="profile-dropdown-stat-value" id="dropdownWishlistCount">0</div>
+              <div class="profile-dropdown-stat-label">Desideri</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="cart-btn" id="cartBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="9" cy="21" r="1"/>
+          <circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/>
+        </svg>
+        <span id="cartLabel">Carrello</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#home" class="mobile-nav-link" data-nav="home">Home</a>
+  <a href="#vetrina" class="mobile-nav-link" data-nav="vetrina">Vetrina</a>
+  <a href="#catalogo" class="mobile-nav-link" data-nav="catalogo">Catalogo</a>
+  <a href="#tipologie" class="mobile-nav-link" data-nav="tipologie">Tipologie</a>
+  <a href="#ordini" class="mobile-nav-link" data-nav="ordini">Ordini</a>
+  <a href="#garanzie" class="mobile-nav-link" data-nav="garanzie">Garanzie</a>
+  <a href="#faq" class="mobile-nav-link" data-nav="faq">FAQ</a>
+  <a href="#contatti" class="mobile-nav-link" data-nav="contatti">Contatti</a>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ============================================================ -->
+<section id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge" id="heroBadge">
+          Collezione Numismatica Professionale
+        </div>
+        
+        <h1 class="hero-title" id="heroTitle">
+          <em id="heroTitleEm">Pecunia Solis</em>
+          <span id="heroTitleSub">Numismatica</span>
+        </h1>
+        
+        <p class="hero-description" id="heroDescription">
+          Monete antiche romane, imperiali e provinciali, di autenticità garantita. 
+          Una collezione curata di denari, sesterzi, aurei e altre 63+ tipologie 
+          per collezionisti di ogni età e appassionati di storia
+        </p>
+        
+        <div class="hero-actions">
+          <a href="#vetrina" class="btn btn-primary btn-lg" id="heroCta1">
+            <span>Esplora la Vetrina</span>
+          </a>
+          <a href="#catalogo" class="btn btn-outline btn-lg" id="heroCta2">
+            <span>Catalogo Completo</span>
+          </a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-value" id="stat1Value">66+</span>
+            <span class="hero-stat-label" id="stat1Label">Tipologie</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value" id="stat2Value">100%</span>
+            <span class="hero-stat-label" id="stat2Label">Professionalità</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value" id="stat3Value">2500+</span>
+            <span class="hero-stat-label" id="stat3Label">Anni di Storia</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value" id="stat4Value">Italia & UE</span>
+            <span class="hero-stat-label" id="stat4Label">Spedizioni</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-showcase">
+        <div class="showcase-frame">
+          <div class="showcase-coin" id="showcaseCoin">
+            <div class="showcase-coin-shimmer"></div>
+            <img id="showcaseCoinImg" src="" alt="Aureo Imperiale"/>
+            <span class="showcase-coin-text" id="showcaseCoinText">Aureo Imperiale</span>
+          </div>
+          
+          <div class="showcase-meta">
+            <div class="showcase-meta-row">
+              <span class="showcase-meta-label">Specializzazione</span>
+              <span class="showcase-meta-value">Monete romane e affini</span>
+            </div>
+            <div class="showcase-meta-row">
+              <span class="showcase-meta-label">Metalli</span>
+              <span class="showcase-meta-value">Oro · Argento · Bronzo</span>
+            </div>
+            <div class="showcase-meta-row">
+              <span class="showcase-meta-label">Copertura</span>
+              <span class="showcase-meta-value">Repubblica — Tardo Impero</span>
+            </div>
+            <div class="showcase-meta-row">
+              <span class="showcase-meta-label">Consegna</span>
+              <span class="showcase-meta-value highlight">Tracciata e assicurata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="wrap quick-nav">
+    <div class="quick-nav-grid" id="quickNavGrid">
+      <div class="quick-tile" onclick="smoothScrollTo('vetrina')">
+        <div class="quick-tile-icon">🥇</div>
+        <div class="quick-tile-label">Vetrina</div>
+      </div>
+      <div class="quick-tile" onclick="smoothScrollTo('catalogo')">
+        <div class="quick-tile-icon">📜</div>
+        <div class="quick-tile-label">Catalogo</div>
+      </div>
+      <div class="quick-tile" onclick="smoothScrollTo('tipologie')">
+        <div class="quick-tile-icon">🏛️</div>
+        <div class="quick-tile-label">Tipologie</div>
+      </div>
+      <div class="quick-tile" onclick="smoothScrollTo('ordini')">
+        <div class="quick-tile-icon">📦</div>
+        <div class="quick-tile-label">Ordini</div>
+      </div>
+      <div class="quick-tile" onclick="smoothScrollTo('garanzie')">
+        <div class="quick-tile-icon">🔐</div>
+        <div class="quick-tile-label">Garanzie</div>
+      </div>
+      <div class="quick-tile" onclick="smoothScrollTo('contatti')">
+        <div class="quick-tile-icon">✉️</div>
+        <div class="quick-tile-label">Contatti</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     VETRINA / SLIDESHOW SECTION
+     ============================================================ -->
+<section class="section section-alt" id="vetrina">
+  <div class="section-bg" id="vetrinaBg"><div class="section-bg-overlay"></div></div>
+  
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-tag">Le Protagoniste</div>
+      <h2 class="section-title">Le Cinque Monete Iconiche</h2>
+      <p class="section-subtitle">
+        Asse, Dupondio, Sesterzio, Denario e Aureo — le fondamenta del sistema monetario romano
+      </p>
+    </div>
+    
+    <div class="slideshow-container" id="slideshowContainer">
+      <div class="slideshow-progress">
+        <div class="slideshow-progress-fill" id="slideshowProgress"></div>
+      </div>
+      <div class="slideshow-track" id="slideshowTrack"></div>
+    </div>
+    
+    <div class="slideshow-nav">
+      <button class="slideshow-arrow" id="slidePrev" aria-label="Slide precedente">←</button>
+      <div class="slideshow-dots" id="slideshowDots"></div>
+      <button class="slideshow-arrow" id="slideNext" aria-label="Slide successiva">→</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider divider-gold"></div>
+
+<!-- ============================================================
+     CATALOGO SECTION
+     ============================================================ -->
+<section class="section section-dark" id="catalogo">
+  <div class="section-bg" id="catalogoBg"><div class="section-bg-overlay"></div></div>
+  
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-tag">Disponibili Ora</div>
+      <h2 class="section-title">Catalogo Monete in Vendita</h2>
+      <p class="section-subtitle">
+        Clicca sulla moneta per passare dal dritto al rovescio. Doppio clic per la scheda completa.
+      </p>
+    </div>
+    
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label for="searchInput">Cerca</label>
+        <input type="search" id="searchInput" class="form-input" placeholder="Nome, periodo, metallo..."/>
+      </div>
+      <div class="filter-group">
+        <label for="metalFilter">Metallo</label>
+        <select id="metalFilter" class="form-select">
+          <option value="">Tutti</option>
+          <option value="Oro">Oro</option>
+          <option value="Argento">Argento</option>
+          <option value="Bronzo">Bronzo</option>
+          <option value="Mistura">Mistura</option>
+          <option value="Billon">Billon</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="areaFilter">Area</label>
+        <select id="areaFilter" class="form-select">
+          <option value="">Tutte</option>
+          <option value="Romana">Romana</option>
+          <option value="Greca">Greca</option>
+          <option value="Provinciale">Provinciale</option>
+          <option value="Giudaica">Giudaica</option>
+          <option value="Tardo Impero">Tardo Impero</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="sortFilter">Ordina</label>
+        <select id="sortFilter" class="form-select">
+          <option value="">Rilevanza</option>
+          <option value="pa">Prezzo ↑</option>
+          <option value="pd">Prezzo ↓</option>
+          <option value="na">Nome A→Z</option>
+          <option value="nd">Nome Z→A</option>
+        </select>
+      </div>
+      <div class="filter-group" style="justify-content: flex-end;">
+        <label style="visibility: hidden;">x</label>
+        <button class="btn btn-ghost btn-sm" id="resetFilters">Reset Filtri</button>
+      </div>
+    </div>
+    
+    <div class="results-bar">
+      <div class="results-count" id="resultsCount">
+        Risultati: <strong>0</strong>
+      </div>
+      <div class="view-toggle">
+        <button class="view-toggle-btn active" id="gridViewBtn" aria-label="Vista griglia">▦</button>
+        <button class="view-toggle-btn" id="listViewBtn" aria-label="Vista lista">☰</button>
+      </div>
+    </div>
+    
+    <div class="coins-grid" id="coinsGrid"></div>
+    
+    <div class="expand-wrapper" id="expandWrapper" style="display: none;">
+      <button class="btn btn-outline" id="expandBtn">
+        <span id="expandText">Mostra tutte le monete</span>
+        <span id="expandIcon">↓</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     TIPOLOGIE SECTION
+     ============================================================ -->
+<section class="section section-alt" id="tipologie">
+  <div class="section-bg" id="tipologieBg"><div class="section-bg-overlay"></div></div>
+  
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-tag">Repertorio Completo</div>
+      <h2 class="section-title">Tutte le Tipologie Trattate</h2>
+      <p class="section-subtitle">
+        Elenco delle tipologie trattate da Pecunia Solis, suscettibile di ampliamenti con emissioni anche di epoche diverse
+      </p>
+    </div>
+    
+    <div class="types-grid" id="typesGrid"></div>
+  </div>
+</section>
+
+<div class="divider divider-gold"></div>
+
+<!-- ============================================================
+     ORDINI SECTION
+     ============================================================ -->
+<section class="section section-dark" id="ordini">
+  <div class="section-bg" id="ordiniBg"><div class="section-bg-overlay"></div></div>
+  
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-tag">Attività Recente</div>
+      <h2 class="section-title">Ordini Recenti</h2>
+      <p class="section-subtitle">
+        Ultimi ordini inseriti e aggiornati nel sistema
+      </p>
+    </div>
+    
+    <div class="orders-table-wrapper">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>ID Ordine</th>
+            <th>Moneta</th>
+            <th>Data</th>
+            <th>Stato</th>
+            <th>Totale</th>
+          </tr>
+        </thead>
+        <tbody id="ordersBody"></tbody>
+      </table>
+    </div>
+    
+    <div class="orders-note">
+      Le informazioni riportate sono suscettibili di aggiornamenti e variazioni. 
+      Per lo stato del tuo ordine, contattaci direttamente.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     GARANZIE SECTION
+     ============================================================ -->
+<section class="section section-alt" id="garanzie">
+  <div class="section-bg" id="garanzieBg"><div class="section-bg-overlay"></div></div>
+  
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-tag">La Nostra Promessa</div>
+      <h2 class="section-title">Garanzie e Autenticità</h2>
+      <p class="section-subtitle">
+        L'autenticità di ogni esemplare è garantita sulla base di rigorose verifiche numismatiche
+      </p>
+    </div>
+    
+    <div class="guarantees-grid" id="guaranteesGrid"></div>
+  </div>
+</section>
+
+<div class="divider divider-gold"></div>
+
+<!-- ============================================================
+     FAQ SECTION
+     ============================================================ -->
+<section class="section section-dark" id="faq">
+  <div class="section-bg" id="faqBg"><div class="section-bg-overlay"></div></div>
+  
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-tag">Domande Frequenti</div>
+      <h2 class="section-title">FAQ</h2>
+    </div>
+    
+    <div class="faq-list" id="faqList"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     CONTATTI SECTION
+     ============================================================ -->
+<section class="section section-alt" id="contatti">
+  <div class="section-bg" id="contattiBg"><div class="section-bg-overlay"></div></div>
+  
+  <div class="wrap">
+    <div class="section-header">
+      <div class="section-tag">Parliamo</div>
+      <h2 class="section-title">Contatti</h2>
+      <p class="section-subtitle">
+        Per informazioni e comunicazioni, si prega di utilizzare i contatti sotto indicati
+      </p>
+    </div>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 class="contact-info-title">Scrivici</h3>
+        <div class="contact-info-rows">
+          <div class="contact-info-row">
+            <span class="contact-info-icon">✉️</span>
+            <div>
+              <span class="contact-info-label">Email</span>
+              <span class="contact-info-value" id="contactEmail">lorenzosportelli@icloud.com</span>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-icon">📞</span>
+            <div>
+              <span class="contact-info-label">Telefono</span>
+              <span class="contact-info-value" id="contactPhone">+39 391 186 2875</span>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-icon">📍</span>
+            <div>
+              <span class="contact-info-label">Sede</span>
+              <span class="contact-info-value" id="contactAddress">Viale Sportelli 25, Fasano (BR)</span>
+            </div>
+          </div>
+          <div class="contact-info-row">
+            <span class="contact-info-icon">🕐</span>
+            <div>
+              <span class="contact-info-label">Orario</span>
+              <span class="contact-info-value" id="contactHours">9:00 - 13:00, 15:30 - 18:00, Lun - Ven</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+        <div class="contact-form-row">
+          <div class="form-group">
+            <label class="form-label" for="contactName">Nome</label>
+            <input type="text" id="contactName" class="form-input" placeholder="Il tuo nome" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactEmailInput">Email</label>
+            <input type="email" id="contactEmailInput" class="form-input" placeholder="email@esempio.com" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="contactSubject">Oggetto</label>
+          <select id="contactSubject" class="form-select" required>
+            <option value="">Seleziona un argomento</option>
+            <option value="info">Informazioni su una moneta</option>
+            <option value="valutazione">Richiesta di valutazione</option>
+            <option value="spedizione">Spedizioni e pagamenti</option>
+            <option value="altro">Altro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="contactMessage">Messaggio</label>
+          <textarea id="contactMessage" class="form-textarea" placeholder="Descrivi la tua richiesta..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="contactSubmit">
+          <span>Invia Messaggio</span>
+          <span>→</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-seal" id="footerLogoSeal">
+            <span>PSN</span>
+          </div>
+          <div class="logo-text">
+            <b>Pecunia Solis</b>
+            <small>Numismatica</small>
+          </div>
+        </div>
+        <p>
+          Pecunia non olet! La passione per la numismatica antica, 
+          tramandata attraverso monete autentiche e certificate.
+        </p>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Navigazione</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#vetrina">Vetrina</a></li>
+          <li><a href="#catalogo">Catalogo</a></li>
+          <li><a href="#tipologie">Tipologie</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Informazioni</h4>
+        <ul>
+          <li><a href="#ordini">Ordini</a></li>
+          <li><a href="#garanzie">Garanzie</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contatti">Contatti</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Legale</h4>
+        <ul>
+          <li><a href="#" onclick="showToast({type:'info',title:'Privacy Policy',message:'Pagina in sviluppo.'});return false;">Privacy Policy</a></li>
+          <li><a href="#" onclick="showToast({type:'info',title:'Termini',message:'Pagina in sviluppo.'});return false;">Termini di Servizio</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <span>© 2026 Pecunia Solis Numismatica. Tutti i diritti riservati.</span>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/lorenzo.sportelli/" target="blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">📷</a>
+        <span style="font-family: 'Cinzel', serif; font-size: .7rem; letter-spacing: .08em; color: var(--tm); margin-left: .3rem;">Instagram</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     CART PANEL
+     ============================================================ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h3>Carrello</h3>
+    <button class="cart-close-btn" id="cartCloseBtn" aria-label="Chiudi carrello">✕</button>
+  </div>
+  
+  <div class="cart-items" id="cartItems"></div>
+  
+  <div class="cart-footer" id="cartFooter" style="display: none;">
+    <div class="cart-row">
+      <span>Subtotale</span>
+      <span id="cartSubtotal">€0</span>
+    </div>
+    <div class="cart-row">
+      <span>Spedizione</span>
+      <span>Da concordare</span>
+    </div>
+    <div class="cart-row total">
+      <span>Totale</span>
+      <strong id="cartTotal">€0</strong>
+    </div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn">
+      <span>Procedi all'Ordine</span>
+      <span>→</span>
+    </button>
+    <button class="btn btn-ghost btn-block" id="clearCartBtn">
+      Svuota Carrello
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-category" id="modalCategory"></div>
+        <h2 class="modal-title" id="modalTitle"></h2>
+      </div>
+      <button class="cart-close-btn" id="modalCloseBtn" aria-label="Chiudi">✕</button>
+    </div>
+    
+    <div class="modal-body">
+      <div class="modal-images">
+        <div class="modal-images-row" id="modalImages"></div>
+      </div>
+      
+      <div class="modal-details">
+        <div class="modal-specs-grid" id="modalSpecs"></div>
+        <p class="modal-description" id="modalDescription"></p>
+        <p class="modal-history" id="modalHistory" style="display: none;"></p>
+        <div class="modal-price">
+          <span class="modal-price-label">Prezzo</span>
+          <span class="modal-price-value" id="modalPrice"></span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="modalCloseBtn2">Chiudi</button>
+      <button class="btn btn-primary" id="modalAddToCart">
+        <span>Aggiungi al Carrello</span>
+        <span>+</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SEARCH MODAL
+     ============================================================ -->
+<div class="search-modal" id="searchModal">
+  <button class="search-modal-close" id="searchModalClose" aria-label="Chiudi ricerca">✕</button>
+  
+  <div class="search-input-wrapper">
+    <input 
+      type="search" 
+      class="search-input-large" 
+      id="searchInputLarge" 
+      placeholder="Cerca monete, periodi, metalli..."
+      autocomplete="off"
+    />
+    <span class="search-input-icon">🔍</span>
+  </div>
+  
+  <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- ============================================================
+     AUTH MODAL
+     ============================================================ -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-modal">
+    <button class="auth-close" id="authClose" aria-label="Chiudi">✕</button>
+    
+    <div class="auth-header">
+      <div class="auth-logo">
+        <span>PSN</span>
+      </div>
+      <h2 class="auth-title">Benvenuto</h2>
+      <p class="auth-subtitle">Accedi o crea un account per continuare</p>
+    </div>
+    
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Accedi</button>
+      <button class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">Registrati</button>
+    </div>
+    
+    <div class="auth-body">
+      <!-- Login Form -->
+      <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="email@esempio.com" required/>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="loginPassword" class="form-input" placeholder="La tua password" required/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('loginPassword', this)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: -.3rem;">
+          <label class="form-checkbox">
+            <input type="checkbox" id="rememberMe"/>
+            <span class="form-checkbox-box"></span>
+            <span class="form-checkbox-label">Ricordami</span>
+          </label>
+          <a href="#" class="auth-footer-link" style="font-size: .78rem;" onclick="showToast({type:'info', title:'Recupero password', message:'Funzionalità in sviluppo'}); return false;">Password dimenticata?</a>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: .5rem;">
+          <span>Accedi</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+            <polyline points="10 17 15 12 10 7"/>
+            <line x1="15" y1="12" x2="3" y2="12"/>
+          </svg>
+        </button>
+        
+        <div class="auth-divider">
+          <span class="auth-divider-line"></span>
+          <span class="auth-divider-text">oppure</span>
+          <span class="auth-divider-line"></span>
+        </div>
+        
+        <div class="auth-social-btns">
+          <button type="button" class="auth-social-btn" onclick="showToast({type:'info', title:'Google', message:'Autenticazione Google in sviluppo'})">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span>Google</span>
+          </button>
+        </div>
+      </form>
+      
+      <!-- Register Form -->
+      <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label class="form-label" for="registerName">Nome completo</label>
+          <input type="text" id="registerName" class="form-input" placeholder="Mario Rossi" required/>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" class="form-input" placeholder="email@esempio.com" required/>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="registerPassword">Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="registerPassword" class="form-input" placeholder="Crea una password sicura" required oninput="checkPasswordStrength(this.value)"/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('registerPassword', this)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <div class="password-strength" id="passwordStrength">
+            <div class="password-strength-bar" id="strengthBar1"></div>
+            <div class="password-strength-bar" id="strengthBar2"></div>
+            <div class="password-strength-bar" id="strengthBar3"></div>
+            <div class="password-strength-bar" id="strengthBar4"></div>
+          </div>
+          <div class="password-strength-text" id="passwordStrengthText"></div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="registerPasswordConfirm">Conferma password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="registerPasswordConfirm" class="form-input" placeholder="Ripeti la password" required/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('registerPasswordConfirm', this)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <label class="form-checkbox" style="margin-top: .3rem;">
+          <input type="checkbox" id="acceptTerms" required/>
+          <span class="form-checkbox-box"></span>
+          <span class="form-checkbox-label">
+            Accetto i <a href="#" onclick="showToast({type:'info', title:'Termini', message:'Pagina in sviluppo'}); return false;">Termini di Servizio</a> e la <a href="#" onclick="showToast({type:'info', title:'Privacy', message:'Pagina in sviluppo'}); return false;">Privacy Policy</a>
+          </span>
+        </label>
+        
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: .8rem;">
+          <span>Crea Account</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <line x1="20" y1="8" x2="20" y2="14"/>
+            <line x1="23" y1="11" x2="17" y2="11"/>
+          </svg>
+        </button>
+        
+        <div class="auth-divider">
+          <span class="auth-divider-line"></span>
+          <span class="auth-divider-text">oppure</span>
+          <span class="auth-divider-line"></span>
+        </div>
+        
+        <div class="auth-social-btns">
+          <button type="button" class="auth-social-btn" onclick="showToast({type:'info', title:'Google', message:'Registrazione Google in sviluppo'})">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span>Google</span>
+          </button>
+        </div>
+      </form>
+      
+      <!-- Success State -->
+      <div class="auth-success" id="authSuccess">
+        <div class="auth-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 class="auth-success-title" id="successTitle">Account creato!</h3>
+        <p class="auth-success-text" id="successText">Benvenuto nella famiglia Pecunia Solis</p>
+        <button class="btn btn-primary" onclick="closeAuthModal()">
+          <span>Inizia a esplorare</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="auth-footer" id="authFooter">
+      <p class="auth-footer-text">
+        Non hai un account? <span class="auth-footer-link" onclick="switchAuthTab('register')">Registrati</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TOAST CONTAINER
+     ============================================================ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ============================================================
+     BACK TO TOP
+     ============================================================ -->
+<button class="back-to-top" id="backToTop" aria-label="Torna su">↑</button>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/ ============================================================
+   SEZIONE JS 1 — SISTEMA IMMAGINI CENTRALIZZATO
+   ============================================================ /
+const IMAGEFILES = {
+  logo: './img3.png',
+  heroBg: './img1.jpg',
+  vetrinaBg: './img1a.png',
+  catalogoBg: './img1b.jpg',
+  tipologieBg: './img1c.jpg',
+  ordiniBg: './img1d.jpg',
+  garanzieBg: './img1e.jpg',
+  faqBg: './img1f.jpg',
+  contattiBg: './img1g.jpg',
+  showcaseCoin: './img3.png',
+  slideBg1: './img4.png',
+  slideBg2: './img5.png',
+  slideBg3: './img6.png',
+  slideBg4: './img7.png',
+  slideBg5: './img8.png',
+  asseObverse: './img41.png',
+  asseReverse: './img42.png',
+  dupondioObverse: './img43.png',
+  dupondioReverse: './img44.png',
+  sesterzioObverse: './img45.png',
+  sesterzioReverse: './img46.png',
+  denarioObverse: './img47.png',
+  denarioReverse: './img48.png',
+  aureoObverse: './img49.png',
+  aureoReverse: './img50.png',
+  quinarioObverse: './img51.png',
+  quinarioReverse: './img52.png',
+  antoninianoObverse: './img53.png',
+  antoninianoReverse: './img54.png',
+  miliarenseLObverse: './img55.png',
+  miliarenseLReverse: './img56.png',
+  miliarensePObverse: './img57.png',
+  miliarensePReverse: './img58.png',
+  siliquaObverse: './img59.png',
+  siliquaReverse: './img60.png',
+  solidoObverse: './img61.png',
+  solidoReverse: './img62.png',
+  tetradracmaObverse: './img63.png',
+  tetradracmaReverse: './img64.png',
+  dracmaObverse: './img65.png',
+  dracmaReverse: './img66.png',
+  assarioObverse: './img67.png',
+  assarioReverse: './img68.png',
+  leptonObverse: './img69.png',
+  leptonReverse: './img70.png',
+  sicloObverse: './img71.png',
+  sicloReverse: './img72.png'
+};
+
+const SLIDEBACKGROUNDS = [
+  IMAGEFILES.slideBg1,
+  IMAGEFILES.slideBg2,
+  IMAGEFILES.slideBg3,
+  IMAGEFILES.slideBg4,
+  IMAGEFILES.slideBg5
+];
+
+/ ============================================================
+   SEZIONE JS 2 — DATABASE MONETE
+   ============================================================ /
+const COINSDATABASE = [
+  {
+    slug: 'asse',
+    name: 'Asse',
+    category: 'Bronzo Romano',
+    isFeatured: true,
+    featuredOrder: 1,
+    metal: 'Bronzo',
+    area: 'Romana',
+    period: 'III sec. a.C. — IV sec. d.C.',
+    weight: '8–28 g',
+    diameter: '25–35 mm',
+    conservation: 'BB/SPL',
+    rarity: 'Comune',
+    price: 38,
+    stockQty: 5,
+    subtitle: 'La moneta di bronzo quotidiana',
+    description: "L'asse era l'unità di conto fondamentale del sistema monetario romano, inizialmente in bronzo fuso poi sempre più ridotto di peso nel corso dei secoli.",
+    historicalNote: 'Coniato per oltre cinque secoli, attraversa tutta la storia romana dalla Repubblica fino al tardo Impero.',
+    obverseImg: IMAGEFILES.asseObverse,
+    reverseImg: IMAGEFILES.asseReverse
+  },
+  {
+    slug: 'dupondio',
+    name: 'Dupondio',
+    category: 'Bronzo Romano',
+    isFeatured: true,
+    featuredOrder: 2,
+    metal: 'Bronzo (oricalco)',
+    area: 'Romana',
+    period: 'I sec. a.C. — III sec. d.C.',
+    weight: '10–16 g',
+    diameter: '26–32 mm',
+    conservation: 'MB/BB',
+    rarity: 'Comune',
+    price: 65,
+    stockQty: 3,
+    subtitle: 'Il doppio asse imperiale',
+    description: "Il dupondio valeva due assi ed era coniato in oricalco, una lega di rame e zinco che gli conferiva un colore più giallastro rispetto all'asse in bronzo puro.",
+    historicalNote: "Si riconosce facilmente dall'effige imperiale con corona radiata anziché laureata, convenzione che permetteva di distinguerlo dall'asse.",
+    obverseImg: IMAGEFILES.dupondioObverse,
+    reverseImg: IMAGEFILES.dupondioReverse
+  },
+  {
+    slug: 'sesterzio',
+    name: 'Sesterzio',
+    category: 'Bronzo Romano',
+    isFeatured: true,
+    featuredOrder: 3,
+    metal: 'Oricalco',
+    area: 'Romana',
+    period: '211 a.C. — IV sec. d.C.',
+    weight: '25–28 g',
+    diameter: '32–38 mm',
+    conservation: 'MB/BB',
+    rarity: 'Non comune',
+    price: 145,
+    stockQty: 2,
+    subtitle: "Il grande bronzo dell'Impero",
+    description: "Il sesterzio è tra le monete romane più ricercate dai collezionisti. Le ampie superfici consentivano incisioni di altissima qualità artistica.",
+    historicalNote: 'Durante il Principato valeva ¼ di denario. Le sue dimensioni generose lo rendevano il supporto ideale per rappresentazioni iconografiche elaborate.',
+    obverseImg: IMAGEFILES.sesterzioObverse,
+    reverseImg: IMAGEFILES.sesterzioReverse
+  },
+  {
+    slug: 'denario',
+    name: 'Denario',
+    category: 'Argento Romano',
+    isFeatured: true,
+    featuredOrder: 4,
+    metal: 'Argento',
+    area: 'Romana',
+    period: '211 a.C. — III sec. d.C.',
+    weight: '3.4–4.5 g',
+    diameter: '17–21 mm',
+    conservation: 'BB/SPL',
+    rarity: 'Comune',
+    price: 95,
+    stockQty: 8,
+    subtitle: "L'argento della Repubblica e dell'Impero",
+    description: "Il denario d'argento era la moneta-colonna della circolazione romana per oltre quattro secoli, utilizzata per pagamenti e scambi commerciali in tutto l'Impero.",
+    historicalNote: "La progressiva riduzione del titolo d'argento nel III sec. è uno degli indicatori più chiari della crisi economica del tardo Impero.",
+    obverseImg: IMAGEFILES.denarioObverse,
+    reverseImg: IMAGEFILES.denarioReverse
+  },
+  {
+    slug: 'aureo',
+    name: 'Aureo',
+    category: 'Oro Imperiale',
+    isFeatured: true,
+    featuredOrder: 5,
+    metal: 'Oro',
+    area: 'Romana',
+    period: 'I sec. a.C. — IV sec. d.C.',
+    weight: '7.3–8 g',
+    diameter: '19–22 mm',
+    conservation: 'BB/qSPL',
+    rarity: 'Raro',
+    price: 2800,
+    stockQty: 1,
+    subtitle: "Il massimo dell'oro imperiale",
+    description: "L'aureo era la moneta aurea principale dell'Impero Romano, equivalente a 25 denari. Rappresentava la massima espressione del prestigio monetario romano.",
+    historicalNote: "La purezza dell'oro si avvicinava ai 24 carati. Fu sostituito dal solido nel IV sec. d.C. con la riforma di Costantino.",
+    obverseImg: IMAGEFILES.aureoObverse,
+    reverseImg: IMAGEFILES.aureoReverse
+  },
+  {
+    slug: 'quinario',
+    name: 'Quinario',
+    category: 'Argento Romano',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Argento',
+    area: 'Romana',
+    period: '211 a.C. — I sec. d.C.',
+    weight: '1.8–2 g',
+    diameter: '14–16 mm',
+    conservation: 'BB/SPL',
+    rarity: 'Non comune',
+    price: 78,
+    stockQty: 4,
+    subtitle: 'Metà denario',
+    description: 'Il quinario valeva metà denario ed era raramente emesso, utilizzato principalmente per piccole transazioni.',
+    historicalNote: null,
+    obverseImg: IMAGEFILES.quinarioObverse,
+    reverseImg: IMAGEFILES.quinarioReverse
+  },
+  {
+    slug: 'antoniniano',
+    name: 'Antoniniano',
+    category: 'Argento Romano',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Mistura',
+    area: 'Romana',
+    period: '215–295 d.C.',
+    weight: '2.5–5 g',
+    diameter: '20–24 mm',
+    conservation: 'MB/BB',
+    rarity: 'Comune',
+    price: 42,
+    stockQty: 12,
+    subtitle: 'Il doppio denario',
+    description: "L'antoniniano era nominalmente un doppio denario, introdotto da Caracalla. Si identifica dalla corona radiata sull'effigie imperiale.",
+    historicalNote: "Nel corso del III secolo subì una progressiva svalutazione, con il contenuto d'argento che scese drasticamente.",
+    obverseImg: IMAGEFILES.antoninianoObverse,
+    reverseImg: IMAGEFILES.antoninianoReverse
+  },
+  {
+    slug: 'miliarense-leggero',
+    name: 'Miliarense Leggero',
+    category: 'Argento Romano',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Argento',
+    area: 'Tardo Impero',
+    period: 'IV–V sec. d.C.',
+    weight: '3.3–4 g',
+    diameter: '20–22 mm',
+    conservation: 'BB',
+    rarity: 'Non comune',
+    price: 280,
+    stockQty: 2,
+    subtitle: "L'argento tardo-imperiale",
+    description: "Il miliarense leggero era una moneta d'argento del tardo Impero. 24 miliarensi leggeri equivalevano a 1 solido.",
+    historicalNote: null,
+    obverseImg: IMAGEFILES.miliarenseLObverse,
+    reverseImg: IMAGEFILES.miliarenseLReverse
+  },
+  {
+    slug: 'miliarense-pesante',
+    name: 'Miliarense Pesante',
+    category: 'Argento Romano',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Argento',
+    area: 'Tardo Impero',
+    period: 'IV sec. d.C.',
+    weight: '4.5–5.4 g',
+    diameter: '22–25 mm',
+    conservation: 'BB/SPL',
+    rarity: 'Raro',
+    price: 380,
+    stockQty: 1,
+    subtitle: 'La variante pesante',
+    description: 'Il miliarense pesante era la versione più sostanziosa del miliarense. 24 miliarensi pesanti = 1 aureo.',
+    historicalNote: null,
+    obverseImg: IMAGEFILES.miliarensePObverse,
+    reverseImg: IMAGEFILES.miliarensePReverse
+  },
+  {
+    slug: 'siliqua',
+    name: 'Siliqua',
+    category: 'Argento Romano',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Argento',
+    area: 'Tardo Impero',
+    period: 'IV–V sec. d.C.',
+    weight: '3–3.4 g',
+    diameter: '17–20 mm',
+    conservation: 'BB',
+    rarity: 'Non comune',
+    price: 135,
+    stockQty: 3,
+    subtitle: 'Argento tardo-imperiale',
+    description: 'La siliqua era una moneta tardo-imperiale in argento fine, spesso caratterizzata da un bordo perlato distintivo.',
+    historicalNote: null,
+    obverseImg: IMAGEFILES.siliquaObverse,
+    reverseImg: IMAGEFILES.siliquaReverse
+  },
+  {
+    slug: 'solido',
+    name: 'Solido',
+    category: 'Oro Imperiale',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Oro',
+    area: 'Tardo Impero',
+    period: '312–650 d.C.',
+    weight: '4.5 g',
+    diameter: '20–21 mm',
+    conservation: 'SPL/qFDC',
+    rarity: 'Non comune',
+    price: 1850,
+    stockQty: 1,
+    subtitle: "L'oro di Costantino",
+    description: "Il solido nacque dalla riforma costantiniana dell'aureo. Divenne lo standard monetario aureo per secoli, influenzando le monetazioni bizantine e medievali.",
+    historicalNote: null,
+    obverseImg: IMAGEFILES.solidoObverse,
+    reverseImg: IMAGEFILES.solidoReverse
+  },
+  {
+    slug: 'tetradracma',
+    name: 'Tetradracma',
+    category: 'Greca',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Argento',
+    area: 'Greca',
+    period: 'VI–I sec. a.C.',
+    weight: '17.2 g',
+    diameter: '25–28 mm',
+    conservation: 'BB/SPL',
+    rarity: 'Comune (var.)',
+    price: 340,
+    stockQty: 4,
+    subtitle: 'Il grande argento greco',
+    description: 'La tetradracma era la denominazione greca di alto valore più diffusa, equivalente a quattro dracme.',
+    historicalNote: null,
+    obverseImg: IMAGEFILES.tetradracmaObverse,
+    reverseImg: IMAGEFILES.tetradracmaReverse
+  },
+  {
+    slug: 'dracma',
+    name: 'Dracma',
+    category: 'Greca',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Argento',
+    area: 'Greca',
+    period: 'VI–I sec. a.C.',
+    weight: '4.3 g',
+    diameter: '18 mm',
+    conservation: 'BB/SPL',
+    rarity: 'Comune',
+    price: 110,
+    stockQty: 6,
+    subtitle: "L'unità greca",
+    description: "La dracma era l'unità di base del sistema monetario greco, da cui derivavano tutte le altre denominazioni.",
+    historicalNote: null,
+    obverseImg: IMAGEFILES.dracmaObverse,
+    reverseImg: IMAGEFILES.dracmaReverse
+  },
+  {
+    slug: 'assario',
+    name: 'Assario',
+    category: 'Provinciale',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Bronzo',
+    area: 'Provinciale',
+    period: 'I–III sec. d.C.',
+    weight: '2–4 g',
+    diameter: '14–18 mm',
+    conservation: 'MB/BB',
+    rarity: 'Comune',
+    price: 32,
+    stockQty: 9,
+    subtitle: "L'asse provinciale",
+    description: "L'assario era l'unità bronzea provinciale equivalente all'asse romano, coniata nelle province orientali dell'Impero.",
+    historicalNote: null,
+    obverseImg: IMAGEFILES.assarioObverse,
+    reverseImg: IMAGEFILES.assarioReverse
+  },
+  {
+    slug: 'lepton',
+    name: 'Lepton',
+    category: 'Giudaica',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Bronzo',
+    area: 'Giudaica',
+    period: 'I sec. a.C. — I sec. d.C.',
+    weight: '1.5–2 g',
+    diameter: '13–15 mm',
+    conservation: 'MB/BB',
+    rarity: 'Non comune',
+    price: 55,
+    stockQty: 7,
+    subtitle: 'La più piccola moneta giudaica',
+    description: "Il lepton era la più piccola moneta giudaica, menzionata anche nei Vangeli come \"l'obolo della vedova\".",
+    historicalNote: null,
+    obverseImg: IMAGEFILES.leptonObverse,
+    reverseImg: IMAGEFILES.leptonReverse
+  },
+  {
+    slug: 'siclo',
+    name: 'Siclo',
+    category: 'Giudaica',
+    isFeatured: false,
+    featuredOrder: 99,
+    metal: 'Argento',
+    area: 'Giudaica',
+    period: 'I–II sec. d.C.',
+    weight: '14 g',
+    diameter: '25 mm',
+    conservation: 'BB/SPL',
+    rarity: 'Raro',
+    price: 780,
+    stockQty: 1,
+    subtitle: "L'argento della rivolta",
+    description: 'Il siclo era il grande argento della prima rivolta giudaica, una delle monete più cariche di significato storico e religioso.',
+    historicalNote: null,
+    obverseImg: IMAGEFILES.sicloObverse,
+    reverseImg: IMAGEFILES.sicloReverse
+  }
+];
+
+/ ============================================================
+   SEZIONE JS 3 — DATABASE TIPOLOGIE
+   ============================================================ /
+const TYPESDATABASE = [
+  {
+    name: 'Bronzo e Rame',
+    items: ['Oncia', 'Semioncia', 'Quartuncia', 'Sestante', 'Triente', 'Quincunce', 'Semisse', 'Quadrante', 'Destante', 'Besse', 'Decusse', 'Quincusse', 'Asse', 'Dupondio', 'Sesterzio', 'Nummo', 'Centenionale', 'Maiorina']
+  },
+  {
+    name: 'Argento Romano',
+    items: ['Quinario', 'Vittoriato', "Sesterzio d'argento", 'Denario', 'Antoniniano', 'Argenteo', 'Miliarense leggero', 'Miliarense pesante', 'Siliqua']
+  },
+  {
+    name: 'Oro Imperiale',
+    items: ['Aureo', 'Solido', 'Tremisse', 'Binione', 'Quaternione', 'Multiplo', 'Medaglione']
+  },
+  {
+    name: 'Monete Greche',
+    items: ['Obolo', 'Diobolo', 'Triobolo', 'Emidracma', 'Dracma', 'Didracma', 'Tetradracma', 'Pentadracma', 'Octodracma', 'Decadramma', 'Calco', 'Dicalco', 'Tetracalco', 'Decargiro']
+  },
+  {
+    name: 'Provinciali e Orientali',
+    items: ['Assario', 'Diassario', 'Tetrassario', 'Pentassario', 'Decassario', 'Diconeuto', 'Denominazioni provinciali varie']
+  },
+  {
+    name: 'Giudaiche',
+    items: ['Lepton', 'Prutah', 'Siclo', 'Mezzo siclo', 'Erodiano']
+  },
+  {
+    name: 'Tipologie Speciali',
+    items: ['Contorniato', 'Multiplo', 'Medaglione', 'Monete votive', 'Tessere']
+  }
+];
+
+/ ============================================================
+   SEZIONE JS 4 — DATABASE ORDINI
+   ============================================================ /
+const ORDERSDATABASE = [
+  { orderId: '#PSN-2025-0041', coinName: 'Denario di Marco Aurelio', orderDate: '20 Apr 2025', status: 'shipped', total: '€95' },
+  { orderId: '#PSN-2025-0040', coinName: 'Tetradracma ateniese', orderDate: '19 Apr 2025', status: 'completed', total: '€340' },
+  { orderId: '#PSN-2025-0039', coinName: 'Sesterzio Antonino Pio', orderDate: '18 Apr 2025', status: 'processing', total: '€145' },
+  { orderId: '#PSN-2025-0038', coinName: 'Prutah Erode il Grande', orderDate: '17 Apr 2025', status: 'completed', total: '€72' },
+  { orderId: '#PSN-2025-0037', coinName: 'Siliqua Costanzo II', orderDate: '16 Apr 2025', status: 'pending', total: '€135' },
+  { orderId: '#PSN-2025-0036', coinName: 'Antoniniano Gallieno', orderDate: '15 Apr 2025', status: 'shipped', total: '€42' }
+];
+
+/ ============================================================
+   SEZIONE JS 5 — DATABASE GARANZIE
+   ============================================================ /
+const GUARANTEESDATABASE = [
+  { icon: '🏛️', title: 'Autenticità Certificata', text: 'Ogni esemplare è autentico e documentato con attribuzione, epoca e note numismatiche dettagliate. Certificato disponibile su richiesta per ogni acquisto.' },
+  { icon: '🔒', title: 'Descrizioni Trasparenti', text: 'Metallo, conservazione, peso, diametro, patina, centratura, leggibilità: tutte le informazioni necessarie per scegliere con piena consapevolezza.' },
+  { icon: '📦', title: 'Spedizione Sicura', text: 'Imballo protettivo professionale, spedizione tracciata con opzione assicurata per pezzi di valore. Italia 2–4 giorni, Europa 10-15 giorni.' },
+  { icon: '🔄', title: 'Reso Garantito', text: 'Reso entro 14 giorni dalla ricezione nelle stesse condizioni. Rimborso completo entro 5 giorni lavorativi dalla ricezione del reso.' },
+  { icon: '💬', title: 'Supporto Esperto', text: 'Assistenza numismatica specializzata per ogni domanda o dubbio. Rispondiamo entro 24 ore lavorative.' },
+  { icon: '📋', title: 'Documentazione Completa', text: 'Ogni moneta è accompagnata da scheda tecnica dettagliata con provenienza, riferimenti bibliografici e note storiche.' }
+];
+
+/ ============================================================
+   SEZIONE JS 6 — DATABASE FAQ
+   ============================================================ /
+const FAQDATABASE = [
+  { question: 'Le monete sono autentiche?', answer: 'Sì, assolutamente. Ogni esemplare è ritenuto autentico sulla base di verifiche tecniche accurate condotte da esperti numismatici. Resta un minimo margine di incertezza intrinseco al settore, ma offriamo garanzia di rimborso in caso di contestazioni documentate. Certificazione di autenticità disponibile su richiesta.' },
+  { question: 'Come viene indicata la conservazione?', answer: 'Utilizziamo la scala internazionale di conservazione: B (Bella), MB (Molto Bella), BB (Bellissima), SPL (Splendida), FDC (Fior di Conio). Ogni moneta include foto ad alta risoluzione e descrizione dettagliata dello stato di conservazione, incluse eventuali particolarità come patina, usura o difetti di conio.' },
+  { question: 'Posso restituire una moneta?', answer: 'Sì, offriamo il reso entro 14 giorni dalla ricezione. La moneta deve essere restituita nelle stesse condizioni in cui è stata ricevuta, nella confezione originale. Il rimborso viene elaborato entro 5 giorni lavorativi dalla ricezione del reso. Le spese di spedizione per il reso sono a carico del cliente, salvo errori nostri.' },
+  { question: 'Come avviene la spedizione?', answer: "Spedizione tracciata con imballo protettivo professionale e firma alla consegna. Per l'Italia: costo €10,30, consegna in circa 4 giorni lavorativi (sabato e festivi esclusi). Per l'Unione Europea: costo €25,80, consegna indicativa in 10–15 giorni lavorativi. Assicurazione aggiuntiva disponibile per pezzi di valore elevato." },
+  { question: 'Quali metodi di pagamento accettate?', answer: 'Accettiamo bonifico bancario (preferito per importi elevati), PayPal, carte di credito/debito (Visa, Mastercard, American Express). Per ordini di valore superiore a €500, è possibile concordare un pagamento rateale senza interessi.' },
+  { question: 'Offrite servizi di valutazione?', answer: 'Sì, offriamo servizi di valutazione gratuita per monete singole o collezioni. Inviateci foto chiare di dritto e rovescio con peso e diametro se disponibili. Rispondiamo entro 48 ore con una stima di valore e, se di interesse, una proposta di acquisto.' }
+];
+
+/ ============================================================
+   SEZIONE JS 7 — DATABASE UTENTI (SIMULATO)
+   ============================================================ /
+let USERSDATABASE = JSON.parse(localStorage.getItem('psnusers') || '[]');
+let nextUserId = USERSDATABASE.length > 0 ? Math.max(...USERSDATABASE.map(u => u.id)) + 1 : 1;
+
+/ ============================================================
+   SEZIONE JS 8 — STATO APPLICAZIONE
+   ============================================================ /
+let state = {
+  coins: [],
+  featuredCoins: [],
+  cart: [],
+  currentCoin: null,
+  currentSlide: 0,
+  slideInterval: null,
+  slidePauseUntil: 0,
+  flipTimeout: null,
+  isCartOpen: false,
+  isModalOpen: false,
+  isSearchOpen: false,
+  isAuthOpen: false,
+  isMobileMenuOpen: false,
+  isProfileDropdownOpen: false,
+  catalogExpanded: false,
+  lastScrollY: 0,
+  headerHidden: false,
+  currentUser: null,
+  pendingCartAction: null
+};
+
+/ ============================================================
+   SEZIONE JS 9 — COSTANTI
+   ============================================================ /
+const CONSTANTS = {
+  SLIDEINTERVAL: 10000,
+  SLIDEPAUSEDURATION: 20000,
+  SLIDEFLIPDELAY: 5000,
+  CATALOGINITIALLIMIT: 12,
+  TOASTDURATION: 4000,
+  SCROLLTHRESHOLD: 100,
+  HEADERHIDETHRESHOLD: 200
+};
+
+/ ============================================================
+   SEZIONE JS 10 — UTILITY FUNCTIONS
+   ============================================================ /
+const $ = (id) => document.getElementById(id);
+const $$ = (selector) => document.querySelectorAll(selector);
+
+const formatPrice = (price) => {
+  return '€' + Number(price).toLocaleString('it-IT', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
+  });
+};
+
+const getCoinMetalClass = (metal = '') => {
+  const m = metal.toLowerCase();
+  if (m.includes('oro')) return { gradient: 'coin-gold', tag: 'badge-gold', label: 'Oro' };
+  if (m.includes('argento') || m.includes('billon')) return { gradient: 'coin-silver', tag: 'badge-silver', label: 'Argento' };
+  return { gradient: 'coin-bronze', tag: 'badge-bronze', label: metal || 'Bronzo' };
+};
+
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
+const smoothScrollTo = (elementId) => {
+  const element = $(elementId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    closeMobileMenu();
+  }
+};
+
+const generateUniqueId = () => {
+  return 'id' + Math.random().toString(36).substr(2, 9);
+};
+
+const getInitials = (name) => {
+  if (!name) return '??';
+  const parts = name.trim().split(' ');
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+};
+
+const formatUserId = (id) => {
+  return '#' + String(id).padStart(4, '0');
+};
+
+const hashPassword = (password) => {
+  // Simple hash for demo - in production use bcrypt or similar
+  let hash = 0;
+  for (let i = 0; i < password.length; i++) {
+    const char = password.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return hash.toString(16);
+};
+
+const validateEmail = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
+
+const validatePassword = (password) => {
+  return password.length >= 8;
+};
+
+/ ============================================================
+   SEZIONE JS 11 — SISTEMA DI AUTENTICAZIONE
+   ============================================================ /
+const saveUsersToStorage = () => {
+  localStorage.setItem('psnusers', JSON.stringify(USERSDATABASE));
+};
+
+const saveCurrentUserToStorage = () => {
+  if (state.currentUser) {
+    localStorage.setItem('psncurrentuser', JSON.stringify(state.currentUser));
+  } else {
+    localStorage.removeItem('psncurrentuser');
+  }
+};
+
+const loadCurrentUserFromStorage = () => {
+  const stored = localStorage.getItem('psncurrentuser');
+  if (stored) {
+    try {
+      state.currentUser = JSON.parse(stored);
+      updateProfileUI();
+      return true;
+    } catch (e) {
+      localStorage.removeItem('psncurrentuser');
+    }
+  }
+  return false;
+};
+
+const openAuthModal = (reason = null) => {
+  state.isAuthOpen = true;
+  state.pendingCartAction = reason;
+  
+  const overlay = $('authOverlay');
+  if (overlay) overlay.classList.add('open');
+  
+  document.body.style.overflow = 'hidden';
+  
+  // Reset forms
+  $('loginForm')?.reset();
+  $('registerForm')?.reset();
+  switchAuthTab('login');
+  
+  // Show reason if any
+  if (reason) {
+    showToast({
+      type: 'info',
+      title: 'Accesso richiesto',
+      message: 'Per aggiungere articoli al carrello devi prima accedere'
+    });
+  }
+};
+
+const closeAuthModal = () => {
+  state.isAuthOpen = false;
+  state.pendingCartAction = null;
+  
+  const overlay = $('authOverlay');
+  if (overlay) overlay.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isModalOpen && !state.isSearchOpen) {
+    document.body.style.overflow = '';
+  }
+  
+  // Reset to default state
+  $('authSuccess')?.classList.remove('active');
+  $('loginForm')?.classList.add('active');
+  $('registerForm')?.classList.remove('active');
+  $('authFooter').style.display = 'block';
+};
+
+const switchAuthTab = (tab) => {
+  const loginTab = $('loginTab');
+  const registerTab = $('registerTab');
+  const loginForm = $('loginForm');
+  const registerForm = $('registerForm');
+  const authFooter = $('authFooter');
+  const authSuccess = $('authSuccess');
+  
+  // Hide success if visible
+  authSuccess?.classList.remove('active');
+  authFooter.style.display = 'block';
+  
+  if (tab === 'login') {
+    loginTab?.classList.add('active');
+    registerTab?.classList.remove('active');
+    loginForm?.classList.add('active');
+    registerForm?.classList.remove('active');
+    authFooter.innerHTML = 
+      <p class="auth-footer-text">
+        Non hai un account? <span class="auth-footer-link" onclick="switchAuthTab('register')">Registrati</span>
+      </p>
+    ;
+  } else {
+    loginTab?.classList.remove('active');
+    registerTab?.classList.add('active');
+    loginForm?.classList.remove('active');
+    registerForm?.classList.add('active');
+    authFooter.innerHTML = 
+      <p class="auth-footer-text">
+        Hai già un account? <span class="auth-footer-link" onclick="switchAuthTab('login')">Accedi</span>
+      </p>
+    ;
+  }
+};
+
+const handleLogin = (event) => {
+  event.preventDefault();
+  
+  const email = $('loginEmail')?.value?.trim();
+  const password = $('loginPassword')?.value;
+  
+  if (!email || !password) {
+    showToast({ type: 'error', title: 'Errore', message: 'Compila tutti i campi' });
+    return;
+  }
+  
+  const hashedPassword = hashPassword(password);
+  const user = USERSDATABASE.find(u => u.email === email && u.password === hashedPassword);
+  
+  if (user) {
+    state.currentUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      createdAt: user.createdAt,
+      orders: user.orders || 0,
+      wishlist: user.wishlist || 0
+    };
+    
+    saveCurrentUserToStorage();
+    updateProfileUI();
+    
+    // Show success
+    showAuthSuccess('Bentornato!', Ciao ${user.name.split(' ')[0]}, è un piacere rivederti);
+    
+    // Handle pending cart action
+    if (state.pendingCartAction) {
+      setTimeout(() => {
+        closeAuthModal();
+        addToCart(state.pendingCartAction);
+      }, 1500);
+    } else {
+      setTimeout(closeAuthModal, 2000);
+    }
+  } else {
+    showToast({ type: 'error', title: 'Accesso fallito', message: 'Email o password non corretti' });
+    $('loginEmail')?.classList.add('error');
+    $('loginPassword')?.classList.add('error');
+    
+    setTimeout(() => {
+      $('loginEmail')?.classList.remove('error');
+      $('loginPassword')?.classList.remove('error');
+    }, 2000);
+  }
+};
+
+const handleRegister = (event) => {
+  event.preventDefault();
+  
+  const name = $('registerName')?.value?.trim();
+  const email = $('registerEmail')?.value?.trim();
+  const password = $('registerPassword')?.value;
+  const confirmPassword = $('registerPasswordConfirm')?.value;
+  const acceptTerms = $('acceptTerms')?.checked;
+  
+  // Validation
+  if (!name || !email || !password || !confirmPassword) {
+    showToast({ type: 'error', title: 'Errore', message: 'Compila tutti i campi' });
+    return;
+  }
+  
+  if (!validateEmail(email)) {
+    showToast({ type: 'error', title: 'Email non valida', message: 'Inserisci un indirizzo email valido' });
+    $('registerEmail')?.classList.add('error');
+    return;
+  }
+  
+  if (!validatePassword(password)) {
+    showToast({ type: 'error', title: 'Password troppo debole', message: 'La password deve contenere almeno 8 caratteri' });
+    return;
+  }
+  
+  if (password !== confirmPassword) {
+    showToast({ type: 'error', title: 'Errore', message: 'Le password non coincidono' });
+    $('registerPasswordConfirm')?.classList.add('error');
+    return;
+  }
+  
+  if (!acceptTerms) {
+    showToast({ type: 'error', title: 'Termini non accettati', message: 'Devi accettare i termini di servizio' });
+    return;
+  }
+  
+  // Check if email already exists
+  if (USERSDATABASE.find(u => u.email === email)) {
+    showToast({ type: 'error', title: 'Email già registrata', message: 'Questa email è già associata a un account' });
+    $('registerEmail')?.classList.add('error');
+    return;
+  }
+  
+  // Create new user
+  const newUser = {
+    id: nextUserId++,
+    name: name,
+    email: email,
+    password: hashPassword(password),
+    createdAt: new Date().toISOString(),
+    orders: 0,
+    wishlist: 0
+  };
+  
+  USERSDATABASE.push(newUser);
+  saveUsersToStorage();
+  
+  // Auto-login
+  state.currentUser = {
+    id: newUser.id,
+    name: newUser.name,
+    email: newUser.email,
+    createdAt: newUser.createdAt,
+    orders: 0,
+    wishlist: 0
+  };
+  
+  saveCurrentUserToStorage();
+  updateProfileUI();
+  
+  // Show success
+  showAuthSuccess('Account creato!', Benvenuto nella famiglia Pecunia Solis, ${name.split(' ')[0]}! Il tuo ID utente è ${formatUserId(newUser.id)});
+  
+  // Handle pending cart action
+  if (state.pendingCartAction) {
+    setTimeout(() => {
+      closeAuthModal();
+      addToCart(state.pendingCartAction);
+    }, 2000);
+  } else {
+    setTimeout(closeAuthModal, 2500);
+  }
+};
+
+const showAuthSuccess = (title, text) => {
+  const successEl = $('authSuccess');
+  const loginForm = $('loginForm');
+  const registerForm = $('registerForm');
+  const authFooter = $('authFooter');
+  
+  if (successEl) {
+    $('successTitle').textContent = title;
+    $('successText').textContent = text;
+    
+    loginForm?.classList.remove('active');
+    registerForm?.classList.remove('active');
+    successEl.classList.add('active');
+    authFooter.style.display = 'none';
+  }
+};
+
+const handleLogout = () => {
+  state.currentUser = null;
+  state.cart = [];
+  saveCurrentUserToStorage();
+  renderCart();
+  updateProfileUI();
+  closeProfileDropdown();
+  
+  showToast({
+    type: 'info',
+    title: 'Disconnesso',
+    message: 'Hai effettuato il logout con successo'
+  });
+};
+
+const updateProfileUI = () => {
+  const btn = $('profileBtn');
+  const btnAvatar = $('profileBtnAvatar');
+  const btnText = $('profileBtnText');
+  const dropdown = $('profileDropdown');
+  
+  if (state.currentUser) {
+    btn?.classList.add('logged-in');
+    
+    const initials = getInitials(state.currentUser.name);
+    if (btnAvatar) btnAvatar.innerHTML = initials;
+    if (btnText) btnText.textContent = state.currentUser.name.split(' ')[0];
+    
+    // Update dropdown
+    const dropdownAvatar = $('dropdownAvatar');
+    const dropdownName = $('dropdownName');
+    const dropdownEmail = $('dropdownEmail');
+    const dropdownUserId = $('dropdownUserId');
+    const dropdownOrderCount = $('dropdownOrderCount');
+    const dropdownWishlistCount = $('dropdownWishlistCount');
+    
+    if (dropdownAvatar) dropdownAvatar.textContent = initials;
+    if (dropdownName) dropdownName.textContent = state.currentUser.name;
+    if (dropdownEmail) dropdownEmail.textContent = state.currentUser.email;
+    if (dropdownUserId) dropdownUserId.textContent = formatUserId(state.currentUser.id);
+    if (dropdownOrderCount) dropdownOrderCount.textContent = state.currentUser.orders || 0;
+    if (dropdownWishlistCount) dropdownWishlistCount.textContent = state.currentUser.wishlist || 0;
+  } else {
+    btn?.classList.remove('logged-in');
+    
+    if (btnAvatar) {
+      btnAvatar.innerHTML = 
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      ;
+    }
+    if (btnText) btnText.textContent = 'Accedi';
+  }
+};
+
+const toggleProfileDropdown = () => {
+  if (!state.currentUser) {
+    openAuthModal();
+    return;
+  }
+  
+  state.isProfileDropdownOpen = !state.isProfileDropdownOpen;
+  const dropdown = $('profileDropdown');
+  if (dropdown) {
+    dropdown.classList.toggle('open', state.isProfileDropdownOpen);
+  }
+};
+
+const closeProfileDropdown = () => {
+  state.isProfileDropdownOpen = false;
+  const dropdown = $('profileDropdown');
+  if (dropdown) {
+    dropdown.classList.remove('open');
+  }
+};
+
+const togglePasswordVisibility = (inputId, btn) => {
+  const input = $(inputId);
+  if (input) {
+    const isPassword = input.type === 'password';
+    input.type = isPassword ? 'text' : 'password';
+    
+    btn.innerHTML = isPassword
+      ? <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+           <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+           <line x1="1" y1="1" x2="23" y2="23"/>
+         </svg>
+      : <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+           <circle cx="12" cy="12" r="3"/>
+         </svg>;
+  }
+};
+
+const checkPasswordStrength = (password) => {
+  const bars = [
+    $('strengthBar1'),
+    $('strengthBar2'),
+    $('strengthBar3'),
+    $('strengthBar4')
+  ];
+  const textEl = $('passwordStrengthText');
+  
+  // Reset
+  bars.forEach(bar => {
+    if (bar) {
+      bar.classList.remove('weak', 'medium', 'strong');
+    }
+  });
+  
+  if (!password) {
+    if (textEl) textEl.textContent = '';
+    return;
+  }
+  
+  let strength = 0;
+  
+  // Length
+  if (password.length >= 8) strength++;
+  if (password.length >= 12) strength++;
+  
+  // Contains number
+  if (/\d/.test(password)) strength++;
+  
+  // Contains special char or mixed case
+  if (/[!@#$%^&(),.?":{}|<>]/.test(password) || (/[a-z]/.test(password) && /[A-Z]/.test(password))) strength++;
+  
+  let strengthClass = '';
+  let strengthText = '';
+  
+  if (strength <= 1) {
+    strengthClass = 'weak';
+    strengthText = 'Debole';
+  } else if (strength <= 2) {
+    strengthClass = 'medium';
+    strengthText = 'Media';
+  } else {
+    strengthClass = 'strong';
+    strengthText = 'Forte';
+  }
+  
+  for (let i = 0; i < Math.min(strength, 4); i++) {
+    if (bars[i]) bars[i].classList.add(strengthClass);
+  }
+  
+  if (textEl) {
+    textEl.textContent = strengthText;
+    textEl.className = 'password-strength-text ' + strengthClass;
+  }
+};
+
+/ ============================================================
+   SEZIONE JS 12 — LOADER E INIZIALIZZAZIONE
+   ============================================================ /
+const hideLoader = () => {
+  const loader = $('loader');
+  if (loader) {
+    loader.classList.add('gone');
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 600);
+  }
+};
+
+const initializeApp = () => {
+  try {
+    state.coins = [...COINSDATABASE];
+    state.featuredCoins = state.coins
+      .filter(c => c.isFeatured)
+      .sort((a, b) => a.featuredOrder - b.featuredOrder);
+    
+    // Load user session
+    loadCurrentUserFromStorage();
+    
+    applyStaticImages();
+    buildSlideshow();
+    applyFilters();
+    buildTypesSection();
+    buildOrdersSection();
+    buildGuaranteesSection();
+    buildFAQSection();
+    setupEventListeners();
+    setupScrollEffects();
+    renderCart();
+    
+    setTimeout(() => {
+      hideLoader();
+      animateCounters();
+    }, 400);
+    
+  } catch (error) {
+    console.error('Errore inizializzazione:', error);
+    setTimeout(hideLoader, 800);
+  }
+};
+
+/ ============================================================
+   SEZIONE JS 13 — IMMAGINI STATICHE
+   ============================================================ /
+const applyStaticImages = () => {
+  const logoSeal = $('logoSeal');
+  if (logoSeal && IMAGEFILES.logo) {
+    logoSeal.innerHTML = <img src="${IMAGEFILES.logo}" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none" id="logoMark">PSN</span>;
+  }
+  
+  const footerLogoSeal = $('footerLogoSeal');
+  if (footerLogoSeal && IMAGEFILES.logo) {
+    footerLogoSeal.innerHTML = <img src="${IMAGEFILES.logo}" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">PSN</span>;
+  }
+  
+  const heroBg = $('heroBg');
+  if (heroBg && IMAGEFILES.heroBg) {
+    heroBg.style.backgroundImage = linear-gradient(180deg, rgba(6,6,10,.55) 0%, rgba(6,6,10,.3) 40%, rgba(6,6,10,.8) 100%), url('${IMAGEFILES.heroBg}');
+  }
+  
+  const showcaseCoinImg = $('showcaseCoinImg');
+  const showcaseCoinText = $('showcaseCoinText');
+  if (showcaseCoinImg && IMAGEFILES.showcaseCoin) {
+    showcaseCoinImg.src = IMAGEFILES.showcaseCoin;
+    showcaseCoinImg.onload = function() {
+      this.style.display = 'block';
+      if (showcaseCoinText) showcaseCoinText.style.display = 'none';
+    };
+    showcaseCoinImg.onerror = function() {
+      this.style.display = 'none';
+      if (showcaseCoinText) showcaseCoinText.style.display = 'block';
+    };
+  }
+  
+  const sectionBgMap = {
+    'vetrinaBg': IMAGEFILES.vetrinaBg,
+    'catalogoBg': IMAGEFILES.catalogoBg,
+    'tipologieBg': IMAGEFILES.tipologieBg,
+    'ordiniBg': IMAGEFILES.ordiniBg,
+    'garanzieBg': IMAGEFILES.garanzieBg,
+    'faqBg': IMAGEFILES.faqBg,
+    'contattiBg': IMAGEFILES.contattiBg
+  };
+  
+  Object.entries(sectionBgMap).forEach(([id, src]) => {
+    const el = $(id);
+    if (el && src) {
+      el.style.backgroundImage = url('${src}');
+    }
+  });
+};
+
+/ ============================================================
+   SEZIONE JS 14 — SLIDESHOW
+   ============================================================ */
+const buildSlideshow = () => {
+  const track = $('slideshowTrack');
+  const dots = $('slideshowDots');
+  
+  if (!track || !dots) return;
+  
+  track.innerHTML = '';
+  dots.innerHTML = '';
+  
+  state.featuredCoins.forEach((coin, index) => {
+    const metalClass = getCoinMetalClass(coin.metal);
+    const bgImage = SLIDEBACKGROUNDS[index % SLIDEBACKGROUNDS.length];
+    
+    const obverseImg = coin.obverseImg || '';
+    const reverseImg = coin.reverseImg || '';
+    
+    const obverseContent = obverseImg
+      ? <img src="${obverseImg}" alt="${coin.name}" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display='block')"/><span style="display:none">${coin.name}</span>
+      : <span>${coin.name}</span>;
+    
+    const reverseContent = reverseImg
+      ? <img src="${reverseImg}" alt="${coin.name} rovescio" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display
