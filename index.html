@@ -11,15 +11,15 @@
 <meta property="og:title" content="Pecunia Solis Numismatica"/>
 <meta property="og:description" content="Collezione professionale di monete antiche romane, greche e giudaiche."/>
 <meta property="og:type" content="website"/>
-<meta property="og:locale" content="it_IT"/>
-<link rel="canonical" href="[pecuniasolis.com](https://pecuniasolis.com)"/>
-<link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)"/>
-<link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin/>
-<link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap)" rel="stylesheet"/>
+<meta property="og:locale" content="itIT"/>
+<link rel="canonical" href="https://pecuniasolis.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"/>
 <style>
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 1 — VARIABILI E RESET
-   ============================================================ */
+   ============================================================ /
 :root {
   --g: #C8A951;
   --g2: #E8CC78;
@@ -64,11 +64,12 @@
   --z-overlay: 800;
   --z-cart: 900;
   --z-modal: 1000;
+  --z-auth: 1050;
   --z-toast: 1100;
   --z-loader: 10000;
 }
 
-*, *::before, *::after {
+, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -97,7 +98,7 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='[w3.org](http://www.w3.org/2000/svg)' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: var(--z-toast);
   opacity: .7;
@@ -168,14 +169,14 @@ table {
   background: linear-gradient(180deg, var(--g), var(--g3));
 }
 
-* {
+ {
   scrollbar-width: thin;
   scrollbar-color: var(--g3) var(--ink2);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 2 — UTILITY CLASSES
-   ============================================================ */
+   ============================================================ /
 .wrap {
   width: min(100% - 2.4rem, var(--maxw));
   margin-inline: auto;
@@ -211,9 +212,9 @@ table {
 .font-body { font-family: 'EB Garamond', serif; }
 .font-accent { font-family: 'Cormorant Garamond', serif; }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 3 — ANIMAZIONI KEYFRAMES
-   ============================================================ */
+   ============================================================ /
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -395,9 +396,47 @@ table {
   }
 }
 
-/* ============================================================
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes avatarGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(200, 169, 81, .4);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(200, 169, 81, .2);
+  }
+}
+
+/ ============================================================
    SEZIONE CSS 4 — LOADER
-   ============================================================ */
+   ============================================================ /
 #loader {
   position: fixed;
   inset: 0;
@@ -460,9 +499,9 @@ table {
   text-transform: uppercase;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 5 — BACKGROUND ELEMENTS
-   ============================================================ */
+   ============================================================ /
 .page-bg {
   position: fixed;
   inset: 0;
@@ -502,9 +541,9 @@ table {
   animation-delay: -5s;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 6 — HEADER
-   ============================================================ */
+   ============================================================ /
 .header {
   position: fixed;
   top: 0;
@@ -655,7 +694,7 @@ table {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: .8rem;
 }
 
 .search-toggle {
@@ -680,6 +719,75 @@ table {
 .search-toggle svg {
   width: 16px;
   height: 16px;
+}
+
+/ Profile Button Styles /
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem .9rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  color: var(--td);
+  cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  transition: all .25s var(--ease);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.profile-btn:hover {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+  transform: translateY(-2px);
+}
+
+.profile-btn.logged-in {
+  background: var(--gf);
+  border-color: var(--b);
+  color: var(--g);
+}
+
+.profile-btn-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--g3), var(--g));
+  display: grid;
+  place-items: center;
+  font-size: .55rem;
+  font-weight: 900;
+  color: #080500;
+  flex-shrink: 0;
+  transition: all .25s var(--ease);
+  overflow: hidden;
+}
+
+.profile-btn:hover .profile-btn-avatar {
+  animation: avatarGlow 1.5s ease-in-out infinite;
+}
+
+.profile-btn-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-btn-avatar svg {
+  width: 14px;
+  height: 14px;
+}
+
+.profile-btn-text {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .cart-btn {
@@ -815,9 +923,9 @@ table {
   padding-left: 1rem;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 7 — BUTTONS
-   ============================================================ */
+   ============================================================ /
 .btn {
   display: inline-flex;
   align-items: center;
@@ -921,9 +1029,19 @@ table {
   width: 100%;
 }
 
-/* ============================================================
+.btn-danger {
+  background: linear-gradient(135deg, #ef5350, #c62828);
+  color: white;
+  border-color: transparent;
+}
+
+.btn-danger:hover {
+  box-shadow: 0 4px 20px rgba(239, 83, 80, .3);
+}
+
+/ ============================================================
    SEZIONE CSS 8 — FORM ELEMENTS
-   ============================================================ */
+   ============================================================ /
 .form-group {
   display: flex;
   flex-direction: column;
@@ -975,9 +1093,19 @@ table {
   background: rgba(6, 6, 10, .95);
 }
 
+.form-input.error {
+  border-color: #ef5350;
+  box-shadow: 0 0 0 3px rgba(239, 83, 80, .1);
+}
+
+.form-input.success {
+  border-color: #5dba6d;
+  box-shadow: 0 0 0 3px rgba(93, 186, 109, .1);
+}
+
 .form-select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='[w3.org](http://www.w3.org/2000/svg)' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C8A951' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C8A951' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
@@ -995,9 +1123,103 @@ table {
   line-height: 1.6;
 }
 
-/* ============================================================
+.form-error {
+  font-size: .75rem;
+  color: #ef5350;
+  margin-top: .2rem;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+
+.form-hint {
+  font-size: .72rem;
+  color: var(--tm);
+  margin-top: .2rem;
+  font-style: italic;
+}
+
+/ Password Input with Toggle /
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: .8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .05);
+  border: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--tm);
+  transition: all .2s var(--ease);
+}
+
+.password-toggle:hover {
+  background: var(--gf);
+  color: var(--g);
+}
+
+/ Checkbox Styles /
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  cursor: pointer;
+}
+
+.form-checkbox input {
+  display: none;
+}
+
+.form-checkbox-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--bs);
+  background: rgba(6, 6, 10, .8);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all .2s var(--ease);
+}
+
+.form-checkbox:hover .form-checkbox-box {
+  border-color: var(--b);
+}
+
+.form-checkbox input:checked + .form-checkbox-box {
+  background: linear-gradient(135deg, var(--g), var(--g3));
+  border-color: var(--g);
+}
+
+.form-checkbox input:checked + .form-checkbox-box::after {
+  content: '✓';
+  color: #080500;
+  font-size: .7rem;
+  font-weight: 900;
+}
+
+.form-checkbox-label {
+  font-size: .85rem;
+  color: var(--td);
+  line-height: 1.4;
+}
+
+.form-checkbox-label a {
+  color: var(--g);
+  text-decoration: underline;
+}
+
+/ ============================================================
    SEZIONE CSS 9 — CARDS
-   ============================================================ */
+   ============================================================ /
 .card {
   background: linear-gradient(145deg, rgba(22, 20, 32, .9), rgba(14, 13, 18, .95));
   border: 1px solid var(--b);
@@ -1015,9 +1237,9 @@ table {
   border-color: rgba(200, 169, 81, .32);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 10 — BADGES & TAGS
-   ============================================================ */
+   ============================================================ /
 .badge {
   display: inline-flex;
   align-items: center;
@@ -1073,6 +1295,13 @@ table {
   border: 1px solid var(--bs);
 }
 
+.badge-premium {
+  background: linear-gradient(135deg, rgba(200, 169, 81, .2), rgba(200, 169, 81, .1));
+  color: var(--g);
+  border: 1px solid var(--g);
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -1094,9 +1323,9 @@ table {
   color: var(--g);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 11 — SECTION STYLES
-   ============================================================ */
+   ============================================================ /
 .section {
   padding: 6rem 0;
   position: relative;
@@ -1185,9 +1414,9 @@ table {
   background: linear-gradient(90deg, transparent, var(--g), transparent);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 12 — HERO
-   ============================================================ */
+   ============================================================ /
 #home {
   position: relative;
   min-height: 100vh;
@@ -1573,9 +1802,9 @@ table {
 .quick-tile:nth-child(5) { animation: heroIn .5s var(--ease) .92s both; }
 .quick-tile:nth-child(6) { animation: heroIn .5s var(--ease) 1s both; }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 13 — SLIDESHOW / VETRINA
-   ============================================================ */
+   ============================================================ /
 #vetrina {
   background: var(--ink2);
   overflow: hidden;
@@ -1926,9 +2155,9 @@ table {
   background: var(--g);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 14 — CATALOGO
-   ============================================================ */
+   ============================================================ /
 #catalogo {
   background: var(--ink3);
 }
@@ -2276,9 +2505,9 @@ table {
   margin-top: 2rem;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 15 — TIPOLOGIE
-   ============================================================ */
+   ============================================================ /
 #tipologie {
   background: var(--ink2);
 }
@@ -2352,9 +2581,9 @@ table {
   padding-left: .9rem;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 16 — ORDINI
-   ============================================================ */
+   ============================================================ /
 #ordini {
   background: var(--ink3);
 }
@@ -2445,9 +2674,9 @@ table {
   font-style: italic;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 17 — GARANZIE
-   ============================================================ */
+   ============================================================ /
 #garanzie {
   background: var(--ink2);
   position: relative;
@@ -2517,9 +2746,9 @@ table {
   line-height: 1.78;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 18 — FAQ
-   ============================================================ */
+   ============================================================ /
 #faq {
   background: var(--ink3);
 }
@@ -2599,9 +2828,9 @@ table {
   line-height: 1.8;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 19 — CONTATTI
-   ============================================================ */
+   ============================================================ /
 #contatti {
   background: var(--ink2);
 }
@@ -2680,9 +2909,9 @@ table {
   gap: .9rem;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 20 — FOOTER
-   ============================================================ */
+   ============================================================ /
 .footer {
   border-top: 1px solid var(--b);
   padding: 3.5rem 0 2rem;
@@ -2768,9 +2997,9 @@ table {
   transform: translateY(-3px);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 21 — CART PANEL
-   ============================================================ */
+   ============================================================ /
 .cart-overlay {
   position: fixed;
   inset: 0;
@@ -2980,9 +3209,9 @@ table {
   color: var(--g);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 22 — MODAL
-   ============================================================ */
+   ============================================================ /
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -3193,9 +3422,9 @@ table {
   background: rgba(0, 0, 0, .1);
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 23 — TOAST NOTIFICATIONS
-   ============================================================ */
+   ============================================================ /
 .toast-container {
   position: fixed;
   top: calc(var(--hdr) + 1rem);
@@ -3301,9 +3530,9 @@ table {
   color: #e8a820;
 }
 
-/* ============================================================
+/ ============================================================
    SEZIONE CSS 24 — SEARCH MODAL
-   ============================================================ */
+   ============================================================ /
 .search-modal {
   position: fixed;
   inset: 0;
@@ -3456,9 +3685,491 @@ table {
   font-style: italic;
 }
 
-/* ============================================================
-   SEZIONE CSS 25 — BACK TO TOP
-   ============================================================ */
+/ ============================================================
+   SEZIONE CSS 25 — AUTH MODAL
+   ============================================================ /
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: var(--z-auth);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s var(--ease), visibility .35s;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.auth-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.auth-modal {
+  background: linear-gradient(145deg, #0f0e18, #1a182a);
+  border: 1px solid var(--b);
+  border-radius: var(--rx);
+  box-shadow: 
+    0 48px 120px rgba(0, 0, 0, .8),
+    0 0 100px rgba(200, 169, 81, .08);
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  animation: popIn .35s var(--ease2);
+  position: relative;
+}
+
+.auth-modal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--rx);
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(200, 169, 81, .06), transparent 60%);
+  pointer-events: none;
+}
+
+.auth-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--tm);
+  font-size: .9rem;
+  transition: all .25s var(--ease);
+  z-index: 10;
+}
+
+.auth-close:hover {
+  background: rgba(255, 255, 255, .08);
+  color: var(--t);
+}
+
+.auth-header {
+  padding: 2.5rem 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 1.2rem;
+  background: radial-gradient(circle at 35% 28%, #f8e89a, #d4a835 38%, #8a5c0e 75%, #3a2402 100%);
+  display: grid;
+  place-items: center;
+  box-shadow: 
+    0 0 30px rgba(200, 169, 81, .4),
+    inset -4px -4px 10px rgba(0, 0, 0, .3);
+  animation: avatarGlow 3s ease-in-out infinite;
+}
+
+.auth-logo span {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: .65rem;
+  color: rgba(0, 0, 0, .65);
+  letter-spacing: .1em;
+}
+
+.auth-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .4rem;
+}
+
+.auth-subtitle {
+  font-size: .9rem;
+  color: var(--td);
+  font-style: italic;
+}
+
+.auth-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--b);
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color .25s var(--ease);
+}
+
+.auth-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--g), var(--g2));
+  transform: scaleX(0);
+  transition: transform .3s var(--ease2);
+}
+
+.auth-tab.active {
+  color: var(--g);
+}
+
+.auth-tab.active::after {
+  transform: scaleX(1);
+}
+
+.auth-tab:hover:not(.active) {
+  color: var(--td);
+}
+
+.auth-body {
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-form {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeIn .3s var(--ease);
+}
+
+.auth-form.active {
+  display: flex;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: .5rem 0;
+}
+
+.auth-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--bs);
+}
+
+.auth-divider-text {
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  letter-spacing: .12em;
+  color: var(--tm);
+  text-transform: uppercase;
+}
+
+.auth-social-btns {
+  display: flex;
+  gap: .8rem;
+}
+
+.auth-social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--bs);
+  color: var(--td);
+  font-family: 'Cinzel', serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .25s var(--ease);
+}
+
+.auth-social-btn:hover {
+  background: rgba(255, 255, 255, .08);
+  border-color: var(--bs2);
+  color: var(--t);
+}
+
+.auth-social-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.auth-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--b);
+  text-align: center;
+  background: rgba(0, 0, 0, .1);
+  position: relative;
+  z-index: 1;
+}
+
+.auth-footer-text {
+  font-size: .82rem;
+  color: var(--tm);
+}
+
+.auth-footer-link {
+  color: var(--g);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color .2s var(--ease);
+}
+
+.auth-footer-link:hover {
+  color: var(--g2);
+  text-decoration: underline;
+}
+
+/ Password Strength Indicator /
+.password-strength {
+  display: flex;
+  gap: .25rem;
+  margin-top: .3rem;
+}
+
+.password-strength-bar {
+  flex: 1;
+  height: 3px;
+  background: var(--bs);
+  border-radius: 2px;
+  transition: background .3s var(--ease);
+}
+
+.password-strength-bar.weak { background: #ef5350; }
+.password-strength-bar.medium { background: #e8a820; }
+.password-strength-bar.strong { background: #5dba6d; }
+
+.password-strength-text {
+  font-size: .68rem;
+  margin-top: .25rem;
+  transition: color .3s var(--ease);
+}
+
+.password-strength-text.weak { color: #ef5350; }
+.password-strength-text.medium { color: #e8a820; }
+.password-strength-text.strong { color: #5dba6d; }
+
+/ Auth Success Animation /
+.auth-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeIn .3s var(--ease);
+}
+
+.auth-success.active {
+  display: flex;
+}
+
+.auth-success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(93, 186, 109, .2), rgba(93, 186, 109, .1));
+  border: 2px solid #5dba6d;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1.5rem;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.auth-success-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #5dba6d;
+}
+
+.auth-success-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
+.auth-success-text {
+  color: var(--td);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+/ User Profile Dropdown /
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + .5rem);
+  right: 0;
+  width: 280px;
+  background: linear-gradient(145deg, #0f0e18, #1a182a);
+  border: 1px solid var(--b);
+  border-radius: var(--rl);
+  box-shadow: var(--sh);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all .25s var(--ease);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.profile-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-dropdown-header {
+  padding: 1.2rem;
+  background: var(--gf);
+  border-bottom: 1px solid var(--b);
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+}
+
+.profile-dropdown-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--g3), var(--g));
+  display: grid;
+  place-items: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: .9rem;
+  color: #080500;
+  flex-shrink: 0;
+}
+
+.profile-dropdown-info h4 {
+  font-family: 'Cinzel', serif;
+  font-size: .85rem;
+  font-weight: 700;
+  margin-bottom: .15rem;
+}
+
+.profile-dropdown-info p {
+  font-size: .72rem;
+  color: var(--tm);
+}
+
+.profile-dropdown-id {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .15rem .4rem;
+  background: rgba(255, 255, 255, .05);
+  border-radius: 4px;
+  font-family: 'Cinzel', serif;
+  font-size: .55rem;
+  color: var(--g);
+  margin-top: .3rem;
+}
+
+.profile-dropdown-menu {
+  padding: .5rem 0;
+}
+
+.profile-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .8rem 1.2rem;
+  font-size: .82rem;
+  color: var(--td);
+  cursor: pointer;
+  transition: all .2s var(--ease);
+}
+
+.profile-dropdown-item:hover {
+  background: rgba(255, 255, 255, .04);
+  color: var(--t);
+  padding-left: 1.4rem;
+}
+
+.profile-dropdown-item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--g);
+  flex-shrink: 0;
+}
+
+.profile-dropdown-item.danger {
+  color: #ef5350;
+}
+
+.profile-dropdown-item.danger svg {
+  color: #ef5350;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  background: var(--bs);
+  margin: .5rem 1rem;
+}
+
+.profile-dropdown-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, .1);
+  border-top: 1px solid var(--bs);
+}
+
+.profile-dropdown-stat {
+  text-align: center;
+  padding: .5rem;
+  border-radius: var(--r);
+  background: rgba(255, 255, 255, .02);
+}
+
+.profile-dropdown-stat-value {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--g);
+}
+
+.profile-dropdown-stat-label {
+  font-size: .6rem;
+  color: var(--tm);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/ ============================================================
+   SEZIONE CSS 26 — BACK TO TOP
+   ============================================================ /
 .back-to-top {
   position: fixed;
   bottom: 1.8rem;
@@ -3495,9 +4206,9 @@ table {
   box-shadow: 0 12px 38px rgba(200, 169, 81, .48);
 }
 
-/* ============================================================
-   SEZIONE CSS 26 — READING PROGRESS BAR
-   ============================================================ */
+/ ============================================================
+   SEZIONE CSS 27 — READING PROGRESS BAR
+   ============================================================ /
 .reading-progress {
   position: fixed;
   top: var(--hdr);
@@ -3510,7 +4221,7 @@ table {
 }
 
 .reading-progress.hidden {
-  transform: translateY(calc(-1 * var(--hdr) - 2px));
+  transform: translateY(calc(-1  var(--hdr) - 2px));
 }
    
 .reading-progress-bar {
@@ -3520,9 +4231,9 @@ table {
   transition: width .1s linear;
 }
 
-/* ============================================================
-   SEZIONE CSS 27 — RESPONSIVE
-   ============================================================ */
+/ ============================================================
+   SEZIONE CSS 28 — RESPONSIVE
+   ============================================================ /
 @media (max-width: 1280px) {
   .coins-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -3584,6 +4295,14 @@ table {
     height: clamp(150px, 28vw, 220px);
     min-width: clamp(150px, 28vw, 220px);
     min-height: clamp(150px, 28vw, 220px);
+  }
+  
+  .profile-btn-text {
+    display: none;
+  }
+  
+  .profile-btn {
+    padding: .4rem .6rem;
   }
 }
 
@@ -3672,6 +4391,23 @@ table {
   .orders-table {
     min-width: 580px;
   }
+  
+  .auth-modal {
+    max-width: 100%;
+    margin: 1rem;
+    border-radius: var(--rl);
+  }
+  
+  .profile-dropdown {
+    position: fixed;
+    top: var(--hdr);
+    right: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 var(--rl) var(--rl);
+    max-height: calc(100vh - var(--hdr));
+    overflow-y: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3738,6 +4474,22 @@ table {
   .toast {
     max-width: 100%;
   }
+  
+  .header-actions {
+    gap: .5rem;
+  }
+  
+  .cart-btn span:not(.cart-count) {
+    display: none;
+  }
+  
+  .cart-btn {
+    padding: .5rem .7rem;
+  }
+  
+  .auth-social-btns {
+    flex-direction: column;
+  }
 }
 
 @media print {
@@ -3745,7 +4497,8 @@ table {
   .footer,
   .cart-btn,
   .back-to-top,
-  .toast-container {
+  .toast-container,
+  .profile-btn {
     display: none !important;
   }
   
@@ -3760,9 +4513,9 @@ table {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  ,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -3830,6 +4583,83 @@ table {
         </svg>
       </button>
       
+      <!-- Profile Button -->
+      <div style="position: relative;">
+        <button class="profile-btn" id="profileBtn" aria-label="Profilo">
+          <div class="profile-btn-avatar" id="profileBtnAvatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <span class="profile-btn-text" id="profileBtnText">Accedi</span>
+        </button>
+        
+        <!-- Profile Dropdown (shown when logged in) -->
+        <div class="profile-dropdown" id="profileDropdown">
+          <div class="profile-dropdown-header">
+            <div class="profile-dropdown-avatar" id="dropdownAvatar">MC</div>
+            <div class="profile-dropdown-info">
+              <h4 id="dropdownName">Marco Collezione</h4>
+              <p id="dropdownEmail">marco@esempio.it</p>
+              <span class="profile-dropdown-id">
+                <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                ID: <span id="dropdownUserId">#0001</span>
+              </span>
+            </div>
+          </div>
+          
+          <div class="profile-dropdown-menu">
+            <div class="profile-dropdown-item" onclick="showToast({type:'info', title:'I miei ordini', message:'Funzionalità in sviluppo'})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+              <span>I miei ordini</span>
+            </div>
+            <div class="profile-dropdown-item" onclick="showToast({type:'info', title:'Lista desideri', message:'Funzionalità in sviluppo'})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+              <span>Lista desideri</span>
+            </div>
+            <div class="profile-dropdown-item" onclick="showToast({type:'info', title:'Impostazioni', message:'Funzionalità in sviluppo'})">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+              </svg>
+              <span>Impostazioni</span>
+            </div>
+            
+            <div class="profile-dropdown-divider"></div>
+            
+            <div class="profile-dropdown-item danger" onclick="handleLogout()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                <polyline points="16 17 21 12 16 7"/>
+                <line x1="21" y1="12" x2="9" y2="12"/>
+              </svg>
+              <span>Esci</span>
+            </div>
+          </div>
+          
+          <div class="profile-dropdown-stats">
+            <div class="profile-dropdown-stat">
+              <div class="profile-dropdown-stat-value" id="dropdownOrderCount">0</div>
+              <div class="profile-dropdown-stat-label">Ordini</div>
+            </div>
+            <div class="profile-dropdown-stat">
+              <div class="profile-dropdown-stat-value" id="dropdownWishlistCount">0</div>
+              <div class="profile-dropdown-stat-label">Desideri</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <button class="cart-btn" id="cartBtn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
           <circle cx="9" cy="21" r="1"/>
@@ -3890,7 +4720,6 @@ table {
         <div class="hero-actions">
           <a href="#vetrina" class="btn btn-primary btn-lg" id="heroCta1">
             <span>Esplora la Vetrina</span>
-            <!-- <span>→</span> -->
           </a>
           <a href="#catalogo" class="btn btn-outline btn-lg" id="heroCta2">
             <span>Catalogo Completo</span>
@@ -4330,7 +5159,7 @@ table {
     <div class="footer-bottom">
       <span>© 2026 Pecunia Solis Numismatica. Tutti i diritti riservati.</span>
       <div class="footer-social">
-        <a href="[instagram.com](https://www.instagram.com/lorenzo.sportelli/)" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">📷</a>
+        <a href="https://www.instagram.com/lorenzo.sportelli/" target="blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram">📷</a>
         <span style="font-family: 'Cinzel', serif; font-size: .7rem; letter-spacing: .08em; color: var(--tm); margin-left: .3rem;">Instagram</span>
       </div>
     </div>
@@ -4432,6 +5261,190 @@ table {
 </div>
 
 <!-- ============================================================
+     AUTH MODAL
+     ============================================================ -->
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-modal">
+    <button class="auth-close" id="authClose" aria-label="Chiudi">✕</button>
+    
+    <div class="auth-header">
+      <div class="auth-logo">
+        <span>PSN</span>
+      </div>
+      <h2 class="auth-title">Benvenuto</h2>
+      <p class="auth-subtitle">Accedi o crea un account per continuare</p>
+    </div>
+    
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Accedi</button>
+      <button class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">Registrati</button>
+    </div>
+    
+    <div class="auth-body">
+      <!-- Login Form -->
+      <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="email@esempio.com" required/>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="loginPassword">Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="loginPassword" class="form-input" placeholder="La tua password" required/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('loginPassword', this)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: -.3rem;">
+          <label class="form-checkbox">
+            <input type="checkbox" id="rememberMe"/>
+            <span class="form-checkbox-box"></span>
+            <span class="form-checkbox-label">Ricordami</span>
+          </label>
+          <a href="#" class="auth-footer-link" style="font-size: .78rem;" onclick="showToast({type:'info', title:'Recupero password', message:'Funzionalità in sviluppo'}); return false;">Password dimenticata?</a>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: .5rem;">
+          <span>Accedi</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+            <polyline points="10 17 15 12 10 7"/>
+            <line x1="15" y1="12" x2="3" y2="12"/>
+          </svg>
+        </button>
+        
+        <div class="auth-divider">
+          <span class="auth-divider-line"></span>
+          <span class="auth-divider-text">oppure</span>
+          <span class="auth-divider-line"></span>
+        </div>
+        
+        <div class="auth-social-btns">
+          <button type="button" class="auth-social-btn" onclick="showToast({type:'info', title:'Google', message:'Autenticazione Google in sviluppo'})">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span>Google</span>
+          </button>
+        </div>
+      </form>
+      
+      <!-- Register Form -->
+      <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label class="form-label" for="registerName">Nome completo</label>
+          <input type="text" id="registerName" class="form-input" placeholder="Mario Rossi" required/>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="registerEmail">Email</label>
+          <input type="email" id="registerEmail" class="form-input" placeholder="email@esempio.com" required/>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="registerPassword">Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="registerPassword" class="form-input" placeholder="Crea una password sicura" required oninput="checkPasswordStrength(this.value)"/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('registerPassword', this)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+          <div class="password-strength" id="passwordStrength">
+            <div class="password-strength-bar" id="strengthBar1"></div>
+            <div class="password-strength-bar" id="strengthBar2"></div>
+            <div class="password-strength-bar" id="strengthBar3"></div>
+            <div class="password-strength-bar" id="strengthBar4"></div>
+          </div>
+          <div class="password-strength-text" id="passwordStrengthText"></div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="registerPasswordConfirm">Conferma password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="registerPasswordConfirm" class="form-input" placeholder="Ripeti la password" required/>
+            <button type="button" class="password-toggle" onclick="togglePasswordVisibility('registerPasswordConfirm', this)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <label class="form-checkbox" style="margin-top: .3rem;">
+          <input type="checkbox" id="acceptTerms" required/>
+          <span class="form-checkbox-box"></span>
+          <span class="form-checkbox-label">
+            Accetto i <a href="#" onclick="showToast({type:'info', title:'Termini', message:'Pagina in sviluppo'}); return false;">Termini di Servizio</a> e la <a href="#" onclick="showToast({type:'info', title:'Privacy', message:'Pagina in sviluppo'}); return false;">Privacy Policy</a>
+          </span>
+        </label>
+        
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: .8rem;">
+          <span>Crea Account</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="8.5" cy="7" r="4"/>
+            <line x1="20" y1="8" x2="20" y2="14"/>
+            <line x1="23" y1="11" x2="17" y2="11"/>
+          </svg>
+        </button>
+        
+        <div class="auth-divider">
+          <span class="auth-divider-line"></span>
+          <span class="auth-divider-text">oppure</span>
+          <span class="auth-divider-line"></span>
+        </div>
+        
+        <div class="auth-social-btns">
+          <button type="button" class="auth-social-btn" onclick="showToast({type:'info', title:'Google', message:'Registrazione Google in sviluppo'})">
+            <svg viewBox="0 0 24 24" width="16" height="16">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            <span>Google</span>
+          </button>
+        </div>
+      </form>
+      
+      <!-- Success State -->
+      <div class="auth-success" id="authSuccess">
+        <div class="auth-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3 class="auth-success-title" id="successTitle">Account creato!</h3>
+        <p class="auth-success-text" id="successText">Benvenuto nella famiglia Pecunia Solis</p>
+        <button class="btn btn-primary" onclick="closeAuthModal()">
+          <span>Inizia a esplorare</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+    
+    <div class="auth-footer" id="authFooter">
+      <p class="auth-footer-text">
+        Non hai un account? <span class="auth-footer-link" onclick="switchAuthTab('register')">Registrati</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
      TOAST CONTAINER
      ============================================================ -->
 <div class="toast-container" id="toastContainer"></div>
@@ -4448,8 +5461,8 @@ table {
 /* ============================================================
    SEZIONE JS 1 — SISTEMA IMMAGINI CENTRALIZZATO
    ============================================================ */
-const IMAGE_FILES = {
-  logo: './img3.png', /* LOGO TEMPORANEO! HO USATO L'HEROCOIN, ALTRIMENTI ./img2.png */
+const IMAGEFILES = {
+  logo: './img3.png',
   heroBg: './img1.jpg',
   vetrinaBg: './img1a.png',
   catalogoBg: './img1b.jpg',
@@ -4498,18 +5511,18 @@ const IMAGE_FILES = {
   sicloReverse: './img72.png'
 };
 
-const SLIDE_BACKGROUNDS = [
-  IMAGE_FILES.slideBg1,
-  IMAGE_FILES.slideBg2,
-  IMAGE_FILES.slideBg3,
-  IMAGE_FILES.slideBg4,
-  IMAGE_FILES.slideBg5
+const SLIDEBACKGROUNDS = [
+  IMAGEFILES.slideBg1,
+  IMAGEFILES.slideBg2,
+  IMAGEFILES.slideBg3,
+  IMAGEFILES.slideBg4,
+  IMAGEFILES.slideBg5
 ];
 
 /* ============================================================
    SEZIONE JS 2 — DATABASE MONETE
    ============================================================ */
-const COINS_DATABASE = [
+const COINSDATABASE = [
   {
     slug: 'asse',
     name: 'Asse',
@@ -4528,8 +5541,8 @@ const COINS_DATABASE = [
     subtitle: 'La moneta di bronzo quotidiana',
     description: "L'asse era l'unità di conto fondamentale del sistema monetario romano, inizialmente in bronzo fuso poi sempre più ridotto di peso nel corso dei secoli.",
     historicalNote: 'Coniato per oltre cinque secoli, attraversa tutta la storia romana dalla Repubblica fino al tardo Impero.',
-    obverseImg: IMAGE_FILES.asseObverse,
-    reverseImg: IMAGE_FILES.asseReverse
+    obverseImg: IMAGEFILES.asseObverse,
+    reverseImg: IMAGEFILES.asseReverse
   },
   {
     slug: 'dupondio',
@@ -4549,8 +5562,8 @@ const COINS_DATABASE = [
     subtitle: 'Il doppio asse imperiale',
     description: "Il dupondio valeva due assi ed era coniato in oricalco, una lega di rame e zinco che gli conferiva un colore più giallastro rispetto all'asse in bronzo puro.",
     historicalNote: "Si riconosce facilmente dall'effige imperiale con corona radiata anziché laureata, convenzione che permetteva di distinguerlo dall'asse.",
-    obverseImg: IMAGE_FILES.dupondioObverse,
-    reverseImg: IMAGE_FILES.dupondioReverse
+    obverseImg: IMAGEFILES.dupondioObverse,
+    reverseImg: IMAGEFILES.dupondioReverse
   },
   {
     slug: 'sesterzio',
@@ -4570,8 +5583,8 @@ const COINS_DATABASE = [
     subtitle: "Il grande bronzo dell'Impero",
     description: "Il sesterzio è tra le monete romane più ricercate dai collezionisti. Le ampie superfici consentivano incisioni di altissima qualità artistica.",
     historicalNote: 'Durante il Principato valeva ¼ di denario. Le sue dimensioni generose lo rendevano il supporto ideale per rappresentazioni iconografiche elaborate.',
-    obverseImg: IMAGE_FILES.sesterzioObverse,
-    reverseImg: IMAGE_FILES.sesterzioReverse
+    obverseImg: IMAGEFILES.sesterzioObverse,
+    reverseImg: IMAGEFILES.sesterzioReverse
   },
   {
     slug: 'denario',
@@ -4591,8 +5604,8 @@ const COINS_DATABASE = [
     subtitle: "L'argento della Repubblica e dell'Impero",
     description: "Il denario d'argento era la moneta-colonna della circolazione romana per oltre quattro secoli, utilizzata per pagamenti e scambi commerciali in tutto l'Impero.",
     historicalNote: "La progressiva riduzione del titolo d'argento nel III sec. è uno degli indicatori più chiari della crisi economica del tardo Impero.",
-    obverseImg: IMAGE_FILES.denarioObverse,
-    reverseImg: IMAGE_FILES.denarioReverse
+    obverseImg: IMAGEFILES.denarioObverse,
+    reverseImg: IMAGEFILES.denarioReverse
   },
   {
     slug: 'aureo',
@@ -4612,8 +5625,8 @@ const COINS_DATABASE = [
     subtitle: "Il massimo dell'oro imperiale",
     description: "L'aureo era la moneta aurea principale dell'Impero Romano, equivalente a 25 denari. Rappresentava la massima espressione del prestigio monetario romano.",
     historicalNote: "La purezza dell'oro si avvicinava ai 24 carati. Fu sostituito dal solido nel IV sec. d.C. con la riforma di Costantino.",
-    obverseImg: IMAGE_FILES.aureoObverse,
-    reverseImg: IMAGE_FILES.aureoReverse
+    obverseImg: IMAGEFILES.aureoObverse,
+    reverseImg: IMAGEFILES.aureoReverse
   },
   {
     slug: 'quinario',
@@ -4633,8 +5646,8 @@ const COINS_DATABASE = [
     subtitle: 'Metà denario',
     description: 'Il quinario valeva metà denario ed era raramente emesso, utilizzato principalmente per piccole transazioni.',
     historicalNote: null,
-    obverseImg: IMAGE_FILES.quinarioObverse,
-    reverseImg: IMAGE_FILES.quinarioReverse
+    obverseImg: IMAGEFILES.quinarioObverse,
+    reverseImg: IMAGEFILES.quinarioReverse
   },
   {
     slug: 'antoniniano',
@@ -4654,8 +5667,8 @@ const COINS_DATABASE = [
     subtitle: 'Il doppio denario',
     description: "L'antoniniano era nominalmente un doppio denario, introdotto da Caracalla. Si identifica dalla corona radiata sull'effigie imperiale.",
     historicalNote: "Nel corso del III secolo subì una progressiva svalutazione, con il contenuto d'argento che scese drasticamente.",
-    obverseImg: IMAGE_FILES.antoninianoObverse,
-    reverseImg: IMAGE_FILES.antoninianoReverse
+    obverseImg: IMAGEFILES.antoninianoObverse,
+    reverseImg: IMAGEFILES.antoninianoReverse
   },
   {
     slug: 'miliarense-leggero',
@@ -4675,8 +5688,8 @@ const COINS_DATABASE = [
     subtitle: "L'argento tardo-imperiale",
     description: "Il miliarense leggero era una moneta d'argento del tardo Impero. 24 miliarensi leggeri equivalevano a 1 solido.",
     historicalNote: null,
-    obverseImg: IMAGE_FILES.miliarenseLObverse,
-    reverseImg: IMAGE_FILES.miliarenseLReverse
+    obverseImg: IMAGEFILES.miliarenseLObverse,
+    reverseImg: IMAGEFILES.miliarenseLReverse
   },
   {
     slug: 'miliarense-pesante',
@@ -4696,8 +5709,8 @@ const COINS_DATABASE = [
     subtitle: 'La variante pesante',
     description: 'Il miliarense pesante era la versione più sostanziosa del miliarense. 24 miliarensi pesanti = 1 aureo.',
     historicalNote: null,
-    obverseImg: IMAGE_FILES.miliarensePObverse,
-    reverseImg: IMAGE_FILES.miliarensePReverse
+    obverseImg: IMAGEFILES.miliarensePObverse,
+    reverseImg: IMAGEFILES.miliarensePReverse
   },
   {
     slug: 'siliqua',
@@ -4717,8 +5730,8 @@ const COINS_DATABASE = [
     subtitle: 'Argento tardo-imperiale',
     description: 'La siliqua era una moneta tardo-imperiale in argento fine, spesso caratterizzata da un bordo perlato distintivo.',
     historicalNote: null,
-    obverseImg: IMAGE_FILES.siliquaObverse,
-    reverseImg: IMAGE_FILES.siliquaReverse
+    obverseImg: IMAGEFILES.siliquaObverse,
+    reverseImg: IMAGEFILES.siliquaReverse
   },
   {
     slug: 'solido',
@@ -4738,8 +5751,8 @@ const COINS_DATABASE = [
     subtitle: "L'oro di Costantino",
     description: "Il solido nacque dalla riforma costantiniana dell'aureo. Divenne lo standard monetario aureo per secoli, influenzando le monetazioni bizantine e medievali.",
     historicalNote: null,
-    obverseImg: IMAGE_FILES.solidoObverse,
-    reverseImg: IMAGE_FILES.solidoReverse
+    obverseImg: IMAGEFILES.solidoObverse,
+    reverseImg: IMAGEFILES.solidoReverse
   },
   {
     slug: 'tetradracma',
@@ -4759,8 +5772,8 @@ const COINS_DATABASE = [
     subtitle: 'Il grande argento greco',
     description: 'La tetradracma era la denominazione greca di alto valore più diffusa, equivalente a quattro dracme.',
     historicalNote: null,
-    obverseImg: IMAGE_FILES.tetradracmaObverse,
-    reverseImg: IMAGE_FILES.tetradracmaReverse
+    obverseImg: IMAGEFILES.tetradracmaObverse,
+    reverseImg: IMAGEFILES.tetradracmaReverse
   },
   {
     slug: 'dracma',
@@ -4780,8 +5793,8 @@ const COINS_DATABASE = [
     subtitle: "L'unità greca",
     description: "La dracma era l'unità di base del sistema monetario greco, da cui derivavano tutte le altre denominazioni.",
     historicalNote: null,
-    obverseImg: IMAGE_FILES.dracmaObverse,
-    reverseImg: IMAGE_FILES.dracmaReverse
+    obverseImg: IMAGEFILES.dracmaObverse,
+    reverseImg: IMAGEFILES.dracmaReverse
   },
   {
     slug: 'assario',
@@ -4801,8 +5814,8 @@ const COINS_DATABASE = [
     subtitle: "L'asse provinciale",
     description: "L'assario era l'unità bronzea provinciale equivalente all'asse romano, coniata nelle province orientali dell'Impero.",
     historicalNote: null,
-    obverseImg: IMAGE_FILES.assarioObverse,
-    reverseImg: IMAGE_FILES.assarioReverse
+    obverseImg: IMAGEFILES.assarioObverse,
+    reverseImg: IMAGEFILES.assarioReverse
   },
   {
     slug: 'lepton',
@@ -4822,8 +5835,8 @@ const COINS_DATABASE = [
     subtitle: 'La più piccola moneta giudaica',
     description: "Il lepton era la più piccola moneta giudaica, menzionata anche nei Vangeli come \"l'obolo della vedova\".",
     historicalNote: null,
-    obverseImg: IMAGE_FILES.leptonObverse,
-    reverseImg: IMAGE_FILES.leptonReverse
+    obverseImg: IMAGEFILES.leptonObverse,
+    reverseImg: IMAGEFILES.leptonReverse
   },
   {
     slug: 'siclo',
@@ -4843,15 +5856,15 @@ const COINS_DATABASE = [
     subtitle: "L'argento della rivolta",
     description: 'Il siclo era il grande argento della prima rivolta giudaica, una delle monete più cariche di significato storico e religioso.',
     historicalNote: null,
-    obverseImg: IMAGE_FILES.sicloObverse,
-    reverseImg: IMAGE_FILES.sicloReverse
+    obverseImg: IMAGEFILES.sicloObverse,
+    reverseImg: IMAGEFILES.sicloReverse
   }
 ];
 
 /* ============================================================
    SEZIONE JS 3 — DATABASE TIPOLOGIE
    ============================================================ */
-const TYPES_DATABASE = [
+const TYPESDATABASE = [
   {
     name: 'Bronzo e Rame',
     items: ['Oncia', 'Semioncia', 'Quartuncia', 'Sestante', 'Triente', 'Quincunce', 'Semisse', 'Quadrante', 'Destante', 'Besse', 'Decusse', 'Quincusse', 'Asse', 'Dupondio', 'Sesterzio', 'Nummo', 'Centenionale', 'Maiorina']
@@ -4885,7 +5898,7 @@ const TYPES_DATABASE = [
 /* ============================================================
    SEZIONE JS 4 — DATABASE ORDINI
    ============================================================ */
-const ORDERS_DATABASE = [
+const ORDERSDATABASE = [
   { orderId: '#PSN-2025-0041', coinName: 'Denario di Marco Aurelio', orderDate: '20 Apr 2025', status: 'shipped', total: '€95' },
   { orderId: '#PSN-2025-0040', coinName: 'Tetradracma ateniese', orderDate: '19 Apr 2025', status: 'completed', total: '€340' },
   { orderId: '#PSN-2025-0039', coinName: 'Sesterzio Antonino Pio', orderDate: '18 Apr 2025', status: 'processing', total: '€145' },
@@ -4897,7 +5910,7 @@ const ORDERS_DATABASE = [
 /* ============================================================
    SEZIONE JS 5 — DATABASE GARANZIE
    ============================================================ */
-const GUARANTEES_DATABASE = [
+const GUARANTEESDATABASE = [
   { icon: '🏛️', title: 'Autenticità Certificata', text: 'Ogni esemplare è autentico e documentato con attribuzione, epoca e note numismatiche dettagliate. Certificato disponibile su richiesta per ogni acquisto.' },
   { icon: '🔒', title: 'Descrizioni Trasparenti', text: 'Metallo, conservazione, peso, diametro, patina, centratura, leggibilità: tutte le informazioni necessarie per scegliere con piena consapevolezza.' },
   { icon: '📦', title: 'Spedizione Sicura', text: 'Imballo protettivo professionale, spedizione tracciata con opzione assicurata per pezzi di valore. Italia 2–4 giorni, Europa 10-15 giorni.' },
@@ -4909,7 +5922,7 @@ const GUARANTEES_DATABASE = [
 /* ============================================================
    SEZIONE JS 6 — DATABASE FAQ
    ============================================================ */
-const FAQ_DATABASE = [
+const FAQDATABASE = [
   { question: 'Le monete sono autentiche?', answer: 'Sì, assolutamente. Ogni esemplare è ritenuto autentico sulla base di verifiche tecniche accurate condotte da esperti numismatici. Resta un minimo margine di incertezza intrinseco al settore, ma offriamo garanzia di rimborso in caso di contestazioni documentate. Certificazione di autenticità disponibile su richiesta.' },
   { question: 'Come viene indicata la conservazione?', answer: 'Utilizziamo la scala internazionale di conservazione: B (Bella), MB (Molto Bella), BB (Bellissima), SPL (Splendida), FDC (Fior di Conio). Ogni moneta include foto ad alta risoluzione e descrizione dettagliata dello stato di conservazione, incluse eventuali particolarità come patina, usura o difetti di conio.' },
   { question: 'Posso restituire una moneta?', answer: 'Sì, offriamo il reso entro 14 giorni dalla ricezione. La moneta deve essere restituita nelle stesse condizioni in cui è stata ricevuta, nella confezione originale. Il rimborso viene elaborato entro 5 giorni lavorativi dalla ricezione del reso. Le spese di spedizione per il reso sono a carico del cliente, salvo errori nostri.' },
@@ -4919,7 +5932,13 @@ const FAQ_DATABASE = [
 ];
 
 /* ============================================================
-   SEZIONE JS 7 — STATO APPLICAZIONE
+   SEZIONE JS 7 — DATABASE UTENTI (SIMULATO)
+   ============================================================ */
+let USERSDATABASE = JSON.parse(localStorage.getItem('psnusers') || '[]');
+let nextUserId = USERSDATABASE.length > 0 ? Math.max(...USERSDATABASE.map(u => u.id)) + 1 : 1;
+
+/* ============================================================
+   SEZIONE JS 8 — STATO APPLICAZIONE
    ============================================================ */
 let state = {
   coins: [],
@@ -4933,27 +5952,31 @@ let state = {
   isCartOpen: false,
   isModalOpen: false,
   isSearchOpen: false,
+  isAuthOpen: false,
   isMobileMenuOpen: false,
+  isProfileDropdownOpen: false,
   catalogExpanded: false,
   lastScrollY: 0,
-  headerHidden: false
+  headerHidden: false,
+  currentUser: null,
+  pendingCartAction: null
 };
 
 /* ============================================================
-   SEZIONE JS 8 — COSTANTI
+   SEZIONE JS 9 — COSTANTI
    ============================================================ */
 const CONSTANTS = {
-  SLIDE_INTERVAL: 10000,
-  SLIDE_PAUSE_DURATION: 20000,
-  SLIDE_FLIP_DELAY: 5000,
-  CATALOG_INITIAL_LIMIT: 12,
-  TOAST_DURATION: 4000,
-  SCROLL_THRESHOLD: 100,
-  HEADER_HIDE_THRESHOLD: 200
+  SLIDEINTERVAL: 10000,
+  SLIDEPAUSEDURATION: 20000,
+  SLIDEFLIPDELAY: 5000,
+  CATALOGINITIALLIMIT: 12,
+  TOASTDURATION: 4000,
+  SCROLLTHRESHOLD: 100,
+  HEADERHIDETHRESHOLD: 200
 };
 
 /* ============================================================
-   SEZIONE JS 9 — UTILITY FUNCTIONS
+   SEZIONE JS 10 — UTILITY FUNCTIONS
    ============================================================ */
 const $ = (id) => document.getElementById(id);
 const $$ = (selector) => document.querySelectorAll(selector);
@@ -4996,8 +6019,453 @@ const generateUniqueId = () => {
   return 'id' + Math.random().toString(36).substr(2, 9);
 };
 
+const getInitials = (name) => {
+  if (!name) return '??';
+  const parts = name.trim().split(' ');
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+  return name.slice(0, 2).toUpperCase();
+};
+
+const formatUserId = (id) => {
+  return '#' + String(id).padStart(4, '0');
+};
+
+const hashPassword = (password) => {
+  // Simple hash for demo - in production use bcrypt or similar
+  let hash = 0;
+  for (let i = 0; i < password.length; i++) {
+    const char = password.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return hash.toString(16);
+};
+
+const validateEmail = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
+
+const validatePassword = (password) => {
+  return password.length >= 8;
+};
+
 /* ============================================================
-   SEZIONE JS 10 — LOADER E INIZIALIZZAZIONE
+   SEZIONE JS 11 — SISTEMA DI AUTENTICAZIONE
+   ============================================================ */
+const saveUsersToStorage = () => {
+  localStorage.setItem('psnusers', JSON.stringify(USERSDATABASE));
+};
+
+const saveCurrentUserToStorage = () => {
+  if (state.currentUser) {
+    localStorage.setItem('psncurrentuser', JSON.stringify(state.currentUser));
+  } else {
+    localStorage.removeItem('psncurrentuser');
+  }
+};
+
+const loadCurrentUserFromStorage = () => {
+  const stored = localStorage.getItem('psncurrentuser');
+  if (stored) {
+    try {
+      state.currentUser = JSON.parse(stored);
+      updateProfileUI();
+      return true;
+    } catch (e) {
+      localStorage.removeItem('psncurrentuser');
+    }
+  }
+  return false;
+};
+
+const openAuthModal = (reason = null) => {
+  state.isAuthOpen = true;
+  state.pendingCartAction = reason;
+  
+  const overlay = $('authOverlay');
+  if (overlay) overlay.classList.add('open');
+  
+  document.body.style.overflow = 'hidden';
+  
+  // Reset forms
+  $('loginForm')?.reset();
+  $('registerForm')?.reset();
+  switchAuthTab('login');
+  
+  // Show reason if any
+  if (reason) {
+    showToast({
+      type: 'info',
+      title: 'Accesso richiesto',
+      message: 'Per aggiungere articoli al carrello devi prima accedere'
+    });
+  }
+};
+
+const closeAuthModal = () => {
+  state.isAuthOpen = false;
+  state.pendingCartAction = null;
+  
+  const overlay = $('authOverlay');
+  if (overlay) overlay.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isModalOpen && !state.isSearchOpen) {
+    document.body.style.overflow = '';
+  }
+  
+  // Reset to default state
+  $('authSuccess')?.classList.remove('active');
+  $('loginForm')?.classList.add('active');
+  $('registerForm')?.classList.remove('active');
+  $('authFooter').style.display = 'block';
+};
+
+const switchAuthTab = (tab) => {
+  const loginTab = $('loginTab');
+  const registerTab = $('registerTab');
+  const loginForm = $('loginForm');
+  const registerForm = $('registerForm');
+  const authFooter = $('authFooter');
+  const authSuccess = $('authSuccess');
+  
+  // Hide success if visible
+  authSuccess?.classList.remove('active');
+  authFooter.style.display = 'block';
+  
+  if (tab === 'login') {
+    loginTab?.classList.add('active');
+    registerTab?.classList.remove('active');
+    loginForm?.classList.add('active');
+    registerForm?.classList.remove('active');
+    authFooter.innerHTML = 
+      <p class="auth-footer-text">
+        Non hai un account? <span class="auth-footer-link" onclick="switchAuthTab('register')">Registrati</span>
+      </p>
+    ;
+  } else {
+    loginTab?.classList.remove('active');
+    registerTab?.classList.add('active');
+    loginForm?.classList.remove('active');
+    registerForm?.classList.add('active');
+    authFooter.innerHTML = 
+      <p class="auth-footer-text">
+        Hai già un account? <span class="auth-footer-link" onclick="switchAuthTab('login')">Accedi</span>
+      </p>
+    ;
+  }
+};
+
+const handleLogin = (event) => {
+  event.preventDefault();
+  
+  const email = $('loginEmail')?.value?.trim();
+  const password = $('loginPassword')?.value;
+  
+  if (!email || !password) {
+    showToast({ type: 'error', title: 'Errore', message: 'Compila tutti i campi' });
+    return;
+  }
+  
+  const hashedPassword = hashPassword(password);
+  const user = USERSDATABASE.find(u => u.email === email && u.password === hashedPassword);
+  
+  if (user) {
+    state.currentUser = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      createdAt: user.createdAt,
+      orders: user.orders || 0,
+      wishlist: user.wishlist || 0
+    };
+    
+    saveCurrentUserToStorage();
+    updateProfileUI();
+    
+    // Show success
+    showAuthSuccess('Bentornato!', Ciao ${user.name.split(' ')[0]}, è un piacere rivederti);
+    
+    // Handle pending cart action
+    if (state.pendingCartAction) {
+      setTimeout(() => {
+        closeAuthModal();
+        addToCart(state.pendingCartAction);
+      }, 1500);
+    } else {
+      setTimeout(closeAuthModal, 2000);
+    }
+  } else {
+    showToast({ type: 'error', title: 'Accesso fallito', message: 'Email o password non corretti' });
+    $('loginEmail')?.classList.add('error');
+    $('loginPassword')?.classList.add('error');
+    
+    setTimeout(() => {
+      $('loginEmail')?.classList.remove('error');
+      $('loginPassword')?.classList.remove('error');
+    }, 2000);
+  }
+};
+
+const handleRegister = (event) => {
+  event.preventDefault();
+  
+  const name = $('registerName')?.value?.trim();
+  const email = $('registerEmail')?.value?.trim();
+  const password = $('registerPassword')?.value;
+  const confirmPassword = $('registerPasswordConfirm')?.value;
+  const acceptTerms = $('acceptTerms')?.checked;
+  
+  // Validation
+  if (!name || !email || !password || !confirmPassword) {
+    showToast({ type: 'error', title: 'Errore', message: 'Compila tutti i campi' });
+    return;
+  }
+  
+  if (!validateEmail(email)) {
+    showToast({ type: 'error', title: 'Email non valida', message: 'Inserisci un indirizzo email valido' });
+    $('registerEmail')?.classList.add('error');
+    return;
+  }
+  
+  if (!validatePassword(password)) {
+    showToast({ type: 'error', title: 'Password troppo debole', message: 'La password deve contenere almeno 8 caratteri' });
+    return;
+  }
+  
+  if (password !== confirmPassword) {
+    showToast({ type: 'error', title: 'Errore', message: 'Le password non coincidono' });
+    $('registerPasswordConfirm')?.classList.add('error');
+    return;
+  }
+  
+  if (!acceptTerms) {
+    showToast({ type: 'error', title: 'Termini non accettati', message: 'Devi accettare i termini di servizio' });
+    return;
+  }
+  
+  // Check if email already exists
+  if (USERSDATABASE.find(u => u.email === email)) {
+    showToast({ type: 'error', title: 'Email già registrata', message: 'Questa email è già associata a un account' });
+    $('registerEmail')?.classList.add('error');
+    return;
+  }
+  
+  // Create new user
+  const newUser = {
+    id: nextUserId++,
+    name: name,
+    email: email,
+    password: hashPassword(password),
+    createdAt: new Date().toISOString(),
+    orders: 0,
+    wishlist: 0
+  };
+  
+  USERSDATABASE.push(newUser);
+  saveUsersToStorage();
+  
+  // Auto-login
+  state.currentUser = {
+    id: newUser.id,
+    name: newUser.name,
+    email: newUser.email,
+    createdAt: newUser.createdAt,
+    orders: 0,
+    wishlist: 0
+  };
+  
+  saveCurrentUserToStorage();
+  updateProfileUI();
+  
+  // Show success
+  showAuthSuccess('Account creato!', Benvenuto nella famiglia Pecunia Solis, ${name.split(' ')[0]}! Il tuo ID utente è ${formatUserId(newUser.id)});
+  
+  // Handle pending cart action
+  if (state.pendingCartAction) {
+    setTimeout(() => {
+      closeAuthModal();
+      addToCart(state.pendingCartAction);
+    }, 2000);
+  } else {
+    setTimeout(closeAuthModal, 2500);
+  }
+};
+
+const showAuthSuccess = (title, text) => {
+  const successEl = $('authSuccess');
+  const loginForm = $('loginForm');
+  const registerForm = $('registerForm');
+  const authFooter = $('authFooter');
+  
+  if (successEl) {
+    $('successTitle').textContent = title;
+    $('successText').textContent = text;
+    
+    loginForm?.classList.remove('active');
+    registerForm?.classList.remove('active');
+    successEl.classList.add('active');
+    authFooter.style.display = 'none';
+  }
+};
+
+const handleLogout = () => {
+  state.currentUser = null;
+  state.cart = [];
+  saveCurrentUserToStorage();
+  renderCart();
+  updateProfileUI();
+  closeProfileDropdown();
+  
+  showToast({
+    type: 'info',
+    title: 'Disconnesso',
+    message: 'Hai effettuato il logout con successo'
+  });
+};
+
+const updateProfileUI = () => {
+  const btn = $('profileBtn');
+  const btnAvatar = $('profileBtnAvatar');
+  const btnText = $('profileBtnText');
+  const dropdown = $('profileDropdown');
+  
+  if (state.currentUser) {
+    btn?.classList.add('logged-in');
+    
+    const initials = getInitials(state.currentUser.name);
+    if (btnAvatar) btnAvatar.innerHTML = initials;
+    if (btnText) btnText.textContent = state.currentUser.name.split(' ')[0];
+    
+    // Update dropdown
+    const dropdownAvatar = $('dropdownAvatar');
+    const dropdownName = $('dropdownName');
+    const dropdownEmail = $('dropdownEmail');
+    const dropdownUserId = $('dropdownUserId');
+    const dropdownOrderCount = $('dropdownOrderCount');
+    const dropdownWishlistCount = $('dropdownWishlistCount');
+    
+    if (dropdownAvatar) dropdownAvatar.textContent = initials;
+    if (dropdownName) dropdownName.textContent = state.currentUser.name;
+    if (dropdownEmail) dropdownEmail.textContent = state.currentUser.email;
+    if (dropdownUserId) dropdownUserId.textContent = formatUserId(state.currentUser.id);
+    if (dropdownOrderCount) dropdownOrderCount.textContent = state.currentUser.orders || 0;
+    if (dropdownWishlistCount) dropdownWishlistCount.textContent = state.currentUser.wishlist || 0;
+  } else {
+    btn?.classList.remove('logged-in');
+    
+    if (btnAvatar) {
+      btnAvatar.innerHTML = 
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      ;
+    }
+    if (btnText) btnText.textContent = 'Accedi';
+  }
+};
+
+const toggleProfileDropdown = () => {
+  if (!state.currentUser) {
+    openAuthModal();
+    return;
+  }
+  
+  state.isProfileDropdownOpen = !state.isProfileDropdownOpen;
+  const dropdown = $('profileDropdown');
+  if (dropdown) {
+    dropdown.classList.toggle('open', state.isProfileDropdownOpen);
+  }
+};
+
+const closeProfileDropdown = () => {
+  state.isProfileDropdownOpen = false;
+  const dropdown = $('profileDropdown');
+  if (dropdown) {
+    dropdown.classList.remove('open');
+  }
+};
+
+const togglePasswordVisibility = (inputId, btn) => {
+  const input = $(inputId);
+  if (input) {
+    const isPassword = input.type === 'password';
+    input.type = isPassword ? 'text' : 'password';
+    
+    btn.innerHTML = isPassword
+      ? <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+           <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+           <line x1="1" y1="1" x2="23" y2="23"/>
+         </svg>
+      : <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+           <circle cx="12" cy="12" r="3"/>
+         </svg>;
+  }
+};
+
+const checkPasswordStrength = (password) => {
+  const bars = [
+    $('strengthBar1'),
+    $('strengthBar2'),
+    $('strengthBar3'),
+    $('strengthBar4')
+  ];
+  const textEl = $('passwordStrengthText');
+  
+  // Reset
+  bars.forEach(bar => {
+    if (bar) {
+      bar.classList.remove('weak', 'medium', 'strong');
+    }
+  });
+  
+  if (!password) {
+    if (textEl) textEl.textContent = '';
+    return;
+  }
+  
+  let strength = 0;
+  
+  // Length
+  if (password.length >= 8) strength++;
+  if (password.length >= 12) strength++;
+  
+  // Contains number
+  if (/\d/.test(password)) strength++;
+  
+  // Contains special char or mixed case
+  if (/[!@#$%^&(),.?":{}|<>]/.test(password) || (/[a-z]/.test(password) && /[A-Z]/.test(password))) strength++;
+  
+  let strengthClass = '';
+  let strengthText = '';
+  
+  if (strength <= 1) {
+    strengthClass = 'weak';
+    strengthText = 'Debole';
+  } else if (strength <= 2) {
+    strengthClass = 'medium';
+    strengthText = 'Media';
+  } else {
+    strengthClass = 'strong';
+    strengthText = 'Forte';
+  }
+  
+  for (let i = 0; i < Math.min(strength, 4); i++) {
+    if (bars[i]) bars[i].classList.add(strengthClass);
+  }
+  
+  if (textEl) {
+    textEl.textContent = strengthText;
+    textEl.className = 'password-strength-text ' + strengthClass;
+  }
+};
+
+/* ============================================================
+   SEZIONE JS 12 — LOADER E INIZIALIZZAZIONE
    ============================================================ */
 const hideLoader = () => {
   const loader = $('loader');
@@ -5011,10 +6479,13 @@ const hideLoader = () => {
 
 const initializeApp = () => {
   try {
-    state.coins = [...COINS_DATABASE];
+    state.coins = [...COINSDATABASE];
     state.featuredCoins = state.coins
       .filter(c => c.isFeatured)
       .sort((a, b) => a.featuredOrder - b.featuredOrder);
+    
+    // Load user session
+    loadCurrentUserFromStorage();
     
     applyStaticImages();
     buildSlideshow();
@@ -5039,28 +6510,28 @@ const initializeApp = () => {
 };
 
 /* ============================================================
-   SEZIONE JS 11 — IMMAGINI STATICHE
+   SEZIONE JS 13 — IMMAGINI STATICHE
    ============================================================ */
 const applyStaticImages = () => {
   const logoSeal = $('logoSeal');
-  if (logoSeal && IMAGE_FILES.logo) {
-    logoSeal.innerHTML = `<img src="${IMAGE_FILES.logo}" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none" id="logoMark">PSN</span>`;
+  if (logoSeal && IMAGEFILES.logo) {
+    logoSeal.innerHTML = <img src="${IMAGEFILES.logo}" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none" id="logoMark">PSN</span>;
   }
   
   const footerLogoSeal = $('footerLogoSeal');
-  if (footerLogoSeal && IMAGE_FILES.logo) {
-    footerLogoSeal.innerHTML = `<img src="${IMAGE_FILES.logo}" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">PSN</span>`;
+  if (footerLogoSeal && IMAGEFILES.logo) {
+    footerLogoSeal.innerHTML = <img src="${IMAGEFILES.logo}" alt="Logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span style="display:none">PSN</span>;
   }
   
   const heroBg = $('heroBg');
-  if (heroBg && IMAGE_FILES.heroBg) {
-    heroBg.style.backgroundImage = `linear-gradient(180deg, rgba(6,6,10,.55) 0%, rgba(6,6,10,.3) 40%, rgba(6,6,10,.8) 100%), url('${IMAGE_FILES.heroBg}')`;
+  if (heroBg && IMAGEFILES.heroBg) {
+    heroBg.style.backgroundImage = linear-gradient(180deg, rgba(6,6,10,.55) 0%, rgba(6,6,10,.3) 40%, rgba(6,6,10,.8) 100%), url('${IMAGEFILES.heroBg}');
   }
   
   const showcaseCoinImg = $('showcaseCoinImg');
   const showcaseCoinText = $('showcaseCoinText');
-  if (showcaseCoinImg && IMAGE_FILES.showcaseCoin) {
-    showcaseCoinImg.src = IMAGE_FILES.showcaseCoin;
+  if (showcaseCoinImg && IMAGEFILES.showcaseCoin) {
+    showcaseCoinImg.src = IMAGEFILES.showcaseCoin;
     showcaseCoinImg.onload = function() {
       this.style.display = 'block';
       if (showcaseCoinText) showcaseCoinText.style.display = 'none';
@@ -5072,25 +6543,25 @@ const applyStaticImages = () => {
   }
   
   const sectionBgMap = {
-    'vetrinaBg': IMAGE_FILES.vetrinaBg,
-    'catalogoBg': IMAGE_FILES.catalogoBg,
-    'tipologieBg': IMAGE_FILES.tipologieBg,
-    'ordiniBg': IMAGE_FILES.ordiniBg,
-    'garanzieBg': IMAGE_FILES.garanzieBg,
-    'faqBg': IMAGE_FILES.faqBg,
-    'contattiBg': IMAGE_FILES.contattiBg
+    'vetrinaBg': IMAGEFILES.vetrinaBg,
+    'catalogoBg': IMAGEFILES.catalogoBg,
+    'tipologieBg': IMAGEFILES.tipologieBg,
+    'ordiniBg': IMAGEFILES.ordiniBg,
+    'garanzieBg': IMAGEFILES.garanzieBg,
+    'faqBg': IMAGEFILES.faqBg,
+    'contattiBg': IMAGEFILES.contattiBg
   };
   
   Object.entries(sectionBgMap).forEach(([id, src]) => {
     const el = $(id);
     if (el && src) {
-      el.style.backgroundImage = `url('${src}')`;
+      el.style.backgroundImage = url('${src}');
     }
   });
 };
 
 /* ============================================================
-   SEZIONE JS 12 — SLIDESHOW
+   SEZIONE JS 14 — SLIDESHOW
    ============================================================ */
 const buildSlideshow = () => {
   const track = $('slideshowTrack');
@@ -5198,7 +6669,6 @@ const buildSlideshow = () => {
   startSlideshow();
   initSlideshowSwipe();
 };
-
 const goToSlide = (index) => {
   if (!state.featuredCoins.length) return;
   
@@ -5227,7 +6697,6 @@ const goToSlide = (index) => {
     if (flipper) flipper.classList.add('flipped');
   }, CONSTANTS.SLIDE_FLIP_DELAY);
 };
-
 const startSlideProgress = () => {
   const progress = $('slideshowProgress');
   if (!progress) return;
@@ -5240,7 +6709,6 @@ const startSlideProgress = () => {
     progress.style.width = '100%';
   });
 };
-
 const startSlideshow = () => {
   if (state.slideInterval) clearInterval(state.slideInterval);
   
@@ -5249,7 +6717,6 @@ const startSlideshow = () => {
     goToSlide(state.currentSlide + 1);
   }, CONSTANTS.SLIDE_INTERVAL);
 };
-
 const pauseSlideshow = () => {
   state.slidePauseUntil = Date.now() + CONSTANTS.SLIDE_PAUSE_DURATION;
   
@@ -5262,7 +6729,6 @@ const pauseSlideshow = () => {
   clearTimeout(state.flipTimeout);
   $$('.coin-flipper').forEach(f => f.classList.remove('flipped'));
 };
-
 const initSlideshowSwipe = () => {
   const container = $('slideshowContainer');
   if (!container) return;
@@ -5299,9 +6765,8 @@ const initSlideshowSwipe = () => {
     }
   }, { passive: true });
 };
-
 /* ============================================================
-   SEZIONE JS 13 — CATALOGO
+   SEZIONE JS 15 — CATALOGO
    ============================================================ */
 const renderCoins = (coins) => {
   const grid = $('coinsGrid');
@@ -5392,7 +6857,6 @@ const renderCoins = (coins) => {
     `;
   }).join('');
 };
-
 const applyFilters = () => {
   let filtered = [...state.coins];
   
@@ -5443,7 +6907,6 @@ const applyFilters = () => {
     expandWrapper.style.display = (filtered.length > CONSTANTS.CATALOG_INITIAL_LIMIT && !hasFilters) ? 'block' : 'none';
   }
 };
-
 const toggleCatalogExpand = () => {
   state.catalogExpanded = !state.catalogExpanded;
   
@@ -5459,7 +6922,6 @@ const toggleCatalogExpand = () => {
     smoothScrollTo('catalogo');
   }
 };
-
 const resetFilters = () => {
   const searchInput = $('searchInput');
   const metalFilter = $('metalFilter');
@@ -5473,7 +6935,6 @@ const resetFilters = () => {
   
   applyFilters();
 };
-
 const toggleCatalogView = (isListView) => {
   const grid = $('coinsGrid');
   const gridBtn = $('gridViewBtn');
@@ -5486,9 +6947,8 @@ const toggleCatalogView = (isListView) => {
   if (gridBtn) gridBtn.classList.toggle('active', !isListView);
   if (listBtn) listBtn.classList.toggle('active', isListView);
 };
-
 /* ============================================================
-   SEZIONE JS 14 — TIPOLOGIE
+   SEZIONE JS 16 — TIPOLOGIE
    ============================================================ */
 const buildTypesSection = () => {
   const grid = $('typesGrid');
@@ -5505,9 +6965,8 @@ const buildTypesSection = () => {
     </div>
   `).join('');
 };
-
 /* ============================================================
-   SEZIONE JS 15 — ORDINI
+   SEZIONE JS 17 — ORDINI
    ============================================================ */
 const buildOrdersSection = () => {
   const tbody = $('ordersBody');
@@ -5534,9 +6993,8 @@ const buildOrdersSection = () => {
     `;
   }).join('');
 };
-
 /* ============================================================
-   SEZIONE JS 16 — GARANZIE
+   SEZIONE JS 18 — GARANZIE
    ============================================================ */
 const buildGuaranteesSection = () => {
   const grid = $('guaranteesGrid');
@@ -5550,9 +7008,8 @@ const buildGuaranteesSection = () => {
     </div>
   `).join('');
 };
-
 /* ============================================================
-   SEZIONE JS 17 — FAQ
+   SEZIONE JS 19 — FAQ
    ============================================================ */
 const buildFAQSection = () => {
   const list = $('faqList');
@@ -5570,7 +7027,6 @@ const buildFAQSection = () => {
     </div>
   `).join('');
 };
-
 const toggleFAQ = (index) => {
   const item = $(`faqItem${index}`);
   if (!item) return;
@@ -5581,16 +7037,20 @@ const toggleFAQ = (index) => {
   
   item.classList.toggle('open');
 };
-
 /* ============================================================
-   SEZIONE JS 18 — CARRELLO
+   SEZIONE JS 20 — CARRELLO
    ============================================================ */
 const findCoin = (slug) => {
   return state.coins.find(c => c.slug === slug) || 
          state.featuredCoins.find(c => c.slug === slug);
 };
-
 const addToCart = (slug) => {
+  // Verifica autenticazione
+  if (!state.currentUser) {
+    openAuthModal(slug);
+    return;
+  }
+  
   const coin = findCoin(slug);
   if (!coin) return;
   
@@ -5618,7 +7078,6 @@ const addToCart = (slug) => {
     message: `${coin.name} è stato aggiunto al carrello.`
   });
 };
-
 const removeFromCart = (slug) => {
   state.cart = state.cart.filter(item => item.slug !== slug);
   renderCart();
@@ -5629,7 +7088,6 @@ const removeFromCart = (slug) => {
     message: "L'articolo è stato rimosso."
   });
 };
-
 const clearCart = () => {
   state.cart = [];
   renderCart();
@@ -5640,7 +7098,6 @@ const clearCart = () => {
     message: 'Tutti gli articoli sono stati rimossi.'
   });
 };
-
 const renderCart = () => {
   const countEl = $('cartCount');
   const itemsEl = $('cartItems');
@@ -5695,7 +7152,6 @@ const renderCart = () => {
   if (subtotalEl) subtotalEl.textContent = formatPrice(totalPrice);
   if (totalEl) totalEl.textContent = formatPrice(totalPrice);
 };
-
 const openCart = () => {
   state.isCartOpen = true;
   const overlay = $('cartOverlay');
@@ -5706,7 +7162,6 @@ const openCart = () => {
   
   document.body.style.overflow = 'hidden';
 };
-
 const closeCart = () => {
   state.isCartOpen = false;
   const overlay = $('cartOverlay');
@@ -5717,7 +7172,6 @@ const closeCart = () => {
   
   document.body.style.overflow = '';
 };
-
 const proceedToCheckout = () => {
   if (!state.cart.length) {
     showToast({
@@ -5725,6 +7179,12 @@ const proceedToCheckout = () => {
       title: 'Carrello vuoto',
       message: 'Aggiungi articoli al carrello prima di procedere.'
     });
+    return;
+  }
+  
+  if (!state.currentUser) {
+    closeCart();
+    openAuthModal();
     return;
   }
   
@@ -5737,9 +7197,8 @@ const proceedToCheckout = () => {
   closeCart();
   smoothScrollTo('contatti');
 };
-
 /* ============================================================
-   SEZIONE JS 19 — MODAL
+   SEZIONE JS 21 — MODAL
    ============================================================ */
 const openModal = (slug) => {
   const coin = findCoin(slug);
@@ -5827,7 +7286,6 @@ const openModal = (slug) => {
   
   document.body.style.overflow = 'hidden';
 };
-
 const closeModal = () => {
   state.isModalOpen = false;
   state.currentCoin = null;
@@ -5835,20 +7293,18 @@ const closeModal = () => {
   const overlay = $('modalOverlay');
   if (overlay) overlay.classList.remove('open');
   
-  if (!state.isCartOpen && !state.isSearchOpen) {
+  if (!state.isCartOpen && !state.isSearchOpen && !state.isAuthOpen) {
     document.body.style.overflow = '';
   }
 };
-
 const addCurrentCoinToCart = () => {
   if (state.currentCoin) {
     addToCart(state.currentCoin.slug);
     closeModal();
   }
 };
-
 /* ============================================================
-   SEZIONE JS 20 — SEARCH MODAL
+   SEZIONE JS 22 — SEARCH MODAL
    ============================================================ */
 const openSearchModal = () => {
   state.isSearchOpen = true;
@@ -5864,22 +7320,19 @@ const openSearchModal = () => {
   document.body.style.overflow = 'hidden';
   renderSearchResults('');
 };
-
 const closeSearchModal = () => {
   state.isSearchOpen = false;
   const modal = $('searchModal');
   
   if (modal) modal.classList.remove('open');
   
-  if (!state.isCartOpen && !state.isModalOpen) {
+  if (!state.isCartOpen && !state.isModalOpen && !state.isAuthOpen) {
     document.body.style.overflow = '';
   }
 };
-
 const handleSearchInput = debounce((query) => {
   renderSearchResults(query);
 }, 200);
-
 const renderSearchResults = (query) => {
   const resultsEl = $('searchResults');
   if (!resultsEl) return;
@@ -5927,14 +7380,12 @@ const renderSearchResults = (query) => {
     `;
   }).join('');
 };
-
 const handleSearchResultClick = (slug) => {
   closeSearchModal();
   openModal(slug);
 };
-
 /* ============================================================
-   SEZIONE JS 21 — TOAST NOTIFICATIONS
+   SEZIONE JS 23 — TOAST NOTIFICATIONS
    ============================================================ */
 const showToast = ({ type = 'info', title, message, duration = CONSTANTS.TOAST_DURATION }) => {
   const container = $('toastContainer');
@@ -5965,9 +7416,8 @@ const showToast = ({ type = 'info', title, message, duration = CONSTANTS.TOAST_D
     setTimeout(() => toast.remove(), 300);
   }, duration);
 };
-
 /* ============================================================
-   SEZIONE JS 22 — MOBILE MENU
+   SEZIONE JS 24 — MOBILE MENU
    ============================================================ */
 const toggleMobileMenu = () => {
   state.isMobileMenuOpen = !state.isMobileMenuOpen;
@@ -5980,7 +7430,6 @@ const toggleMobileMenu = () => {
   
   document.body.style.overflow = state.isMobileMenuOpen ? 'hidden' : '';
 };
-
 const closeMobileMenu = () => {
   state.isMobileMenuOpen = false;
   
@@ -5990,13 +7439,12 @@ const closeMobileMenu = () => {
   if (toggle) toggle.classList.remove('active');
   if (nav) nav.classList.remove('open');
   
-  if (!state.isCartOpen && !state.isModalOpen && !state.isSearchOpen) {
+  if (!state.isCartOpen && !state.isModalOpen && !state.isSearchOpen && !state.isAuthOpen) {
     document.body.style.overflow = '';
   }
 };
-
 /* ============================================================
-   SEZIONE JS 23 — SCROLL EFFECTS
+   SEZIONE JS 25 — SCROLL EFFECTS
    ============================================================ */
 const setupScrollEffects = () => {
   let lastScrollY = 0;
@@ -6057,13 +7505,11 @@ const setupScrollEffects = () => {
     }
   }, { passive: true });
 };
-
 const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
-
 /* ============================================================
-   SEZIONE JS 24 — COUNTER ANIMATION
+   SEZIONE JS 26 — COUNTER ANIMATION
    ============================================================ */
 const animateCounters = () => {
   $$('.hero-stat-value').forEach(el => {
@@ -6093,9 +7539,8 @@ const animateCounters = () => {
     requestAnimationFrame(step);
   });
 };
-
 /* ============================================================
-   SEZIONE JS 25 — CONTACT FORM
+   SEZIONE JS 27 — CONTACT FORM
    ============================================================ */
 const handleContactSubmit = (event) => {
   event.preventDefault();
@@ -6132,21 +7577,32 @@ const handleContactSubmit = (event) => {
   
   $('contactForm')?.reset();
 };
-
 /* ============================================================
-   SEZIONE JS 26 — EVENT LISTENERS SETUP
+   SEZIONE JS 28 — EVENT LISTENERS SETUP
    ============================================================ */
 const setupEventListeners = () => {
+  // Search
   $('searchToggle')?.addEventListener('click', openSearchModal);
   $('searchModalClose')?.addEventListener('click', closeSearchModal);
   $('searchInputLarge')?.addEventListener('input', (e) => handleSearchInput(e.target.value));
   
+  // Profile
+  $('profileBtn')?.addEventListener('click', toggleProfileDropdown);
+  
+  // Auth
+  $('authClose')?.addEventListener('click', closeAuthModal);
+  $('authOverlay')?.addEventListener('click', (e) => {
+    if (e.target === $('authOverlay')) closeAuthModal();
+  });
+  
+  // Cart
   $('cartBtn')?.addEventListener('click', openCart);
   $('cartOverlay')?.addEventListener('click', closeCart);
   $('cartCloseBtn')?.addEventListener('click', closeCart);
   $('clearCartBtn')?.addEventListener('click', clearCart);
   $('checkoutBtn')?.addEventListener('click', proceedToCheckout);
   
+  // Modal
   $('modalOverlay')?.addEventListener('click', (e) => {
     if (e.target === $('modalOverlay')) closeModal();
   });
@@ -6154,26 +7610,32 @@ const setupEventListeners = () => {
   $('modalCloseBtn2')?.addEventListener('click', closeModal);
   $('modalAddToCart')?.addEventListener('click', addCurrentCoinToCart);
   
+  // Search modal
   $('searchModal')?.addEventListener('click', (e) => {
     if (e.target === $('searchModal')) closeSearchModal();
   });
   
+  // Mobile menu
   $('mobileMenuToggle')?.addEventListener('click', toggleMobileMenu);
   $$('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', closeMobileMenu);
   });
   
+  // Filters
   $('searchInput')?.addEventListener('input', debounce(applyFilters, 300));
   $('metalFilter')?.addEventListener('change', applyFilters);
   $('areaFilter')?.addEventListener('change', applyFilters);
   $('sortFilter')?.addEventListener('change', applyFilters);
   $('resetFilters')?.addEventListener('click', resetFilters);
   
+  // View toggle
   $('gridViewBtn')?.addEventListener('click', () => toggleCatalogView(false));
   $('listViewBtn')?.addEventListener('click', () => toggleCatalogView(true));
   
+  // Expand
   $('expandBtn')?.addEventListener('click', toggleCatalogExpand);
   
+  // Slideshow
   $('slidePrev')?.addEventListener('click', () => {
     pauseSlideshow();
     goToSlide(state.currentSlide - 1);
@@ -6183,14 +7645,18 @@ const setupEventListeners = () => {
     goToSlide(state.currentSlide + 1);
   });
   
+  // Back to top
   $('backToTop')?.addEventListener('click', () => smoothScrollTo('catalogo'));
   
+  // Keyboard
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (state.isSearchOpen) closeSearchModal();
+      else if (state.isAuthOpen) closeAuthModal();
       else if (state.isModalOpen) closeModal();
       else if (state.isCartOpen) closeCart();
       else if (state.isMobileMenuOpen) closeMobileMenu();
+      else if (state.isProfileDropdownOpen) closeProfileDropdown();
     }
     
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -6199,15 +7665,27 @@ const setupEventListeners = () => {
     }
   });
   
+  // Click outside profile dropdown
+  document.addEventListener('click', (e) => {
+    const profileBtn = $('profileBtn');
+    const profileDropdown = $('profileDropdown');
+    
+    if (state.isProfileDropdownOpen && 
+        profileBtn && !profileBtn.contains(e.target) &&
+        profileDropdown && !profileDropdown.contains(e.target)) {
+      closeProfileDropdown();
+    }
+  });
+  
+  // Resize
   window.addEventListener('resize', debounce(() => {
     if (window.innerWidth > 768 && state.isMobileMenuOpen) {
       closeMobileMenu();
     }
   }, 200));
 };
-
 /* ============================================================
-   SEZIONE JS 27 — EFFETTI VISIVI
+   SEZIONE JS 29 — EFFETTI VISIVI
    ============================================================ */
 const initCursorGlow = () => {
   const glow = document.createElement('div');
@@ -6240,7 +7718,6 @@ const initCursorGlow = () => {
     visible = false;
   });
 };
-
 const initMagneticButtons = () => {
   $$('.btn-primary, .btn-outline, .slideshow-arrow, .cart-btn').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
@@ -6255,21 +7732,19 @@ const initMagneticButtons = () => {
     });
   });
 };
-
 /* ============================================================
-   SEZIONE JS 28 — INIZIALIZZAZIONE FINALE
+   SEZIONE JS 30 — INIZIALIZZAZIONE FINALE
    ============================================================ */
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
   initializeApp();
 }
-
 window.addEventListener('load', () => {
   initMagneticButtons();
   initCursorGlow();
 });
-
+// Global exports
 window.smoothScrollTo = smoothScrollTo;
 window.openModal = openModal;
 window.closeModal = closeModal;
@@ -6280,6 +7755,15 @@ window.handleContactSubmit = handleContactSubmit;
 window.handleSearchResultClick = handleSearchResultClick;
 window.toggleCatalogExpand = toggleCatalogExpand;
 window.showToast = showToast;
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.switchAuthTab = switchAuthTab;
+window.handleLogin = handleLogin;
+window.handleRegister = handleRegister;
+window.handleLogout = handleLogout;
+window.togglePasswordVisibility = togglePasswordVisibility;
+window.checkPasswordStrength = checkPasswordStrength;
+window.toggleProfileDropdown = toggleProfileDropdown;
 </script>
 </body>
 </html>
