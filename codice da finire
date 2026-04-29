@@ -5458,9 +5458,9 @@ table {
      JAVASCRIPT
      ============================================================ -->
 <script>
-/ ============================================================
+/* ============================================================
    SEZIONE JS 1 — SISTEMA IMMAGINI CENTRALIZZATO
-   ============================================================ /
+   ============================================================ */
 const IMAGEFILES = {
   logo: './img3.png',
   heroBg: './img1.jpg',
@@ -5519,9 +5519,9 @@ const SLIDEBACKGROUNDS = [
   IMAGEFILES.slideBg5
 ];
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 2 — DATABASE MONETE
-   ============================================================ /
+   ============================================================ */
 const COINSDATABASE = [
   {
     slug: 'asse',
@@ -5861,9 +5861,9 @@ const COINSDATABASE = [
   }
 ];
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 3 — DATABASE TIPOLOGIE
-   ============================================================ /
+   ============================================================ */
 const TYPESDATABASE = [
   {
     name: 'Bronzo e Rame',
@@ -5895,9 +5895,9 @@ const TYPESDATABASE = [
   }
 ];
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 4 — DATABASE ORDINI
-   ============================================================ /
+   ============================================================ */
 const ORDERSDATABASE = [
   { orderId: '#PSN-2025-0041', coinName: 'Denario di Marco Aurelio', orderDate: '20 Apr 2025', status: 'shipped', total: '€95' },
   { orderId: '#PSN-2025-0040', coinName: 'Tetradracma ateniese', orderDate: '19 Apr 2025', status: 'completed', total: '€340' },
@@ -5907,9 +5907,9 @@ const ORDERSDATABASE = [
   { orderId: '#PSN-2025-0036', coinName: 'Antoniniano Gallieno', orderDate: '15 Apr 2025', status: 'shipped', total: '€42' }
 ];
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 5 — DATABASE GARANZIE
-   ============================================================ /
+   ============================================================ */
 const GUARANTEESDATABASE = [
   { icon: '🏛️', title: 'Autenticità Certificata', text: 'Ogni esemplare è autentico e documentato con attribuzione, epoca e note numismatiche dettagliate. Certificato disponibile su richiesta per ogni acquisto.' },
   { icon: '🔒', title: 'Descrizioni Trasparenti', text: 'Metallo, conservazione, peso, diametro, patina, centratura, leggibilità: tutte le informazioni necessarie per scegliere con piena consapevolezza.' },
@@ -5919,9 +5919,9 @@ const GUARANTEESDATABASE = [
   { icon: '📋', title: 'Documentazione Completa', text: 'Ogni moneta è accompagnata da scheda tecnica dettagliata con provenienza, riferimenti bibliografici e note storiche.' }
 ];
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 6 — DATABASE FAQ
-   ============================================================ /
+   ============================================================ */
 const FAQDATABASE = [
   { question: 'Le monete sono autentiche?', answer: 'Sì, assolutamente. Ogni esemplare è ritenuto autentico sulla base di verifiche tecniche accurate condotte da esperti numismatici. Resta un minimo margine di incertezza intrinseco al settore, ma offriamo garanzia di rimborso in caso di contestazioni documentate. Certificazione di autenticità disponibile su richiesta.' },
   { question: 'Come viene indicata la conservazione?', answer: 'Utilizziamo la scala internazionale di conservazione: B (Bella), MB (Molto Bella), BB (Bellissima), SPL (Splendida), FDC (Fior di Conio). Ogni moneta include foto ad alta risoluzione e descrizione dettagliata dello stato di conservazione, incluse eventuali particolarità come patina, usura o difetti di conio.' },
@@ -5931,15 +5931,15 @@ const FAQDATABASE = [
   { question: 'Offrite servizi di valutazione?', answer: 'Sì, offriamo servizi di valutazione gratuita per monete singole o collezioni. Inviateci foto chiare di dritto e rovescio con peso e diametro se disponibili. Rispondiamo entro 48 ore con una stima di valore e, se di interesse, una proposta di acquisto.' }
 ];
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 7 — DATABASE UTENTI (SIMULATO)
-   ============================================================ /
+   ============================================================ */
 let USERSDATABASE = JSON.parse(localStorage.getItem('psnusers') || '[]');
 let nextUserId = USERSDATABASE.length > 0 ? Math.max(...USERSDATABASE.map(u => u.id)) + 1 : 1;
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 8 — STATO APPLICAZIONE
-   ============================================================ /
+   ============================================================ */
 let state = {
   coins: [],
   featuredCoins: [],
@@ -5962,9 +5962,9 @@ let state = {
   pendingCartAction: null
 };
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 9 — COSTANTI
-   ============================================================ /
+   ============================================================ */
 const CONSTANTS = {
   SLIDEINTERVAL: 10000,
   SLIDEPAUSEDURATION: 20000,
@@ -5975,9 +5975,9 @@ const CONSTANTS = {
   HEADERHIDETHRESHOLD: 200
 };
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 10 — UTILITY FUNCTIONS
-   ============================================================ /
+   ============================================================ */
 const $ = (id) => document.getElementById(id);
 const $$ = (selector) => document.querySelectorAll(selector);
 
@@ -6052,9 +6052,9 @@ const validatePassword = (password) => {
   return password.length >= 8;
 };
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 11 — SISTEMA DI AUTENTICAZIONE
-   ============================================================ /
+   ============================================================ */
 const saveUsersToStorage = () => {
   localStorage.setItem('psnusers', JSON.stringify(USERSDATABASE));
 };
@@ -6464,9 +6464,9 @@ const checkPasswordStrength = (password) => {
   }
 };
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 12 — LOADER E INIZIALIZZAZIONE
-   ============================================================ /
+   ============================================================ */
 const hideLoader = () => {
   const loader = $('loader');
   if (loader) {
@@ -6509,9 +6509,9 @@ const initializeApp = () => {
   }
 };
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 13 — IMMAGINI STATICHE
-   ============================================================ /
+   ============================================================ */
 const applyStaticImages = () => {
   const logoSeal = $('logoSeal');
   if (logoSeal && IMAGEFILES.logo) {
@@ -6560,7 +6560,7 @@ const applyStaticImages = () => {
   });
 };
 
-/ ============================================================
+/* ============================================================
    SEZIONE JS 14 — SLIDESHOW
    ============================================================ */
 const buildSlideshow = () => {
@@ -6574,14 +6574,1196 @@ const buildSlideshow = () => {
   
   state.featuredCoins.forEach((coin, index) => {
     const metalClass = getCoinMetalClass(coin.metal);
-    const bgImage = SLIDEBACKGROUNDS[index % SLIDEBACKGROUNDS.length];
+    const bgImage = SLIDE_BACKGROUNDS[index % SLIDE_BACKGROUNDS.length];
     
     const obverseImg = coin.obverseImg || '';
     const reverseImg = coin.reverseImg || '';
     
     const obverseContent = obverseImg
-      ? <img src="${obverseImg}" alt="${coin.name}" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display='block')"/><span style="display:none">${coin.name}</span>
-      : <span>${coin.name}</span>;
+      ? `<img src="${obverseImg}" alt="${coin.name}" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display='block')"/><span style="display:none">${coin.name}</span>`
+      : `<span>${coin.name}</span>`;
     
     const reverseContent = reverseImg
-      ? <img src="${reverseImg}" alt="${coin.name} rovescio" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display
+      ? `<img src="${reverseImg}" alt="${coin.name} rovescio" onerror="this.style.display='none';this.nextSibling&&(this.nextSibling.style.display='block')"/><span style="display:none">${coin.name}</span>`
+      : `<span>${coin.name} ↺</span>`;
+    
+    const slide = document.createElement('div');
+    slide.className = 'slide' + (index === 0 ? ' active' : '');
+    slide.dataset.slug = coin.slug;
+    slide.dataset.index = index;
+    
+    slide.innerHTML = `
+      <div class="slide-bg" style="background-image: url('${bgImage}')"></div>
+      <div class="slide-overlay"></div>
+      
+      <div class="slide-inner">
+        <div class="slide-coin-wrapper">
+          <div class="coin-flipper" id="slideFlip${index}" onclick="openModal('${coin.slug}')">
+            <div class="coin-flipper-inner">
+              <div class="coin-face ${metalClass.gradient}">${obverseContent}</div>
+              <div class="coin-back ${metalClass.gradient}">${reverseContent}</div>
+            </div>
+          </div>
+          <span class="slide-badge">${coin.metal}</span>
+        </div>
+        
+        <div class="slide-content">
+          <div class="slide-eyebrow">
+            <span class="slide-eyebrow-line"></span>
+            ${coin.area} · ${coin.period}
+          </div>
+          
+          <h2 class="slide-title">${coin.name}</h2>
+          ${coin.subtitle ? `<div class="slide-subtitle">${coin.subtitle}</div>` : ''}
+          <p class="slide-description">${coin.description || ''}</p>
+          
+          <div class="slide-specs">
+            <div class="slide-spec">
+              <span class="slide-spec-label">Peso</span>
+              <span class="slide-spec-value">${coin.weight}</span>
+            </div>
+            <div class="slide-spec">
+              <span class="slide-spec-label">Diametro</span>
+              <span class="slide-spec-value">${coin.diameter}</span>
+            </div>
+            <div class="slide-spec">
+              <span class="slide-spec-label">Conservazione</span>
+              <span class="slide-spec-value">${coin.conservation}</span>
+            </div>
+            <div class="slide-spec">
+              <span class="slide-spec-label">Rarità</span>
+              <span class="slide-spec-value">${coin.rarity}</span>
+            </div>
+          </div>
+          
+          <div class="slide-price">
+            <span class="slide-price-label">Prezzo indicativo</span>
+            <span class="slide-price-value">${formatPrice(coin.price)}</span>
+          </div>
+          
+          <div class="slide-actions">
+            <button class="btn btn-primary" onclick="addToCart('${coin.slug}')">
+              <span>Aggiungi al Carrello</span>
+              <span>+</span>
+            </button>
+            <button class="btn btn-outline" onclick="openModal('${coin.slug}')">
+              <span>Scheda Completa</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    track.appendChild(slide);
+    
+    const dot = document.createElement('div');
+    dot.className = 'slideshow-dot' + (index === 0 ? ' active' : '');
+    dot.onclick = () => {
+      pauseSlideshow();
+      goToSlide(index);
+    };
+    dots.appendChild(dot);
+  });
+  
+  goToSlide(0);
+  startSlideshow();
+  initSlideshowSwipe();
+};
+const goToSlide = (index) => {
+  if (!state.featuredCoins.length) return;
+  
+  clearTimeout(state.flipTimeout);
+  $$('.coin-flipper').forEach(f => f.classList.remove('flipped'));
+  
+  state.currentSlide = (index + state.featuredCoins.length) % state.featuredCoins.length;
+  
+  const track = $('slideshowTrack');
+  if (track) {
+    track.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+  }
+  
+  $$('.slideshow-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === state.currentSlide);
+  });
+  
+  $$('.slide').forEach((slide, i) => {
+    slide.classList.toggle('active', i === state.currentSlide);
+  });
+  
+  startSlideProgress();
+  
+  state.flipTimeout = setTimeout(() => {
+    const flipper = $(`slideFlip${state.currentSlide}`);
+    if (flipper) flipper.classList.add('flipped');
+  }, CONSTANTS.SLIDE_FLIP_DELAY);
+};
+const startSlideProgress = () => {
+  const progress = $('slideshowProgress');
+  if (!progress) return;
+  
+  progress.style.transition = 'none';
+  progress.style.width = '0%';
+  
+  requestAnimationFrame(() => {
+    progress.style.transition = `width ${CONSTANTS.SLIDE_INTERVAL}ms linear`;
+    progress.style.width = '100%';
+  });
+};
+const startSlideshow = () => {
+  if (state.slideInterval) clearInterval(state.slideInterval);
+  
+  state.slideInterval = setInterval(() => {
+    if (Date.now() < state.slidePauseUntil) return;
+    goToSlide(state.currentSlide + 1);
+  }, CONSTANTS.SLIDE_INTERVAL);
+};
+const pauseSlideshow = () => {
+  state.slidePauseUntil = Date.now() + CONSTANTS.SLIDE_PAUSE_DURATION;
+  
+  const progress = $('slideshowProgress');
+  if (progress) {
+    progress.style.transition = 'none';
+    progress.style.width = '0%';
+  }
+  
+  clearTimeout(state.flipTimeout);
+  $$('.coin-flipper').forEach(f => f.classList.remove('flipped'));
+};
+const initSlideshowSwipe = () => {
+  const container = $('slideshowContainer');
+  if (!container) return;
+  
+  let startX = 0;
+  let startY = 0;
+  let isDragging = false;
+  
+  container.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    isDragging = true;
+  }, { passive: true });
+  
+  container.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+  
+  container.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+    
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      pauseSlideshow();
+      goToSlide(dx < 0 ? state.currentSlide + 1 : state.currentSlide - 1);
+    }
+  }, { passive: true });
+};
+/* ============================================================
+   SEZIONE JS 15 — CATALOGO
+   ============================================================ */
+const renderCoins = (coins) => {
+  const grid = $('coinsGrid');
+  const countEl = $('resultsCount');
+  
+  if (!grid) return;
+  
+  if (countEl) {
+    countEl.innerHTML = `Risultati: <strong>${coins.length}</strong>`;
+  }
+  
+  if (!coins.length) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">🪙</div>
+        <h3 class="empty-state-title">Nessun risultato</h3>
+        <p class="empty-state-text">Nessuna moneta trovata con i filtri selezionati. Prova a modificare i criteri di ricerca.</p>
+      </div>
+    `;
+    return;
+  }
+  
+  grid.innerHTML = coins.map(coin => {
+    const metalClass = getCoinMetalClass(coin.metal);
+    const isAvailable = coin.stockQty === undefined || parseInt(coin.stockQty) > 0;
+    const uniqueId = generateUniqueId();
+    
+    const obverseImg = coin.obverseImg || '';
+    const reverseImg = coin.reverseImg || '';
+    
+    const obverseContent = obverseImg
+      ? `<img src="${obverseImg}" alt="${coin.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none">${coin.name}</span>`
+      : `<span>${coin.name}</span>`;
+    
+    const reverseContent = reverseImg
+      ? `<img src="${reverseImg}" alt="${coin.name} rovescio" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none">${coin.name} ↺</span>`
+      : `<span>${coin.name} ↺</span>`;
+    
+    return `
+      <article class="coin-card" data-slug="${coin.slug}" ondblclick="openModal('${coin.slug}')">
+        <div class="coin-card-media">
+          <div class="card-coin-flipper" id="${uniqueId}" onclick="event.stopPropagation();document.getElementById('${uniqueId}').classList.toggle('flipped')">
+            <div class="card-coin-flipper-inner">
+              <div class="card-coin-face ${metalClass.gradient}">${obverseContent}</div>
+              <div class="card-coin-back ${metalClass.gradient}">${reverseContent}</div>
+            </div>
+          </div>
+          <span class="coin-card-tag ${metalClass.tag}">${metalClass.label}</span>
+        </div>
+        
+        <div class="coin-card-body">
+          <div class="coin-card-category">${coin.category}</div>
+          <div class="coin-card-name">${coin.name}</div>
+          
+          <div class="coin-card-chips">
+            <span class="chip">${coin.area}</span>
+            <span class="chip">${coin.period}</span>
+            <span class="chip">${coin.conservation}</span>
+          </div>
+          
+          <div class="coin-card-description">
+            ${(coin.description || '').slice(0, 100)}${(coin.description || '').length > 100 ? '…' : ''}
+          </div>
+          
+          <div class="coin-card-specs">
+            <div class="coin-card-spec">
+              <span class="coin-card-spec-label">Metallo</span>
+              <span class="coin-card-spec-value">${coin.metal}</span>
+            </div>
+            <div class="coin-card-spec">
+              <span class="coin-card-spec-label">Rarità</span>
+              <span class="coin-card-spec-value">${coin.rarity}</span>
+            </div>
+          </div>
+          
+          <div class="coin-card-footer">
+            <div>
+              <span class="coin-card-price-label">Prezzo</span>
+              <span class="coin-card-price-value">${formatPrice(coin.price)}</span>
+            </div>
+            ${isAvailable 
+              ? `<button class="btn btn-primary btn-sm" onclick="event.stopPropagation();addToCart('${coin.slug}')">+ Carrello</button>`
+              : `<span class="coin-card-out-of-stock">Esaurito</span>`
+            }
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+};
+const applyFilters = () => {
+  let filtered = [...state.coins];
+  
+  const search = ($('searchInput')?.value || '').toLowerCase().trim();
+  const metal = $('metalFilter')?.value || '';
+  const area = $('areaFilter')?.value || '';
+  const sort = $('sortFilter')?.value || '';
+  
+  if (search) {
+    filtered = filtered.filter(c => 
+      [c.name, c.category, c.metal, c.area, c.description, c.period]
+        .some(v => (v || '').toLowerCase().includes(search))
+    );
+  }
+  
+  if (metal) {
+    filtered = filtered.filter(c => (c.metal || '').includes(metal));
+  }
+  
+  if (area) {
+    filtered = filtered.filter(c => c.area === area);
+  }
+  
+  switch (sort) {
+    case 'pa':
+      filtered.sort((a, b) => a.price - b.price);
+      break;
+    case 'pd':
+      filtered.sort((a, b) => b.price - a.price);
+      break;
+    case 'na':
+      filtered.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+      break;
+    case 'nd':
+      filtered.sort((a, b) => (b.name || '').localeCompare(a.name || ''));
+      break;
+  }
+  
+  const hasFilters = search || metal || area;
+  const displayList = (hasFilters || state.catalogExpanded) 
+    ? filtered 
+    : filtered.slice(0, CONSTANTS.CATALOG_INITIAL_LIMIT);
+  
+  renderCoins(displayList);
+  
+  const expandWrapper = $('expandWrapper');
+  if (expandWrapper) {
+    expandWrapper.style.display = (filtered.length > CONSTANTS.CATALOG_INITIAL_LIMIT && !hasFilters) ? 'block' : 'none';
+  }
+};
+const toggleCatalogExpand = () => {
+  state.catalogExpanded = !state.catalogExpanded;
+  
+  const expandText = $('expandText');
+  const expandIcon = $('expandIcon');
+  
+  if (expandText) expandText.textContent = state.catalogExpanded ? 'Mostra meno' : 'Mostra tutte le monete';
+  if (expandIcon) expandIcon.textContent = state.catalogExpanded ? '↑' : '↓';
+  
+  applyFilters();
+  
+  if (!state.catalogExpanded) {
+    smoothScrollTo('catalogo');
+  }
+};
+const resetFilters = () => {
+  const searchInput = $('searchInput');
+  const metalFilter = $('metalFilter');
+  const areaFilter = $('areaFilter');
+  const sortFilter = $('sortFilter');
+  
+  if (searchInput) searchInput.value = '';
+  if (metalFilter) metalFilter.selectedIndex = 0;
+  if (areaFilter) areaFilter.selectedIndex = 0;
+  if (sortFilter) sortFilter.selectedIndex = 0;
+  
+  applyFilters();
+};
+const toggleCatalogView = (isListView) => {
+  const grid = $('coinsGrid');
+  const gridBtn = $('gridViewBtn');
+  const listBtn = $('listViewBtn');
+  
+  if (grid) {
+    grid.classList.toggle('list-view', isListView);
+  }
+  
+  if (gridBtn) gridBtn.classList.toggle('active', !isListView);
+  if (listBtn) listBtn.classList.toggle('active', isListView);
+};
+/* ============================================================
+   SEZIONE JS 16 — TIPOLOGIE
+   ============================================================ */
+const buildTypesSection = () => {
+  const grid = $('typesGrid');
+  if (!grid) return;
+  
+  grid.innerHTML = TYPES_DATABASE.map(type => `
+    <div class="type-card">
+      <h3 class="type-card-title">${type.name}</h3>
+      <ul class="type-card-list">
+        ${type.items.map(item => `
+          <li class="type-card-item">${item}</li>
+        `).join('')}
+      </ul>
+    </div>
+  `).join('');
+};
+/* ============================================================
+   SEZIONE JS 17 — ORDINI
+   ============================================================ */
+const buildOrdersSection = () => {
+  const tbody = $('ordersBody');
+  if (!tbody) return;
+  
+  const statusMap = {
+    shipped: { class: 'badge-success', label: 'Spedito' },
+    completed: { class: 'badge-info', label: 'Completato' },
+    processing: { class: 'badge-warning', label: 'In corso' },
+    pending: { class: 'badge-neutral', label: 'In attesa' }
+  };
+  
+  tbody.innerHTML = ORDERS_DATABASE.map(order => {
+    const status = statusMap[order.status] || statusMap.pending;
+    
+    return `
+      <tr>
+        <td><span class="order-id">${order.orderId}</span></td>
+        <td class="order-coin">${order.coinName}</td>
+        <td>${order.orderDate}</td>
+        <td><span class="badge ${status.class}">${status.label}</span></td>
+        <td class="order-total">${order.total}</td>
+      </tr>
+    `;
+  }).join('');
+};
+/* ============================================================
+   SEZIONE JS 18 — GARANZIE
+   ============================================================ */
+const buildGuaranteesSection = () => {
+  const grid = $('guaranteesGrid');
+  if (!grid) return;
+  
+  grid.innerHTML = GUARANTEES_DATABASE.map(guarantee => `
+    <div class="guarantee-card">
+      <div class="guarantee-icon">${guarantee.icon}</div>
+      <h3 class="guarantee-title">${guarantee.title}</h3>
+      <p class="guarantee-text">${guarantee.text}</p>
+    </div>
+  `).join('');
+};
+/* ============================================================
+   SEZIONE JS 19 — FAQ
+   ============================================================ */
+const buildFAQSection = () => {
+  const list = $('faqList');
+  if (!list) return;
+  
+  list.innerHTML = FAQ_DATABASE.map((faq, index) => `
+    <div class="faq-item" id="faqItem${index}">
+      <button class="faq-question" onclick="toggleFAQ(${index})">
+        <span class="faq-question-text">${faq.question}</span>
+        <span class="faq-chevron">▾</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-content">${faq.answer}</div>
+      </div>
+    </div>
+  `).join('');
+};
+const toggleFAQ = (index) => {
+  const item = $(`faqItem${index}`);
+  if (!item) return;
+  
+  $$('.faq-item').forEach((el, i) => {
+    if (i !== index) el.classList.remove('open');
+  });
+  
+  item.classList.toggle('open');
+};
+/* ============================================================
+   SEZIONE JS 20 — CARRELLO
+   ============================================================ */
+const findCoin = (slug) => {
+  return state.coins.find(c => c.slug === slug) || 
+         state.featuredCoins.find(c => c.slug === slug);
+};
+const addToCart = (slug) => {
+  // Verifica autenticazione
+  if (!state.currentUser) {
+    openAuthModal(slug);
+    return;
+  }
+  
+  const coin = findCoin(slug);
+  if (!coin) return;
+  
+  const existing = state.cart.find(item => item.slug === slug);
+  
+  if (existing) {
+    existing.qty++;
+  } else {
+    state.cart.push({
+      slug: coin.slug,
+      name: coin.name,
+      price: +coin.price,
+      metal: coin.metal,
+      img: coin.obverseImg,
+      qty: 1
+    });
+  }
+  
+  renderCart();
+  openCart();
+  
+  showToast({
+    type: 'success',
+    title: 'Aggiunto al carrello',
+    message: `${coin.name} è stato aggiunto al carrello.`
+  });
+};
+const removeFromCart = (slug) => {
+  state.cart = state.cart.filter(item => item.slug !== slug);
+  renderCart();
+  
+  showToast({
+    type: 'info',
+    title: 'Rimosso dal carrello',
+    message: "L'articolo è stato rimosso."
+  });
+};
+const clearCart = () => {
+  state.cart = [];
+  renderCart();
+  
+  showToast({
+    type: 'info',
+    title: 'Carrello svuotato',
+    message: 'Tutti gli articoli sono stati rimossi.'
+  });
+};
+const renderCart = () => {
+  const countEl = $('cartCount');
+  const itemsEl = $('cartItems');
+  const footerEl = $('cartFooter');
+  const subtotalEl = $('cartSubtotal');
+  const totalEl = $('cartTotal');
+  
+  const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+  const totalPrice = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+  
+  if (countEl) countEl.textContent = totalItems;
+  
+  if (!state.cart.length) {
+    if (itemsEl) {
+      itemsEl.innerHTML = `
+        <div class="cart-empty">
+          <div class="cart-empty-icon">🪙</div>
+          <p>Il carrello è vuoto</p>
+          <p style="font-size: .82rem;">Aggiungi monete per iniziare</p>
+        </div>
+      `;
+    }
+    if (footerEl) footerEl.style.display = 'none';
+    return;
+  }
+  
+  if (footerEl) footerEl.style.display = 'grid';
+  
+  if (itemsEl) {
+    itemsEl.innerHTML = state.cart.map(item => {
+      const metalClass = getCoinMetalClass(item.metal);
+      const thumbContent = item.img 
+        ? `<img src="${item.img}" alt="${item.name}" onerror="this.style.display='none'">`
+        : `<span>${item.name.slice(0, 4)}</span>`;
+      
+      return `
+        <div class="cart-item">
+          <div class="cart-item-thumb ${metalClass.gradient}">${thumbContent}</div>
+          <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <p>Quantità: ${item.qty}</p>
+          </div>
+          <div>
+            <div class="cart-item-price">${formatPrice(item.price * item.qty)}</div>
+            <button class="cart-item-remove" onclick="removeFromCart('${item.slug}')" aria-label="Rimuovi">✕</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+  
+  if (subtotalEl) subtotalEl.textContent = formatPrice(totalPrice);
+  if (totalEl) totalEl.textContent = formatPrice(totalPrice);
+};
+const openCart = () => {
+  state.isCartOpen = true;
+  const overlay = $('cartOverlay');
+  const panel = $('cartPanel');
+  
+  if (overlay) overlay.classList.add('open');
+  if (panel) panel.classList.add('open');
+  
+  document.body.style.overflow = 'hidden';
+};
+const closeCart = () => {
+  state.isCartOpen = false;
+  const overlay = $('cartOverlay');
+  const panel = $('cartPanel');
+  
+  if (overlay) overlay.classList.remove('open');
+  if (panel) panel.classList.remove('open');
+  
+  document.body.style.overflow = '';
+};
+const proceedToCheckout = () => {
+  if (!state.cart.length) {
+    showToast({
+      type: 'warning',
+      title: 'Carrello vuoto',
+      message: 'Aggiungi articoli al carrello prima di procedere.'
+    });
+    return;
+  }
+  
+  if (!state.currentUser) {
+    closeCart();
+    openAuthModal();
+    return;
+  }
+  
+  showToast({
+    type: 'info',
+    title: 'Checkout',
+    message: "Per completare l'ordine, contattaci via email o telefono."
+  });
+  
+  closeCart();
+  smoothScrollTo('contatti');
+};
+/* ============================================================
+   SEZIONE JS 21 — MODAL
+   ============================================================ */
+const openModal = (slug) => {
+  const coin = findCoin(slug);
+  if (!coin) return;
+  
+  state.currentCoin = coin;
+  state.isModalOpen = true;
+  
+  const metalClass = getCoinMetalClass(coin.metal);
+  
+  const categoryEl = $('modalCategory');
+  const titleEl = $('modalTitle');
+  const descriptionEl = $('modalDescription');
+  const historyEl = $('modalHistory');
+  const priceEl = $('modalPrice');
+  const imagesEl = $('modalImages');
+  const specsEl = $('modalSpecs');
+  
+  if (categoryEl) categoryEl.textContent = coin.category;
+  if (titleEl) titleEl.textContent = coin.name;
+  if (descriptionEl) descriptionEl.textContent = coin.description || '';
+  if (priceEl) priceEl.textContent = formatPrice(coin.price);
+  
+  if (historyEl) {
+    if (coin.historicalNote) {
+      historyEl.textContent = coin.historicalNote;
+      historyEl.style.display = 'block';
+    } else {
+      historyEl.style.display = 'none';
+    }
+  }
+  
+  if (imagesEl) {
+    const obverse = coin.obverseImg;
+    const reverse = coin.reverseImg;
+    
+    let obverseHTML = obverse
+      ? `<img class="modal-coin-image" src="${obverse}" alt="Dritto" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">`
+      : '';
+    
+    let reverseHTML = reverse
+      ? `<img class="modal-coin-image" src="${reverse}" alt="Rovescio" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">`
+      : '';
+    
+    imagesEl.innerHTML = `
+      <div style="text-align:center">
+        ${obverseHTML}
+        <div class="modal-coin-disc ${metalClass.gradient}" style="${obverse ? 'display:none' : 'display:grid'}">
+          <span>${coin.name}</span>
+        </div>
+        <div class="modal-image-label">Dritto</div>
+      </div>
+      <div style="text-align:center">
+        ${reverseHTML}
+        <div class="modal-coin-disc ${metalClass.gradient}" style="${reverse ? 'display:none' : 'display:grid'}">
+          <span>${coin.name}</span>
+        </div>
+        <div class="modal-image-label">Rovescio</div>
+      </div>
+    `;
+  }
+  
+  if (specsEl) {
+    const specs = [
+      ['Metallo', coin.metal],
+      ['Area', coin.area],
+      ['Periodo', coin.period],
+      ['Peso', coin.weight],
+      ['Diametro', coin.diameter],
+      ['Conservazione', coin.conservation],
+      ['Rarità', coin.rarity],
+      ['Disponibilità', parseInt(coin.stockQty) > 0 ? `✓ ${coin.stockQty} pz` : '✗ Esaurito']
+    ];
+    
+    specsEl.innerHTML = specs.map(([label, value]) => `
+      <div class="modal-spec-box">
+        <span class="modal-spec-label">${label}</span>
+        <span class="modal-spec-value">${value || '—'}</span>
+      </div>
+    `).join('');
+  }
+  
+  const overlay = $('modalOverlay');
+  if (overlay) overlay.classList.add('open');
+  
+  document.body.style.overflow = 'hidden';
+};
+const closeModal = () => {
+  state.isModalOpen = false;
+  state.currentCoin = null;
+  
+  const overlay = $('modalOverlay');
+  if (overlay) overlay.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isSearchOpen && !state.isAuthOpen) {
+    document.body.style.overflow = '';
+  }
+};
+const addCurrentCoinToCart = () => {
+  if (state.currentCoin) {
+    addToCart(state.currentCoin.slug);
+    closeModal();
+  }
+};
+/* ============================================================
+   SEZIONE JS 22 — SEARCH MODAL
+   ============================================================ */
+const openSearchModal = () => {
+  state.isSearchOpen = true;
+  const modal = $('searchModal');
+  const input = $('searchInputLarge');
+  
+  if (modal) modal.classList.add('open');
+  if (input) {
+    input.value = '';
+    setTimeout(() => input.focus(), 100);
+  }
+  
+  document.body.style.overflow = 'hidden';
+  renderSearchResults('');
+};
+const closeSearchModal = () => {
+  state.isSearchOpen = false;
+  const modal = $('searchModal');
+  
+  if (modal) modal.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isModalOpen && !state.isAuthOpen) {
+    document.body.style.overflow = '';
+  }
+};
+const handleSearchInput = debounce((query) => {
+  renderSearchResults(query);
+}, 200);
+const renderSearchResults = (query) => {
+  const resultsEl = $('searchResults');
+  if (!resultsEl) return;
+  
+  const q = query.toLowerCase().trim();
+  
+  if (!q) {
+    resultsEl.innerHTML = `
+      <div class="search-no-results">
+        <p>Inizia a digitare per cercare monete...</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const results = state.coins.filter(coin =>
+    [coin.name, coin.category, coin.metal, coin.area, coin.description, coin.period]
+      .some(v => (v || '').toLowerCase().includes(q))
+  ).slice(0, 10);
+  
+  if (!results.length) {
+    resultsEl.innerHTML = `
+      <div class="search-no-results">
+        <p>Nessun risultato per "${query}"</p>
+      </div>
+    `;
+    return;
+  }
+  
+  resultsEl.innerHTML = results.map(coin => {
+    const metalClass = getCoinMetalClass(coin.metal);
+    const thumbImg = coin.obverseImg 
+      ? `<img src="${coin.obverseImg}" alt="${coin.name}">`
+      : '';
+    
+    return `
+      <div class="search-result-item" onclick="handleSearchResultClick('${coin.slug}')">
+        <div class="search-result-thumb ${metalClass.gradient}">${thumbImg}</div>
+        <div class="search-result-info">
+          <h4>${coin.name}</h4>
+          <p>${coin.category} · ${coin.area}</p>
+        </div>
+        <span class="search-result-price">${formatPrice(coin.price)}</span>
+      </div>
+    `;
+  }).join('');
+};
+const handleSearchResultClick = (slug) => {
+  closeSearchModal();
+  openModal(slug);
+};
+/* ============================================================
+   SEZIONE JS 23 — TOAST NOTIFICATIONS
+   ============================================================ */
+const showToast = ({ type = 'info', title, message, duration = CONSTANTS.TOAST_DURATION }) => {
+  const container = $('toastContainer');
+  if (!container) return;
+  
+  const icons = {
+    success: '✓',
+    error: '✗',
+    warning: '⚠',
+    info: 'ℹ'
+  };
+  
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  toast.innerHTML = `
+    <span class="toast-icon">${icons[type] || icons.info}</span>
+    <div class="toast-content">
+      <div class="toast-title">${title}</div>
+      ${message ? `<div class="toast-message">${message}</div>` : ''}
+    </div>
+    <button class="toast-close" onclick="this.parentElement.remove()" aria-label="Chiudi">✕</button>
+  `;
+  
+  container.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.classList.add('hiding');
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+};
+/* ============================================================
+   SEZIONE JS 24 — MOBILE MENU
+   ============================================================ */
+const toggleMobileMenu = () => {
+  state.isMobileMenuOpen = !state.isMobileMenuOpen;
+  
+  const toggle = $('mobileMenuToggle');
+  const nav = $('mobileNav');
+  
+  if (toggle) toggle.classList.toggle('active', state.isMobileMenuOpen);
+  if (nav) nav.classList.toggle('open', state.isMobileMenuOpen);
+  
+  document.body.style.overflow = state.isMobileMenuOpen ? 'hidden' : '';
+};
+const closeMobileMenu = () => {
+  state.isMobileMenuOpen = false;
+  
+  const toggle = $('mobileMenuToggle');
+  const nav = $('mobileNav');
+  
+  if (toggle) toggle.classList.remove('active');
+  if (nav) nav.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isModalOpen && !state.isSearchOpen && !state.isAuthOpen) {
+    document.body.style.overflow = '';
+  }
+};
+/* ============================================================
+   SEZIONE JS 25 — SCROLL EFFECTS
+   ============================================================ */
+const setupScrollEffects = () => {
+  let lastScrollY = 0;
+  let ticking = false;
+  
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const header = $('mainHeader');
+    const backToTop = $('backToTop');
+    const progressBar = $('readingProgressBar');
+    
+    if (header) {
+      header.classList.toggle('scrolled', currentScrollY > 60);
+      
+      const progressBarContainer = document.querySelector('.reading-progress');
+      if (currentScrollY > CONSTANTS.HEADER_HIDE_THRESHOLD) {
+        if (currentScrollY > lastScrollY && !state.headerHidden) {
+          header.classList.add('hidden');
+          if (progressBarContainer) progressBarContainer.classList.add('hidden');
+          state.headerHidden = true;
+        } else if (currentScrollY < lastScrollY && state.headerHidden) {
+          header.classList.remove('hidden');
+          if (progressBarContainer) progressBarContainer.classList.remove('hidden');
+          state.headerHidden = false;
+        }
+      } else {
+        header.classList.remove('hidden');
+        if (progressBarContainer) progressBarContainer.classList.remove('hidden');
+        state.headerHidden = false;
+      }
+    }
+    
+    if (backToTop) {
+      backToTop.classList.toggle('visible', currentScrollY > CONSTANTS.SCROLL_THRESHOLD);
+    }
+    
+    if (progressBar) {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (currentScrollY / docHeight) * 100;
+      progressBar.style.width = `${Math.min(progress, 100)}%`;
+    }
+    
+    lastScrollY = currentScrollY;
+    ticking = false;
+  };
+  
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+  
+  window.addEventListener('scroll', () => {
+    const heroBg = $('heroBg');
+    if (heroBg && window.scrollY < window.innerHeight) {
+      heroBg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.18}px)`;
+    }
+  }, { passive: true });
+};
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+/* ============================================================
+   SEZIONE JS 26 — COUNTER ANIMATION
+   ============================================================ */
+const animateCounters = () => {
+  $$('.hero-stat-value').forEach(el => {
+    const text = el.textContent.trim();
+    const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+    
+    if (!num || isNaN(num)) return;
+    
+    const suffix = text.replace(/[0-9.]/g, '');
+    let start = null;
+    const duration = 1200;
+    
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      
+      el.textContent = Math.round(num * eased) + suffix;
+      
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = text;
+      }
+    };
+    
+    requestAnimationFrame(step);
+  });
+};
+/* ============================================================
+   SEZIONE JS 27 — CONTACT FORM
+   ============================================================ */
+const handleContactSubmit = (event) => {
+  event.preventDefault();
+  
+  const name = $('contactName')?.value?.trim();
+  const email = $('contactEmailInput')?.value?.trim();
+  const subject = $('contactSubject')?.value;
+  const message = $('contactMessage')?.value?.trim();
+  
+  if (!name || !email || !subject || !message) {
+    showToast({
+      type: 'warning',
+      title: 'Campi mancanti',
+      message: 'Compila tutti i campi richiesti.'
+    });
+    return;
+  }
+  
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showToast({
+      type: 'error',
+      title: 'Email non valida',
+      message: 'Inserisci un indirizzo email valido.'
+    });
+    return;
+  }
+  
+  showToast({
+    type: 'success',
+    title: 'Messaggio inviato!',
+    message: 'Ti risponderemo entro 24 ore lavorative.'
+  });
+  
+  $('contactForm')?.reset();
+};
+/* ============================================================
+   SEZIONE JS 28 — EVENT LISTENERS SETUP
+   ============================================================ */
+const setupEventListeners = () => {
+  // Search
+  $('searchToggle')?.addEventListener('click', openSearchModal);
+  $('searchModalClose')?.addEventListener('click', closeSearchModal);
+  $('searchInputLarge')?.addEventListener('input', (e) => handleSearchInput(e.target.value));
+  
+  // Profile
+  $('profileBtn')?.addEventListener('click', toggleProfileDropdown);
+  
+  // Auth
+  $('authClose')?.addEventListener('click', closeAuthModal);
+  $('authOverlay')?.addEventListener('click', (e) => {
+    if (e.target === $('authOverlay')) closeAuthModal();
+  });
+  
+  // Cart
+  $('cartBtn')?.addEventListener('click', openCart);
+  $('cartOverlay')?.addEventListener('click', closeCart);
+  $('cartCloseBtn')?.addEventListener('click', closeCart);
+  $('clearCartBtn')?.addEventListener('click', clearCart);
+  $('checkoutBtn')?.addEventListener('click', proceedToCheckout);
+  
+  // Modal
+  $('modalOverlay')?.addEventListener('click', (e) => {
+    if (e.target === $('modalOverlay')) closeModal();
+  });
+  $('modalCloseBtn')?.addEventListener('click', closeModal);
+  $('modalCloseBtn2')?.addEventListener('click', closeModal);
+  $('modalAddToCart')?.addEventListener('click', addCurrentCoinToCart);
+  
+  // Search modal
+  $('searchModal')?.addEventListener('click', (e) => {
+    if (e.target === $('searchModal')) closeSearchModal();
+  });
+  
+  // Mobile menu
+  $('mobileMenuToggle')?.addEventListener('click', toggleMobileMenu);
+  $$('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  // Filters
+  $('searchInput')?.addEventListener('input', debounce(applyFilters, 300));
+  $('metalFilter')?.addEventListener('change', applyFilters);
+  $('areaFilter')?.addEventListener('change', applyFilters);
+  $('sortFilter')?.addEventListener('change', applyFilters);
+  $('resetFilters')?.addEventListener('click', resetFilters);
+  
+  // View toggle
+  $('gridViewBtn')?.addEventListener('click', () => toggleCatalogView(false));
+  $('listViewBtn')?.addEventListener('click', () => toggleCatalogView(true));
+  
+  // Expand
+  $('expandBtn')?.addEventListener('click', toggleCatalogExpand);
+  
+  // Slideshow
+  $('slidePrev')?.addEventListener('click', () => {
+    pauseSlideshow();
+    goToSlide(state.currentSlide - 1);
+  });
+  $('slideNext')?.addEventListener('click', () => {
+    pauseSlideshow();
+    goToSlide(state.currentSlide + 1);
+  });
+  
+  // Back to top
+  $('backToTop')?.addEventListener('click', () => smoothScrollTo('catalogo'));
+  
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (state.isSearchOpen) closeSearchModal();
+      else if (state.isAuthOpen) closeAuthModal();
+      else if (state.isModalOpen) closeModal();
+      else if (state.isCartOpen) closeCart();
+      else if (state.isMobileMenuOpen) closeMobileMenu();
+      else if (state.isProfileDropdownOpen) closeProfileDropdown();
+    }
+    
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearchModal();
+    }
+  });
+  
+  // Click outside profile dropdown
+  document.addEventListener('click', (e) => {
+    const profileBtn = $('profileBtn');
+    const profileDropdown = $('profileDropdown');
+    
+    if (state.isProfileDropdownOpen && 
+        profileBtn && !profileBtn.contains(e.target) &&
+        profileDropdown && !profileDropdown.contains(e.target)) {
+      closeProfileDropdown();
+    }
+  });
+  
+  // Resize
+  window.addEventListener('resize', debounce(() => {
+    if (window.innerWidth > 768 && state.isMobileMenuOpen) {
+      closeMobileMenu();
+    }
+  }, 200));
+};
+/* ============================================================
+   SEZIONE JS 29 — EFFETTI VISIVI
+   ============================================================ */
+const initCursorGlow = () => {
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position: fixed;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform .08s linear, opacity .3s;
+    background: radial-gradient(circle, rgba(200,169,81,.06) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  `;
+  document.body.appendChild(glow);
+  
+  let visible = false;
+  
+  window.addEventListener('mousemove', (e) => {
+    glow.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+    if (!visible) {
+      glow.style.opacity = '1';
+      visible = true;
+    }
+  }, { passive: true });
+  
+  window.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+    visible = false;
+  });
+};
+const initMagneticButtons = () => {
+  $$('.btn-primary, .btn-outline, .slideshow-arrow, .cart-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * 0.2;
+      const y = (e.clientY - r.top - r.height / 2) * 0.2;
+      btn.style.transform = `translate(${x}px, ${y}px) translateY(-2px)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+};
+/* ============================================================
+   SEZIONE JS 30 — INIZIALIZZAZIONE FINALE
+   ============================================================ */
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
+}
+window.addEventListener('load', () => {
+  initMagneticButtons();
+  initCursorGlow();
+});
+// Global exports
+window.smoothScrollTo = smoothScrollTo;
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.toggleFAQ = toggleFAQ;
+window.handleContactSubmit = handleContactSubmit;
+window.handleSearchResultClick = handleSearchResultClick;
+window.toggleCatalogExpand = toggleCatalogExpand;
+window.showToast = showToast;
+window.openAuthModal = openAuthModal;
+window.closeAuthModal = closeAuthModal;
+window.switchAuthTab = switchAuthTab;
+window.handleLogin = handleLogin;
+window.handleRegister = handleRegister;
+window.handleLogout = handleLogout;
+window.togglePasswordVisibility = togglePasswordVisibility;
+window.checkPasswordStrength = checkPasswordStrength;
+window.toggleProfileDropdown = toggleProfileDropdown;
+</script>
+</body>
+</html>
