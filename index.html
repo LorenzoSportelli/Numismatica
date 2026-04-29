@@ -1175,8 +1175,14 @@ function renderCoins(coins){
     const{g,t,b}=mc(c.metal);
     const avail=c.stock_qty===undefined||parseInt(c.stock_qty)>0;
     const obS=c.img_obverse||'',rvS=c.img_reverse||'';
-    const obI=obS?`<img src="${obS}" alt="${c.name}" onerror="this.style.display='none'"/>`:`<span>${c.name}</span>`;
-    const rvI=rvS?`<img src="${rvS}" alt="${c.name} rev" onerror="this.style.display='none'"/>`:`<span>${c.name} ↺</span>`;
+    const obI = obS
+      ? `<img src="${obS}" alt="${c.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none">${c.name}</span>`
+      : `<span>${c.name}</span>`;
+
+    const rvI = rvS
+      ? `<img src="${rvS}" alt="${c.name} rev" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"><span style="display:none">${c.name} ↺</span>`
+      : `<span>${c.name} ↺</span>`;
+
     const uid='cc'+Math.random().toString(36).slice(2,8);
     return`<article class="cc" data-slug="${c.slug}" ondblclick="openModal('${c.slug}')">
       <div class="cc-med">
@@ -1331,14 +1337,26 @@ function openModal(slug){
 
   const ob=c.img_obverse,rv=c.img_reverse;
   const uiOb='Dritto',uiRv='Rovescio';
-  if(ob||rv){
-    $('mImgs').innerHTML=[
-      ob?`<div style="text-align:center"><img class="mcimg" src="${ob}" alt="Dritto" onerror="this.parentElement.innerHTML='<div class=\\"mcdisc ${g}\\"><span>${c.name}</span></div><div class=\\"milbl\\">${uiOb}</div>'"/>  <div class="milbl">${uiOb}</div></div>`:'',
-      rv?`<div style="text-align:center"><img class="mcimg" src="${rv}" alt="Rovescio" onerror="this.parentElement.innerHTML='<div class=\\"mcdisc ${g}\\"><span>${c.name}</span></div><div class=\\"milbl\\">${uiRv}</div>'"/>  <div class="milbl">${uiRv}</div></div>`:''
-    ].join('');
-  } else {
-    $('mImgs').innerHTML=`<div style="text-align:center"><div class="mcdisc ${g}"><span>${c.name}</span></div><div class="milbl">${uiOb}</div></div>`;
-  }
+  let obHTML = ob
+    ? `<img class="mcimg" src="${ob}" alt="Dritto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">`
+    : `<div class="mcdisc ${g}"><span>${c.name}</span></div>`;
+
+  let rvHTML = rv
+    ? `<img class="mcimg" src="${rv}" alt="Rovescio" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">`
+    : `<div class="mcdisc ${g}"><span>${c.name}</span></div>`;
+
+  $('mImgs').innerHTML = `
+    <div style="text-align:center">
+      ${obHTML}
+      <div class="mcdisc ${g}" style="display:none"><span>${c.name}</span></div>
+      <div class="milbl">${uiOb}</div>
+    </div>
+    <div style="text-align:center">
+      ${rvHTML}
+      <div class="mcdisc ${g}" style="display:none"><span>${c.name}</span></div>
+      <div class="milbl">${uiRv}</div>
+    </div>
+  `;
 
   $('mGrid').innerHTML=[
     ['Metallo',c.metal],['Area',c.area],['Periodo',c.period],['Peso',c.weight],
