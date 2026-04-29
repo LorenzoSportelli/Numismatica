@@ -476,7 +476,8 @@ button,input,select,textarea{font:inherit}
       </div>
       <div>
         <div class="sc-frame">
-          <div class="sc-coin" id="heroCoin" onclick="openModal('aureo')">
+          <div class="sc-coin" id="heroCoin">
+            <!-- onclick="openModal('aureo')"> -->
             <div class="sc-shimmer"></div>
             <img id="heroCoinImg" src="" alt="Aureo Imperiale" onerror="this.style.display='none';document.getElementById('heroCoinTxt').style.display='block'">
             <div class="sc-coin-txt" id="heroCoinTxt">Aureo Imperiale</div>
@@ -1632,7 +1633,7 @@ $('closeModal').onclick  = closeModalFn;
 $('closeModal2').onclick = closeModalFn;
 $('mov').onclick = e => { if (e.target === $('mov')) closeModalFn(); };
 $('mAdd').onclick = () => { if (CUR) { addToCart(CUR.slug); closeModalFn(); } };
-$('heroCoin').onclick = () => openModal('aureo');
+/* $('heroCoin').onclick = () => openModal('aureo'); -->
 
 /* ============================================================
    SEZIONE 18 — EFFETTI UI
