@@ -1,4 +1,3 @@
-``html
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -6892,8 +6891,8 @@ const proceedToCheckout = () => {
   smoothScrollTo('contatti');
 };
 
-/ ============================================================
-   SEZIONE JS 21 — MODAL
+/* ============================================================
+   SEZIONE JS 21 — MODAL (COMPLETAMENTO)
    ============================================================ */
 const openModal = (slug) => {
   const coin = findCoin(slug);
@@ -6921,4 +6920,659 @@ const openModal = (slug) => {
   if (historyEl) {
     if (coin.historicalNote) {
       historyEl.textContent = coin.historicalNote;
-      hist
+      historyEl.style.display = 'block';
+    } else {
+      historyEl.style.display = 'none';
+    }
+  }
+  
+  // Build images
+  if (imagesEl) {
+    const obverse = coin.obverseImg;
+    const reverse = coin.reverseImg;
+    
+    let obverseHTML = obverse
+      ? `<img class="modal-coin-image" src="${obverse}" alt="Dritto" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">`
+      : '';
+    
+    let reverseHTML = reverse
+      ? `<img class="modal-coin-image" src="${reverse}" alt="Rovescio" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">`
+      : '';
+    
+    imagesEl.innerHTML = `
+      <div style="text-align:center">
+        ${obverseHTML}
+        <div class="modal-coin-disc ${metalClass.gradient}" style="${obverse ? 'display:none' : 'display:grid'}">
+          <span>${coin.name}</span>
+        </div>
+        <div class="modal-image-label">Dritto</div>
+      </div>
+      <div style="text-align:center">
+        ${reverseHTML}
+        <div class="modal-coin-disc ${metalClass.gradient}" style="${reverse ? 'display:none' : 'display:grid'}">
+          <span>${coin.name}</span>
+        </div>
+        <div class="modal-image-label">Rovescio</div>
+      </div>
+    `;
+  }
+  
+  // Build specs grid
+  if (specsEl) {
+    const specs = [
+      ['Metallo', coin.metal],
+      ['Area', coin.area],
+      ['Periodo', coin.period],
+      ['Peso', coin.weight],
+      ['Diametro', coin.diameter],
+      ['Conservazione', coin.conservation],
+      ['Rarità', coin.rarity],
+      ['Disponibilità', parseInt(coin.stockQty) > 0 ? `✓ ${coin.stockQty} pz` : '✗ Esaurito']
+    ];
+    
+    specsEl.innerHTML = specs.map(([label, value]) => `
+      <div class="modal-spec-box">
+        <span class="modal-spec-label">${label}</span>
+        <span class="modal-spec-value">${value || '—'}</span>
+      </div>
+    `).join('');
+  }
+  
+  // Show modal
+  const overlay = $('modalOverlay');
+  if (overlay) overlay.classList.add('open');
+  
+  document.body.style.overflow = 'hidden';
+};
+const closeModal = () => {
+  state.isModalOpen = false;
+  state.currentCoin = null;
+  
+  const overlay = $('modalOverlay');
+  if (overlay) overlay.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isSearchOpen) {
+    document.body.style.overflow = '';
+  }
+};
+const addCurrentCoinToCart = () => {
+  if (state.currentCoin) {
+    addToCart(state.currentCoin.slug);
+    closeModal();
+  }
+};
+/* ============================================================
+   SEZIONE JS 22 — SEARCH MODAL
+   ============================================================ */
+const openSearchModal = () => {
+  state.isSearchOpen = true;
+  const modal = $('searchModal');
+  const input = $('searchInputLarge');
+  
+  if (modal) modal.classList.add('open');
+  if (input) {
+    input.value = '';
+    setTimeout(() => input.focus(), 100);
+  }
+  
+  document.body.style.overflow = 'hidden';
+  renderSearchResults('');
+};
+const closeSearchModal = () => {
+  state.isSearchOpen = false;
+  const modal = $('searchModal');
+  
+  if (modal) modal.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isModalOpen) {
+    document.body.style.overflow = '';
+  }
+};
+const handleSearchInput = debounce((query) => {
+  renderSearchResults(query);
+}, 200);
+const renderSearchResults = (query) => {
+  const resultsEl = $('searchResults');
+  if (!resultsEl) return;
+  
+  const q = query.toLowerCase().trim();
+  
+  if (!q) {
+    resultsEl.innerHTML = `
+      <div class="search-no-results">
+        <p>Inizia a digitare per cercare monete...</p>
+      </div>
+    `;
+    return;
+  }
+  
+  const results = state.coins.filter(coin =>
+    [coin.name, coin.category, coin.metal, coin.area, coin.description, coin.period]
+      .some(v => (v || '').toLowerCase().includes(q))
+  ).slice(0, 10);
+  
+  if (!results.length) {
+    resultsEl.innerHTML = `
+      <div class="search-no-results">
+        <p>Nessun risultato per "${query}"</p>
+      </div>
+    `;
+    return;
+  }
+  
+  resultsEl.innerHTML = results.map(coin => {
+    const metalClass = getCoinMetalClass(coin.metal);
+    const thumbImg = coin.obverseImg 
+      ? `<img src="${coin.obverseImg}" alt="${coin.name}">`
+      : '';
+    
+    return `
+      <div class="search-result-item" onclick="handleSearchResultClick('${coin.slug}')">
+        <div class="search-result-thumb ${metalClass.gradient}">${thumbImg}</div>
+        <div class="search-result-info">
+          <h4>${coin.name}</h4>
+          <p>${coin.category} · ${coin.area}</p>
+        </div>
+        <span class="search-result-price">${formatPrice(coin.price)}</span>
+      </div>
+    `;
+  }).join('');
+};
+const handleSearchResultClick = (slug) => {
+  closeSearchModal();
+  openModal(slug);
+};
+/* ============================================================
+   SEZIONE JS 23 — TOAST NOTIFICATIONS
+   ============================================================ */
+const showToast = ({ type = 'info', title, message, duration = CONSTANTS.TOAST_DURATION }) => {
+  const container = $('toastContainer');
+  if (!container) return;
+  
+  const icons = {
+    success: '✓',
+    error: '✗',
+    warning: '⚠',
+    info: 'ℹ'
+  };
+  
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  toast.innerHTML = `
+    <span class="toast-icon">${icons[type] || icons.info}</span>
+    <div class="toast-content">
+      <div class="toast-title">${title}</div>
+      ${message ? `<div class="toast-message">${message}</div>` : ''}
+    </div>
+    <button class="toast-close" onclick="this.parentElement.remove()" aria-label="Chiudi">✕</button>
+  `;
+  
+  container.appendChild(toast);
+  
+  // Auto remove
+  setTimeout(() => {
+    toast.classList.add('hiding');
+    setTimeout(() => toast.remove(), 300);
+  }, duration);
+};
+/* ============================================================
+   SEZIONE JS 24 — THEME TOGGLE
+   ============================================================ */
+const toggleTheme = () => {
+  state.isDarkTheme = !state.isDarkTheme;
+  
+  document.documentElement.setAttribute('data-theme', state.isDarkTheme ? 'dark' : 'light');
+  
+  const icon = $('themeIcon');
+  if (icon) {
+    icon.textContent = state.isDarkTheme ? '🌙' : '☀️';
+  }
+  
+  // Save preference
+  localStorage.setItem('theme', state.isDarkTheme ? 'dark' : 'light');
+};
+const loadThemePreference = () => {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    state.isDarkTheme = false;
+    document.documentElement.setAttribute('data-theme', 'light');
+    const icon = $('themeIcon');
+    if (icon) icon.textContent = '☀️';
+  }
+};
+/* ============================================================
+   SEZIONE JS 25 — MOBILE MENU
+   ============================================================ */
+const toggleMobileMenu = () => {
+  state.isMobileMenuOpen = !state.isMobileMenuOpen;
+  
+  const toggle = $('mobileMenuToggle');
+  const nav = $('mobileNav');
+  
+  if (toggle) toggle.classList.toggle('active', state.isMobileMenuOpen);
+  if (nav) nav.classList.toggle('open', state.isMobileMenuOpen);
+  
+  document.body.style.overflow = state.isMobileMenuOpen ? 'hidden' : '';
+};
+const closeMobileMenu = () => {
+  state.isMobileMenuOpen = false;
+  
+  const toggle = $('mobileMenuToggle');
+  const nav = $('mobileNav');
+  
+  if (toggle) toggle.classList.remove('active');
+  if (nav) nav.classList.remove('open');
+  
+  if (!state.isCartOpen && !state.isModalOpen && !state.isSearchOpen) {
+    document.body.style.overflow = '';
+  }
+};
+/* ============================================================
+   SEZIONE JS 26 — SCROLL EFFECTS
+   ============================================================ */
+const setupScrollEffects = () => {
+  // Header scroll behavior
+  let lastScrollY = 0;
+  let ticking = false;
+  
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    const header = $('mainHeader');
+    const backToTop = $('backToTop');
+    const progressBar = $('readingProgressBar');
+    
+    // Header state
+    if (header) {
+      header.classList.toggle('scrolled', currentScrollY > 60);
+      
+      // Hide/show header on scroll direction
+      if (currentScrollY > CONSTANTS.HEADER_HIDE_THRESHOLD) {
+        if (currentScrollY > lastScrollY && !state.headerHidden) {
+          header.classList.add('hidden');
+          state.headerHidden = true;
+        } else if (currentScrollY < lastScrollY && state.headerHidden) {
+          header.classList.remove('hidden');
+          state.headerHidden = false;
+        }
+      } else {
+        header.classList.remove('hidden');
+        state.headerHidden = false;
+      }
+    }
+    
+    // Back to top button
+    if (backToTop) {
+      backToTop.classList.toggle('visible', currentScrollY > CONSTANTS.SCROLL_THRESHOLD);
+    }
+    
+    // Reading progress
+    if (progressBar) {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (currentScrollY / docHeight) * 100;
+      progressBar.style.width = `${Math.min(progress, 100)}%`;
+    }
+    
+    lastScrollY = currentScrollY;
+    ticking = false;
+  };
+  
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(handleScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+  
+  // Parallax effect on hero background
+  window.addEventListener('scroll', throttle(() => {
+    const heroBg = $('heroBg');
+    if (heroBg && window.scrollY < window.innerHeight) {
+      heroBg.style.transform = `scale(1.05) translateY(${window.scrollY * 0.2}px)`;
+    }
+  }, 16), { passive: true });
+};
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+/* ============================================================
+   SEZIONE JS 27 — INTERSECTION OBSERVER
+   ============================================================ */
+const setupIntersectionObserver = () => {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -100px 0px',
+    threshold: 0.1
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all scroll-reveal elements
+  $$('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale').forEach(el => {
+    observer.observe(el);
+  });
+  
+  // Active nav link based on section
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        updateActiveNavLink(id);
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+  
+  ['home', 'vetrina', 'catalogo', 'tipologie', 'ordini', 'garanzie', 'faq', 'contatti'].forEach(id => {
+    const section = $(id);
+    if (section) navObserver.observe(section);
+  });
+};
+const updateActiveNavLink = (sectionId) => {
+  $$('.nav-link, .mobile-nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    link.classList.toggle('active', href === `#${sectionId}`);
+  });
+};
+/* ============================================================
+   SEZIONE JS 28 — COUNTER ANIMATION
+   ============================================================ */
+const animateCounters = () => {
+  $$('.hero-stat-value').forEach(el => {
+    const text = el.textContent.trim();
+    const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+    
+    if (!num || isNaN(num)) return;
+    
+    const suffix = text.replace(/[0-9.]/g, '');
+    let start = null;
+    const duration = 1500;
+    
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+      
+      el.textContent = Math.round(num * eased) + suffix;
+      
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = text; // Restore original
+      }
+    };
+    
+    requestAnimationFrame(step);
+  });
+};
+/* ============================================================
+   SEZIONE JS 29 — CONTACT FORM
+   ============================================================ */
+const handleContactSubmit = (event) => {
+  event.preventDefault();
+  
+  const name = $('contactName')?.value?.trim();
+  const email = $('contactEmailInput')?.value?.trim();
+  const subject = $('contactSubject')?.value;
+  const message = $('contactMessage')?.value?.trim();
+  
+  if (!name || !email || !subject || !message) {
+    showToast({
+      type: 'warning',
+      title: 'Campi mancanti',
+      message: 'Compila tutti i campi richiesti.'
+    });
+    return;
+  }
+  
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    showToast({
+      type: 'error',
+      title: 'Email non valida',
+      message: 'Inserisci un indirizzo email valido.'
+    });
+    return;
+  }
+  
+  // Simulate submission
+  showToast({
+    type: 'success',
+    title: 'Messaggio inviato!',
+    message: 'Ti risponderemo entro 24 ore lavorative.'
+  });
+  
+  // Reset form
+  $('contactForm')?.reset();
+};
+/* ============================================================
+   SEZIONE JS 30 — COOKIE CONSENT
+   ============================================================ */
+const checkCookieConsent = () => {
+  const consent = localStorage.getItem('cookieConsent');
+  
+  if (!consent) {
+    setTimeout(() => {
+      const banner = $('cookieConsent');
+      if (banner) banner.classList.add('show');
+    }, 2000);
+  }
+};
+const acceptCookies = () => {
+  localStorage.setItem('cookieConsent', 'accepted');
+  const banner = $('cookieConsent');
+  if (banner) banner.classList.remove('show');
+  
+  showToast({
+    type: 'success',
+    title: 'Preferenze salvate',
+    message: 'Le tue preferenze sono state salvate.'
+  });
+};
+const showCookieSettings = () => {
+  showToast({
+    type: 'info',
+    title: 'Impostazioni Cookie',
+    message: 'Funzionalità in arrivo. Per ora, tutti i cookie sono necessari per il funzionamento del sito.'
+  });
+};
+/* ============================================================
+   SEZIONE JS 31 — MODALI LEGALI
+   ============================================================ */
+const showPrivacyModal = () => {
+  showToast({
+    type: 'info',
+    title: 'Privacy Policy',
+    message: 'La pagina Privacy Policy è in fase di sviluppo.'
+  });
+};
+const showTermsModal = () => {
+  showToast({
+    type: 'info',
+    title: 'Termini di Servizio',
+    message: 'La pagina Termini di Servizio è in fase di sviluppo.'
+  });
+};
+/* ============================================================
+   SEZIONE JS 32 — EVENT LISTENERS SETUP
+   ============================================================ */
+const setupEventListeners = () => {
+  // Theme toggle
+  $('themeToggle')?.addEventListener('click', toggleTheme);
+  
+  // Search
+  $('searchToggle')?.addEventListener('click', openSearchModal);
+  $('searchModalClose')?.addEventListener('click', closeSearchModal);
+  $('searchInputLarge')?.addEventListener('input', (e) => handleSearchInput(e.target.value));
+  
+  // Cart
+  $('cartBtn')?.addEventListener('click', openCart);
+  $('cartOverlay')?.addEventListener('click', closeCart);
+  $('cartCloseBtn')?.addEventListener('click', closeCart);
+  $('clearCartBtn')?.addEventListener('click', clearCart);
+  $('checkoutBtn')?.addEventListener('click', proceedToCheckout);
+  
+  // Modal
+  $('modalOverlay')?.addEventListener('click', (e) => {
+    if (e.target === $('modalOverlay')) closeModal();
+  });
+  $('modalCloseBtn')?.addEventListener('click', closeModal);
+  $('modalCloseBtn2')?.addEventListener('click', closeModal);
+  $('modalAddToCart')?.addEventListener('click', addCurrentCoinToCart);
+  
+  // Search modal close on click outside
+  $('searchModal')?.addEventListener('click', (e) => {
+    if (e.target === $('searchModal')) closeSearchModal();
+  });
+  
+  // Mobile menu
+  $('mobileMenuToggle')?.addEventListener('click', toggleMobileMenu);
+  $$('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  // Catalog filters
+  $('searchInput')?.addEventListener('input', debounce(applyFilters, 300));
+  $('metalFilter')?.addEventListener('change', applyFilters);
+  $('areaFilter')?.addEventListener('change', applyFilters);
+  $('sortFilter')?.addEventListener('change', applyFilters);
+  $('resetFilters')?.addEventListener('click', resetFilters);
+  
+  // Catalog view toggle
+  $('gridViewBtn')?.addEventListener('click', () => toggleCatalogView(false));
+  $('listViewBtn')?.addEventListener('click', () => toggleCatalogView(true));
+  
+  // Expand catalog
+  $('expandBtn')?.addEventListener('click', toggleCatalogExpand);
+  
+  // Slideshow navigation
+  $('slidePrev')?.addEventListener('click', () => {
+    pauseSlideshow();
+    goToSlide(state.currentSlide - 1);
+  });
+  $('slideNext')?.addEventListener('click', () => {
+    pauseSlideshow();
+    goToSlide(state.currentSlide + 1);
+  });
+  
+  // Back to top
+  $('backToTop')?.addEventListener('click', scrollToTop);
+  
+  // Cookie consent
+  $('cookieAccept')?.addEventListener('click', acceptCookies);
+  $('cookieSettings')?.addEventListener('click', showCookieSettings);
+  
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    // Escape key closes modals
+    if (e.key === 'Escape') {
+      if (state.isSearchOpen) closeSearchModal();
+      else if (state.isModalOpen) closeModal();
+      else if (state.isCartOpen) closeCart();
+      else if (state.isMobileMenuOpen) closeMobileMenu();
+    }
+    
+    // Ctrl/Cmd + K opens search
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      openSearchModal();
+    }
+  });
+  
+  // Window resize handler
+  window.addEventListener('resize', debounce(() => {
+    // Close mobile menu on desktop resize
+    if (window.innerWidth > 768 && state.isMobileMenuOpen) {
+      closeMobileMenu();
+    }
+  }, 200));
+};
+/* ============================================================
+   SEZIONE JS 33 — MAGNETIC BUTTON EFFECT
+   ============================================================ */
+const initMagneticButtons = () => {
+  $$('.btn-primary, .btn-outline, .slideshow-arrow, .cart-btn').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
+      btn.style.transform = `translate(${x}px, ${y}px) translateY(-2px)`;
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+};
+/* ============================================================
+   SEZIONE JS 34 — CURSOR GLOW EFFECT
+   ============================================================ */
+const initCursorGlow = () => {
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform .08s linear, opacity .3s;
+    background: radial-gradient(circle, rgba(200,169,81,.06) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  `;
+  document.body.appendChild(glow);
+  
+  let visible = false;
+  
+  window.addEventListener('mousemove', (e) => {
+    glow.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+    if (!visible) {
+      glow.style.opacity = '1';
+      visible = true;
+    }
+  }, { passive: true });
+  
+  window.addEventListener('mouseleave', () => {
+    glow.style.opacity = '0';
+    visible = false;
+  });
+};
+/* ============================================================
+   SEZIONE JS 35 — INIZIALIZZAZIONE FINALE
+   ============================================================ */
+// Load theme preference on page load
+loadThemePreference();
+// Initialize app when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
+}
+// Initialize visual effects after load
+window.addEventListener('load', () => {
+  initMagneticButtons();
+  initCursorGlow();
+});
+// Expose functions to global scope for onclick handlers
+window.smoothScrollTo = smoothScrollTo;
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.toggleFAQ = toggleFAQ;
+window.handleContactSubmit = handleContactSubmit;
+window.handleSearchResultClick = handleSearchResultClick;
+window.showPrivacyModal = showPrivacyModal;
+window.showTermsModal = showTermsModal;
+window.showCookieSettings = showCookieSettings;
+window.toggleCatalogExpand = toggleCatalogExpand;
+</script>
+</body>
+</html>
