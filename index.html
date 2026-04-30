@@ -3669,6 +3669,12 @@ table {
   color: #ef5350;
   border-color: rgba(200, 60, 60, .3);
 }
+.hidden {
+  display: none !important;
+}
+form.hidden {
+  display: none !important;
+}
 .switch-form {
   text-align: center;
   margin-top: 1.5rem;
@@ -5653,15 +5659,19 @@ const showAuthModal = () => {
   const authContainer = $('auth-container');
   if (authContainer) {
     authContainer.classList.remove('hidden');
-    $('login-form')?.classList.remove('hidden');
-    $('register-form')?.classList.add('hidden');
+    const loginForm = $('login-form');
+    const registerForm = $('register-form');
+    if (loginForm) loginForm.classList.remove('hidden');
+    if (registerForm) registerForm.classList.add('hidden');
   }
+  document.body.style.overflow = 'hidden';
 };
 const hideAuthModal = () => {
   const authContainer = $('auth-container');
   if (authContainer) {
     authContainer.classList.add('hidden');
   }
+  document.body.style.overflow = '';
 };
 const updateAuthUI = () => {
   const user = AuthDB.getCurrentUser();
@@ -5670,99 +5680,131 @@ const updateAuthUI = () => {
   const userAvatar = $('userAvatar');
   const dropdownUserName = $('dropdownUserName');
   const dropdownUserId = $('dropdownUserId');
+  const authContainer = $('auth-container');
+  
   if (user) {
+    // Utente loggato
     if (loginBtn) loginBtn.style.display = 'none';
     if (userMenuContainer) userMenuContainer.style.display = 'block';
+    if (authContainer) authContainer.classList.add('hidden');
     
     if (userAvatar) {
       if (user.avatar) {
         userAvatar.innerHTML = `<img src="${user.avatar}" alt="${user.name}">`;
       } else {
-        userAvatar.textContent = user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+        const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+        userAvatar.textContent = initials;
       }
     }
     
     if (dropdownUserName) dropdownUserName.textContent = user.name;
     if (dropdownUserId) dropdownUserId.textContent = `#${user.id}`;
     
-    // Load user's saved cart
-    state.cart = AuthDB.getUserCart(user.email);
+    // Carica carrello utente
+    state.cart = AuthDB.getUserCart(user.email) || [];
     renderCart();
   } else {
+    // Utente non loggato
     if (loginBtn) loginBtn.style.display = 'flex';
     if (userMenuContainer) userMenuContainer.style.display = 'none';
+    if (authContainer) authContainer.classList.remove('hidden');
+    
+    // Carrello vuoto per utenti non loggati
+    state.cart = [];
+    renderCart();
   }
 };
 const handleLogin = (e) => {
   e.preventDefault();
-  const email = $('login-email')?.value?.trim();
-  const password = $('login-password')?.value;
+  const emailInput = $('login-email');
+  const passwordInput = $('login-password');
+  const email = emailInput?.value?.trim();
+  const password = passwordInput?.value;
+  
   if (!email || !password) {
     showAuthMessage('login-message', 'Compila tutti i campi', 'error');
     return;
   }
+  
   const result = AuthDB.loginUser(email, password);
   if (!result.success) {
     showAuthMessage('login-message', result.message, 'error');
     return;
   }
+  
   AuthDB.setCurrentUser(email);
   hideAuthModal();
   updateAuthUI();
+  
   showToast({
     type: 'success',
     title: 'Benvenuto!',
     message: `Ciao ${result.user.name}, bentornato su Pecunia Solis.`
   });
   
-  $('login-form')?.reset();
+  // Reset form
+  if (emailInput) emailInput.value = '';
+  if (passwordInput) passwordInput.value = '';
 };
 const handleRegister = (e) => {
   e.preventDefault();
-  const name = $('register-name')?.value?.trim();
-  const email = $('register-email')?.value?.trim();
-  const password = $('register-password')?.value;
+  const nameInput = $('register-name');
+  const emailInput = $('register-email');
+  const passwordInput = $('register-password');
+  
+  const name = nameInput?.value?.trim();
+  const email = emailInput?.value?.trim();
+  const password = passwordInput?.value;
+  
   if (!name || !email || !password) {
     showAuthMessage('register-message', 'Compila tutti i campi', 'error');
     return;
   }
+  
   if (password.length < 6) {
     showAuthMessage('register-message', 'La password deve avere almeno 6 caratteri', 'error');
     return;
   }
+  
   const result = AuthDB.createUser(email, password, name);
   if (!result.success) {
     showAuthMessage('register-message', result.message, 'error');
     return;
   }
+  
   AuthDB.setCurrentUser(email);
   hideAuthModal();
   updateAuthUI();
+  
   showToast({
     type: 'success',
     title: 'Account creato!',
     message: `Benvenuto ${name}! Il tuo ID è #${result.userId}`
   });
   
-  $('register-form')?.reset();
+  // Reset form
+  if (nameInput) nameInput.value = '';
+  if (emailInput) emailInput.value = '';
+  if (passwordInput) passwordInput.value = '';
 };
 const handleLogout = () => {
   const user = AuthDB.getCurrentUser();
   if (user) {
-    // Save cart before logout
+    // Salva carrello prima del logout
     AuthDB.saveUserCart(user.email, state.cart);
   }
   
   AuthDB.logout();
   state.cart = [];
   renderCart();
-  updateAuthUI();
   closeUserDropdown();
+  closeProfileModal();
+  updateAuthUI();
   
   showToast({
     type: 'info',
     title: 'Disconnesso',
-    message: 'Hai effettuato il logout.'
+    message: 'Hai effettuato il logout con successo.'
   });
 };
 const toggleUserDropdown = () => {
@@ -5977,14 +6019,15 @@ const initializeApp = () => {
     buildFAQSection();
     setupEventListeners();
     setupScrollEffects();
-    renderCart();
-     
-    // Check if user is logged in
+    
+    // Inizializza l'UI dell'autenticazione
     const currentUser = AuthDB.getCurrentUser();
     if (currentUser) {
-      hideAuthModal();
-      state.cart = AuthDB.getUserCart(currentUser.email);
+      state.cart = AuthDB.getUserCart(currentUser.email) || [];
+    } else {
+      state.cart = [];
     }
+    renderCart();
     
     setTimeout(() => {
       updateAuthUI();
@@ -6739,16 +6782,6 @@ const proceedToCheckout = () => {
   closeCart();
   smoothScrollTo('contatti');
 };
-  
-  showToast({
-    type: 'info',
-    title: 'Checkout',
-    message: "Per completare l'ordine, contattaci via email o telefono."
-  });
-  
-  closeCart();
-  smoothScrollTo('contatti');
-};
 
 /* ============================================================
    SEZIONE JS 19 — MODAL
@@ -7198,12 +7231,20 @@ const setupEventListeners = () => {
   $('backToTop')?.addEventListener('click', () => smoothScrollTo('catalogo'));
   
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (state.isSearchOpen) closeSearchModal();
-      else if (state.isModalOpen) closeModal();
-      else if (state.isCartOpen) closeCart();
-      else if (state.isMobileMenuOpen) closeMobileMenu();
+  if (e.key === 'Escape') {
+    const profileModal = $('profileModal');
+    if (profileModal && profileModal.classList.contains('open')) {
+      closeProfileModal();
+    } else if (state.isSearchOpen) {
+      closeSearchModal();
+    } else if (state.isModalOpen) {
+      closeModal();
+    } else if (state.isCartOpen) {
+      closeCart();
+    } else if (state.isMobileMenuOpen) {
+      closeMobileMenu();
     }
+  }
     
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
       e.preventDefault();
