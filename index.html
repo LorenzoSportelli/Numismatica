@@ -6081,21 +6081,22 @@ const applyStaticImages = () => {
   }
   
   const sectionBgMap = {
-    'vetrinaBg': IMAGE_FILES.vetrinaBg,
-    'catalogoBg': IMAGE_FILES.catalogoBg,
-    'tipologieBg': IMAGE_FILES.tipologieBg,
-    'ordiniBg': IMAGE_FILES.ordiniBg,
-    'garanzieBg': IMAGE_FILES.garanzieBg,
-    'faqBg': IMAGE_FILES.faqBg,
-    'contattiBg': IMAGE_FILES.contattiBg
-  };
-  
-  Object.entries(sectionBgMap).forEach(([id, src]) => {
-    const el = $(id);
-    if (el && src) {
-      el.style.backgroundImage = `url('${src}')`;
-    }
-  });
+  'vetrinaBg': IMAGE_FILES.vetrinaBg,
+  'catalogoBg': IMAGE_FILES.catalogoBg,
+  'tipologieBg': IMAGE_FILES.tipologieBg,
+  'ordiniBg': IMAGE_FILES.ordiniBg,
+  'garanzieBg': IMAGE_FILES.garanzieBg,
+  'faqBg': IMAGE_FILES.faqBg,
+  'contattiBg': IMAGE_FILES.contattiBg
+   };
+   Object.entries(sectionBgMap).forEach(([id, src]) => {
+     const el = $(id);
+     if (el && src) {
+       el.style.backgroundImage = `linear-gradient(180deg, rgba(6,6,10,.6) 0%, rgba(6,6,10,.4) 50%, rgba(6,6,10,.7) 100%), url('${src}')`;
+       el.style.backgroundSize = 'cover';
+       el.style.backgroundPosition = 'center';
+     }
+   });
   // Auth logo
   const authLogoImg = $('authLogoImg');
   const authLogoText = $('authLogoText');
