@@ -1117,9 +1117,15 @@ table {
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  opacity: .25;
+}
+.section-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  opacity: .25;
+  background-image: inherit;
 }
 
 .section-bg-overlay {
